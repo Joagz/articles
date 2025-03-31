@@ -1,0 +1,95 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\title{Consequences of the Axiom of Completeness}
+\author{Joaquín Gómez}
+
+% \theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+The Axiom of Completeness is an assumption made about real numbers, we know
+that the numbering system is composed of natural, integers and rational
+numbers. We define the last set to contain both naturals and integers and write
+$\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q}$. However, a Pythagorean
+cult member called Hippasus of Metapontum discovered an important fact about
+numbers.
+
+\section{$\sqrt{2}$ is irrational, a hole in $\mathbb{Q}$}
+
+Our initial assumption is that $\sqrt 2$ can be written in the form $\frac p q$
+where $p,q\in \mathbb{Z}$ and both have no common factor
+\[
+  {\left(\frac{p}{q}\right)}^2 = 2
+\]
+This implies
+\[
+  p^2 = 2q^2
+\]
+From this, we can see that $p^2$ is even, this means that $p$ is even too (the
+square of an odd number is odd). We can write $p$ as
+\[
+  p=2r, \qquad r\in\mathbb{Z}
+\]
+Substitute this in the equation above and get
+\[
+  q^2=2r^2
+\]
+Thus, this implies that $q$ is also even, this is absurd because we have
+initially assumed them to have no common factor. But as they have, we can
+rewritte the fraction in lower terms, however, this process would be infinite.
+Thus $\sqrt 2$ is not a rational number.
+
+The existence of this proof demonstrates that there is a \textit{hole} in the
+rational numbers. This set does not contain numbers such as $\sqrt 2, \sqrt 3,
+  \pi$, etc. This problem lead mathematicians to build a set that includes
+irrational numbers. This set is known as the real numbers.
+
+\section{Proof: $\sqrt 3$ is irrational}
+
+To prove this, we will first prove the following statement
+
+\begin{theorem}
+  If the square of a number is divisible by a prime, then the number itself is divisible by that prime
+\end{theorem}
+
+\begin{proof}
+  Let $n$ be any number. Then $n$ has at least a prime factor $p$, then
+
+  \[
+    n^2=pk\qquad {k\in\mathbb Z}
+  \]
+
+  for some $k$. Now, we know that we can decompose $n$ into prime factors, let
+  $p_1, p_2, \dots, p_n$ be the prime factors of $n$, such that
+
+  \[
+    n=p_1^{e_1}p_2^{e_2}\cdots p_n^{e_n}
+  \]
+
+  Thus $n^2=p_1^{2e_1}p_2^{2e_2}\cdots p_n^{2e_n}$, from this, we see that it is
+  divisible by $p$, since $p\in\left\{p_1,p_2,\dots,p_n\right\}$.
+\end{proof}
+
+Now, we have to prove that $\sqrt{3}$. Analogous to the proof for $\sqrt 2$, we
+let $p,q \in \mathbb Z$ be two numbers without any common factor. We try to
+prove the statement by contradiction, we set
+
+\[
+  {\left(\frac p q\right)}^2 = 3
+\]
+Then $p^2=3q^2$, but by the theorem 1, we have that if $p^2$ is divisible by 3,
+then $p$ must. So $p=3r$, then
+
+\[
+  3r^2 = q^2
+\]
+This means that $q$ is also divisible by 3. Then $p$ and $q$ have a common
+prime factor, this violates the initial constraint for $p$ and $q$ to not have
+any common factor.
+
+\end{document}
