@@ -1,0 +1,181 @@
+\documentclass{article}
+\RequirePackage{amsfonts}
+\usepackage[spanish]{babel}
+\usepackage[inkscapeformat=png]{svg}
+
+\title{Calculo de presión de un gas ideal}
+\author{Joaquín Gómez}
+\begin{document}
+\maketitle
+
+\section*{Derivación de una fórmula para la presión de un gas ideal}
+
+Antes de empezar, derivamos una ecuación a partir de un experimento: suponemos
+tener un recipiente, que cuenta con un pistón en uno de sus lados.
+
+\begin{figure}[h]
+  \centering
+  \caption{Recipiente de volumen $V$ variable}
+  \includesvg{piston}
+\end{figure}
+
+También, decimos que el pistón no deja escapar ninguna molécula del gas, y que
+no tiene rozamiento con las paredes del contenedor.
+
+La presión del gas en el recipiente se puede modelar con una ecuación
+
+\[
+  P = \frac F A
+\]
+
+Esto quiere decir que a mayor sea el área del pistón, la presión será menor
+(esto es equivalente a decir que, si disminuimos el área del pistón,
+disminuimos el volumen del contenedor. Por lo tanto la presión aumenta, ya que
+tenemos la misma cantidad de gas y la misma temperatura, en un volumen
+reducido).
+
+Al comprimir el gas estamos realizando un trabajo sobre él. Al hacer mover las
+partículas en un instante infinitesimal de tiempo, el trabajo instantáneo $dW$
+sobre el gas está dado por $dW=Fdx$.
+
+Ahora, este trabajo que realizamos puede reescribirse como $dW=ma\cdot dx$, a
+su vez, si reescribimos la aceleración como $a = \frac {dv}{dt}$, observamos
+que
+
+\[
+  dW = m \frac{dv}{dt} dx = m \frac{dx}{dt}dv = mv \cdot dv
+\]
+
+Tomando la integral con respecto de la velocidad, obtenemos la fórmula de
+Energía Cinética
+
+\[
+  W = \int {mv\,dv}= \frac 1 2 m v^2
+\]
+
+De forma alternativa, podemos ver que nuestra fórmula para la presión nos da
+$F=PA$, de modo que el trabajo en un instante infinitesimal de tiempo es
+
+\[
+  dW=Fdx=PAdx
+\]
+
+pero $Adx$ es el volumen de una ``lámina'' del área del pistón (no es preciso
+llamarlo así, también podemos pensarlo como el volumen de una porción
+infinitesimal del recipiente, si lo cortaramos de forma transversal). De esta
+manera podemos decir que el cambio en el volumen es $dV=Adx$. A medida que
+efectuamos presión con el pistón, el volumen disminuye, por lo tanto la tasa de
+cambio del volumen debe ser contraria a la del trabajo. Como resultado
+obtenemos
+
+\[
+  dW = -PdV
+\]
+
+Pensemos ahora en la presión que ejercen las moléculas en el pistón. Cada vez
+que una partícula choca contra el pistón, ésta genera un momento que desplaza
+el pistón hacia afuera. Debemos encontrar una fuerza $F$ que iguale la fuerza
+total de las partículas chocando contra el pistón.
+
+En un instante de tiempo $dt$, la partícula del gas chocará contra la pared del
+pistón, la distancia recorrida por la partícula está dada por $v\, dt$. Las
+partículas que choquen contra el pistón estarán contenidas en un volumen dado
+por $vA\,dt$, definimos además que $n$ es el número de átomos por unidad de
+volumen, de forma que obtenemos $nvA\,dt$.
+
+Como $t$ está dado en segundos, y nosotros queremos la cantidad de partículas
+por segundo que impactan en el pistón, ponemos $t=1$ y obtenemos $nvA$.
+
+Ahora, el momento que ejerce la partícula está dado por $mv$, donde $m$ es la
+masa de la partícula. Si se tiene en cuenta que la molecula tiene dos momentos,
+uno de entrada y otro de salida (antes del impacto y luego de éste), entonces
+el momento total está dado por $2mv$. (Aclaración, $v$ es la velocidad en
+dirección al pistón).
+
+La fuerza entonces está dada por
+\[
+  F = nvA\cdot2mv = 2nmv^2 A
+\]
+
+Teniendo en cuenta que $P=F/A$ podemos escribir
+
+\[
+  P = 2nmv^2
+\]
+
+Sin embargo, hay un problema con esta fórmula. La velocidad de la molécula es
+un vector $\vec{v}\in\mathbb R^3$. Esto quiere decir que la velocidad está dada
+en tres ejes. Además, las velocidades son aleatorias. Para tener en cuenta
+esto, lo que haremos será calcular la media cuadrática de la velocidad. Esta
+medición (a diferencia de la media aritmética) nos permite tener en cuenta la
+velocidad en direcciones opuestas (ya que los átomos se desplazan en todas las
+direcciones), es decir, si el átomo se desplaza en el eje $x$ en dirección
+negativa o positiva, lo que sucedería con la media aritmética es que los
+términos se restarían, y habría un error en la medición.
+
+La media cuadrática está dada por $RMS = \sqrt{\frac 1 n \sum_{k=1}^{n}x_k^2}$.
+Aplicando esto a nuestro vector vemos que
+
+\[
+  v_{rms}^2 = \langle {v}^2 \rangle =  \frac{1}{3}\left(v_x^2+v_y^2+v_z^2\right) = \frac{1}{3} |\vec{v}|^2,
+\]
+
+y suponemos que el promedio de velocidades es igual en todas las direcciones
+
+\[
+  \langle v_x^2 \rangle = \langle v_y^2 \rangle = \langle v_z^2 \rangle
+\]
+
+Si suponemos que la mitad de las partículas se desplazan en una dirección, y al
+mitad en la otra dirección, podemos escribir
+
+De modo que reescribimos la fórmula de la presión utilizando la velocidad
+promedio
+
+\[
+  P = \frac{1}{3}nmv_{rms}^2
+\]
+
+Teniendo en cuenta que la energía cinética está dada por $E_c = \frac 1 2 m
+  v^2$ podemos reescribir $P$ como
+
+\[
+  P = \frac{2}{3}n\frac{1}{2}mv_{rms}^2=\frac{2}{3}nE_c
+\]
+
+Dado que $n$ es la cantidad de moléculas por unidad de volumen, es decir,
+$n=N/V$, se tiene
+
+\[
+  P = \frac{2}{3}\frac{N}{V}E_c
+\]
+
+O, de forma alternativa: $PV = \frac{2}{3}NE_c=\frac{1}{3}Nmv_{rms}^2$.
+
+\section*{Ejemplo: calcular la presión de un gas ideal}
+
+Supongamos que tenemos un gas ideal con un volumen de 1 m³. Sabemos que la
+velocidad cuadrática media de las moléculas de gas es
+$v_{rms}=500\left[\frac{m}{s}\right]$. Queremos calcular la presión del gas a
+una temperatura de $T=300 [K]$ y dado que la masa de cada molécula de gas es
+$m=4.65\times10^{-26} [kg]$.
+
+\subsection*{Solución}
+
+Con la fórmula de la presión
+
+\[
+  P = \frac{2}{3}\frac{N}{V}E_c
+\]
+
+Podemos ver que tenemos el volumen $V$ del gas, la velocidad media $v_{rms}^2$,
+la temperatura $T$ y la masa $m$ de cada partícula. De forma que obtenemos
+
+\[
+P=\frac{\frac{2}{3}Nmv_{rms}^2}{V}=\frac{\frac{2}{3}N}{1}
+= \frac{1000}{3} \cdot(4.65\times10^{-26})\cdot N
+\]
+
+Lo que faltaría sería el número de partículas en el recipiente. (?)
+
+\end{document}
