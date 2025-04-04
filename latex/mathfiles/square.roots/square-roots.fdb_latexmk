@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1743779486.79971 "/home/joagz/articles/latex/mathfiles/square.roots/square-roots.tex" "square-roots.pdf" "square-roots" 1743779487.16994 0
+["pdflatex"] 1743779517.5159 "/home/joagz/articles/latex/mathfiles/square.roots/square-roots.tex" "square-roots.pdf" "square-roots" 1743779517.95616 0
   "/etc/texmf/web2c/texmf.cnf" 1743415606.64384 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/joagz/articles/latex/mathfiles/square.roots/square-roots.tex" 1743779486.0337 2186 107900025dc17df69c190e254ac50bf2 ""
+  "/home/joagz/articles/latex/mathfiles/square.roots/square-roots.tex" 1743779516.9673 2182 ed3e8e733ab3b04e0bebe0b64655f7e9 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -47,8 +47,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1743702657.80234 128028 f533b797fba58d231669ea19e894e23e ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1743702708 6800791 2a9693c78785e21376826e6c6522bc7a ""
-  "square-roots.aux" 1743779487.08764 32 044b7f8fc9779af7531264e0c5c84b6d "pdflatex"
-  "square-roots.tex" 1743779486.0337 2186 107900025dc17df69c190e254ac50bf2 ""
+  "square-roots.aux" 1743779517.89826 32 044b7f8fc9779af7531264e0c5c84b6d "pdflatex"
+  "square-roots.tex" 1743779516.9673 2182 ed3e8e733ab3b04e0bebe0b64655f7e9 ""
   (generated)
   "square-roots.aux"
   "square-roots.log"
