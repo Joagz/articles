@@ -1,0 +1,80 @@
+\documentclass{article}
+
+\title{Proof of existence of square roots}
+\author{Joaquín Gómez}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+
+\begin{document}
+
+\maketitle
+
+Let $T$ be a subset of the real numbers given by
+
+\[
+    T=\left\{
+    t\in \mathbb R : t^2 < 2
+    \right\}
+\]
+
+We want to prove that the supremum of this set, which should be irrational,
+exists. We define $\alpha=\sup T$. We want to get that $\alpha^2 = 2$ by ruling
+out the posibilities of $\alpha^{2} < 2$ and $\alpha^{2} > 2$
+
+First, imagine a line of real numbers, we can try to push the supremum by a
+factor of $1/n$
+
+\begin{align*}
+    \left(\alpha + \frac{1}{n}\right)^2 = \alpha^{2} + \frac{2\alpha}{n} + \frac{1}{n^{2}}
+    \\< \alpha^{2} + \frac{2\alpha}{n} + \frac{1}{n}
+    \\=\alpha^{2} + \frac{2\alpha + 1}{n}
+\end{align*}
+
+We now assume that there's some value of $n$ such that
+
+\begin{align*}
+    \alpha^{2} + \frac{2\alpha + 1}{n} < 2
+\end{align*}
+
+After a rearangement we get
+
+\begin{align*}
+    \frac{2\alpha + 1}{n} > 2 - \alpha^{2}
+\end{align*}
+
+Now, we can get back to the first inequality. Notice that
+
+\begin{align*}
+    \left(\alpha + \frac{1}{n}\right)^2 < \alpha^{2} + (2-\alpha^{2}) = 2
+\end{align*}
+
+This contradicts the fact that $\alpha = \sup T$. Thus, it means that we still
+can ``move towards the right'' after $\alpha$ and get a number in $T$.
+
+Now, we look to a contradiction for $\alpha^{2} > 2$. Assuming this is true, we
+could subtract some amount to $\alpha$ and get a number in $T$.
+
+\begin{align*}
+    \left(\alpha - \frac{1}{n}\right)^{2} = \alpha^{2} - \frac{2\alpha}{n} + \frac{1}{n^{2}}
+    \\>\alpha^{2} - \frac{2\alpha}{n}
+\end{align*}
+
+Now, analogous to the first part of the Proof
+
+\begin{align*}
+    \alpha^{2} - \frac{2\alpha}{n} > 2
+\end{align*}
+
+Rearranging the inequality we get $2-\alpha^{2} < \frac{-2\alpha}{n}$, this
+means that
+
+\begin{align*}
+    \left(\alpha - \frac{1}{n}\right)^{2} > \alpha^{2} + (2-\alpha^{2}) = 2
+\end{align*}
+
+This means that $\alpha^{2} > 2$ is false.
+
+And because both $\alpha^{2} < 2$ and $\alpha^{2} > 2$ are false, this means
+that $\alpha^{2} = 2$, which proves the existence of the square roots in $\mathbb{R}$.
+
+\end{document}
