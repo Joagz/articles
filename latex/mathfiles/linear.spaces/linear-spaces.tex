@@ -1,0 +1,230 @@
+\documentclass{report}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{tikz}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{example}{Example}[chapter]
+\newtheorem{definition}{Definition}[chapter]
+
+\title{Linear spaces}
+
+\author{Joaquín Gómez}
+
+\begin{document}
+\maketitle
+
+\chapter{Introduction}
+\section{Definition of a linear space}
+Let $V$ be a non-empty set of objects, called \textit{elements}. The set V is
+called linear space if it satisfies the following ten axioms, which are stated
+in three groups.
+
+\(\)
+
+\section*{Axioms of a linear space}
+
+\begin{list}{Axiom}{}
+    \item 1.\textit{ Closure property of addition}: for every pair of elements $x,y\in V$, their sum is written as $z=x+y$ and $z\in V$.
+    \item 2.\textit{ Closure property of scalar product}: for any $x\in V$ and $a\in\mathbb R$, there is an element $z=ax\in V$.
+\end{list}
+
+\subsection*{Axioms for addition}
+
+There are four axioms of addition, we will use a number and a letter to refer
+to them. However if we are talking of addition properties we will simply use a
+letter to reference them. The same will be done for the axioms of scalar
+products.
+
+\begin{list}{Axiom}{}
+    \item 3.a.\textit{ Commutative law}: for any $x,y\in V$, we have $x+y = y+x$.
+    \item 4.b.\textit{ Associative law}: for any $x,y,z\in V$, we have $(x+y) + z = x + (y + z)$.
+    \item 5.c.\textit{ Existence of zero as an element}: there is a number in $V$, designated as $O$ (big `o'), that satisfies
+          \[
+              x + O = x,\quad \forall x \in V
+          \]
+
+    \item 6.d.\textit{ Opposite elements}: for all $x\in V$, the element $(-1)x$ has the property
+          \[
+              x + (-1)x = O
+          \]
+\end{list}
+
+\subsection*{Axioms for scalar product}
+\begin{list}{Axiom}{}
+
+    \item 7.a.\textit{ Associative law}: for all $x \in V$ and every pair $a,b\in \mathbb R$, we have
+
+          \[
+              a(bx) = (ab)x
+          \]
+
+    \item 8.b.\textit{ Distributive law for addition in $V$}: for all $x,y\in V$ and $a\in \mathbb{R}$, it is true that
+
+          \[
+              a(x+y) = ax+ay
+          \]
+
+    \item 9.c.\textit{ Distributive law for addition in $\mathbb R$}: for any $x\in V$ and $a,b\in\mathbb{R}$, we have
+
+          \[
+              (a+b)x = ax+bx
+          \]
+
+    \item 10.d.\textit{ Existence of an identical element}: for all $x\in V$ theres an unique element $I$ such that $Ix=x$
+          (commonly this element is $1$. But, for example, the identical element in matrix spaces is called \textit{identity matrix},
+          defined as $I=\textnormal{diag}(1)$)
+\end{list}
+
+\section{Examples of linear spaces}
+
+The following examples can be proven to be linear spaces
+
+\begin{enumerate}
+    \item Real numbers
+    \item The vector space of real numbers $\mathbb R^n$
+    \item The set of all matrices
+    \item Polynomials $P$ with $\deg P \leq n$ (in this case, if $\deg P = n$, we would
+          have a problem with axioms of additions. We can't ensure the sum of two
+          polynomials of degree $n$ has degree $n$).
+    \item The set of all polynomials
+    \item The set of continuous functions in an interval $\left[a, b\right]$. This space
+          is designated as $C(a,b)$.
+    \item The set of all integrable functions in an interval
+    \item The set of differentiable functions in an interval
+    \item A plane in $\mathbb R^3$ with the equation $ax+by+cz=0$. Note that this plane
+          must always go through the origin to be a linear space.
+\end{enumerate}
+
+There are plenty of examples for linear spaces. We can ``create'' a linear
+space if we define addition and multiplication for that space.
+
+\section{Consequences of the axioms}
+
+The following theorems are a consequence of the axioms of linear space.
+
+\begin{theorem}[Uniqueness of `O']
+    In any linear space there is one and only one zero element
+\end{theorem}
+
+\begin{proof}
+    Axiom 5 ensures that there is at least one `O' in $V$. Now,
+    suppose there are two zeroes in $V$. Let $x = O_1$ and $O_2 = O$,
+    thus $x + O = x + O_2 = x = O_1$, but as $O_1$ is zero, $O_1 + O_2 = O_2$,
+    this means that $O_1=O_2=O$
+\end{proof}
+
+\begin{theorem}[Uniqueness of opposites]
+    In any linear space each $x$ has one and only one opposite $y$ such that $x+y=O$
+\end{theorem}
+
+\begin{proof}
+    Axiom 6 ensures there is at least one opposite of $x$ in $V$. Let $y_1,y_2\in V$
+    be two different opposite elements for $x$. Then $x+y_1=O$ and $x+y_2=O$, then
+
+    \[
+        (x + y_1) + y_2 = y_2 + O = y_2
+    \]
+
+    and
+
+    \[
+        y_1 + (x+y_2) = y_1 + O = y_1
+    \]
+
+    Thus $y_1 + (x+y_2) = y_1 + (x+y_1) = y_1 + O = O + y_1$, this proves that $y_1
+        = y_2$.
+\end{proof}
+
+\section{Subspaces of a linear space}
+
+Let $V$ be a linear space and let $S$ be a subset of $V$, if $S$ is also a
+linear space, then we say that ``$S$ is a subspace of $V$''.
+
+A subset of a linear space if a subspace only if it satisfies the axioms of
+closure.
+
+\begin{theorem}
+    Let $V$ be a linear space, if $S\subset V$ and $S \neq \emptyset$ satisfies
+    the ten axioms of closure then $S$ is a subspace of $V$.
+\end{theorem}
+
+The proof for this theorem is easy, and so I discarded it.
+
+\begin{definition}
+    Let $S\subset V$, and $S\neq \emptyset$, where $V$ is a linear space. If $x\in V$ and
+
+    \[
+        x=\sum_{i=1}^{k}{c_i x_i}
+    \]
+
+    where $x_1,x_2,\dots,x_k \in S$ and $c_1,c_2,\dots,c_k\in \mathbb{R}$, is
+    called a \textit{linear combination of elements in $S$}. The set of linear
+    combinations of the elements of $S$ satisfies the axioms of closure, so it is
+    also a subspace of $V$.\textit{ We say that this subspace is generated by $S$
+        and we call it the linear span of $S$, designated by $L(S)$.} If $S=\emptyset$,
+    we define $L(S)=\left\{O\right\}$.
+\end{definition}
+
+\section{Dependent and independent subsets of a linear space}
+
+In this section we introduce the concept of independence, that is important
+when working with systems of linear equations, matrices, and other subjects in
+linear algebra.
+
+\begin{definition}
+    Let $S$ be a set of elements of a linear space $V$. $S$ is dependent if there
+    exists a finite set of distinct elements in $x_1,x_2,\dots,x_k\in S$, and a
+    set of scalars $c_1,c_2,\dots,c_k$ where not all of them are zero, that satisfies
+    \[
+        \sum_{i=1}^{k}{c_i x_i} = 0
+    \]
+
+    A set is independent if it is not dependent. So the following
+
+    \[
+        \sum_{i=1}^{k}{c_i x_i} = 0, \quad \textit{implies } c_1 = c_2 = \cdots = c_k =0
+    \]
+\end{definition}
+
+Independency and dependency are properties of element sets. However, we can
+apply the same concepts to the elements itself. For example, a set of vectors
+in $v_1, v_2, \dots, v_n \in \mathbb R^{n}$ is called independent if there is
+\textbf{not} a linear combination of these vectors that produce the zero
+vector.
+
+\begin{example}
+    Let $u_k(t)=t^{k}$ for $k=1,2,\dots$ and $t\in \mathbb{R}$. The set $S={u_1,u_2,\dots}$ is independent except when $t=-1$.
+
+    \begin{proof}
+        For $S$ to be independent, there must be $c_1,c_2,\dots, c_n$, where $c_1 = c_2 = \cdots = c_n =0$ and
+        \[
+            \sum_{k=0}^{n}{c_k t^{k}} = 0
+        \]
+
+        To solve this, we can set $c_0=c_1=\cdots=c_n$. If we define
+
+        \[
+            f(t)=\sum_{k=0}^{n}{c_k t^{k}},
+        \]
+
+        note that $f(-1)=\begin{cases}1\quad \textnormal{if $n$ is even}\\0 \quad \textnormal{if $n$ is odd}\end{cases}$
+        We can draw a picture for this problem. Imagine a circle, in which we have two points. We can travel the circumference
+        counterclockwise
+        \begin{center}
+            \begin{tikzpicture}
+
+                \draw (0,0) circle(1.2cm);
+                \draw[fill=black] (1.2,0) circle[radius=2pt];
+                \draw[fill=black] (-1.2,0) circle[radius=2pt];
+                \draw[->, ultra thick] (0.1,1.2)--(-0.1,1.2);
+                \draw[->, ultra thick] (-0.1,-1.2)--(0.1,-1.2);
+                \draw (1.5,0) node{1};
+                \draw (-1.5,0) node{0};
+            \end{tikzpicture}
+        \end{center}
+    \end{proof}
+\end{example}
+
+\end{document}
