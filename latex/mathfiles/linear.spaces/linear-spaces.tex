@@ -188,14 +188,14 @@ linear algebra.
     \]
 \end{definition}
 
-Independency and dependency are properties of element sets. However, we can
+Independency and dependency are properties of sets of elements. However, we can
 apply the same concepts to the elements itself. For example, a set of vectors
-in $v_1, v_2, \dots, v_n \in \mathbb R^{n}$ is called independent if there is
+$v_1, v_2, \dots, v_n \in \mathbb R^{n}$ is called independent if there is
 \textbf{not} a linear combination of these vectors that produce the zero
 vector.
 
 \begin{example}
-    Let $u_k(t)=t^{k}$ for $k=1,2,\dots$ and $t\in \mathbb{R}$. The set $S={u_1,u_2,\dots}$ is independent except when $t=-1$.
+    Let $u_k(t)=t^{k}$ for $k=1,2,\dots, n$ and $t\in \mathbb{R}$. The set $V=\{u_1,u_2,\dots, u_n\}$ is independent except in the subset $S$ where $t=-1$ and $n$ is odd.
 
     \begin{proof}
         For $S$ to be independent, there must be $c_1,c_2,\dots, c_n$, where $c_1 = c_2 = \cdots = c_n =0$ and
@@ -203,7 +203,7 @@ vector.
             \sum_{k=0}^{n}{c_k t^{k}} = 0
         \]
 
-        To solve this, we can set $c_0=c_1=\cdots=c_n$. If we define
+        To solve this, we set $c_0=c_1=\cdots=c_n$. If we define
 
         \[
             f(t)=\sum_{k=0}^{n}{c_k t^{k}},
@@ -211,10 +211,10 @@ vector.
 
         note that $f(-1)=\begin{cases}1\quad \textnormal{if $n$ is even}\\0 \quad \textnormal{if $n$ is odd}\end{cases}$
         We can draw a picture for this problem. Imagine a circle, in which we have two points. We can travel the circumference
-        counterclockwise
+        counterclockwise starting from $1$. We start from $1$ because in the case $n=0$, $f(-1)=1$.
+
         \begin{center}
             \begin{tikzpicture}
-
                 \draw (0,0) circle(1.2cm);
                 \draw[fill=black] (1.2,0) circle[radius=2pt];
                 \draw[fill=black] (-1.2,0) circle[radius=2pt];
@@ -224,6 +224,30 @@ vector.
                 \draw (-1.5,0) node{0};
             \end{tikzpicture}
         \end{center}
+
+        Now start performing counterclockwise turns, and count how many times you go
+        from 0 to 1, and from 1 to 0.
+
+        If $C_{0\to 1}$ and $C_{1 \to 0}$ are the counts of going from 0 to 1 and from
+        1 to 0 respectively, we have that if $C_{0\to 1}=C_{1\to 0}$, then $f(-1)=1$.
+        Otherwise, we must have $f(-1)=0$.
+
+        But having $C_{0\to 1}=C_{1\to 0}$ and that the total count is $C=C_{0\to
+            1}+C_{1\to 0}$, means
+
+        \[
+            C=2C_{1\to 0}=2C_{0\to 1}
+        \]
+
+        Hence, $C$ is an even number. To verify that $S$ is dependent, we set $n=2r-1$
+        for any integer $r$ and $t=-1$. With the results above, we can see that
+
+        \[
+            \sum_{k=0}^{2r-1}{c_k {(-1)}^{k}}=0
+        \]
+
+        if $c_1=c_2=\cdots=c_{2r-1}$, but not necessarily zero. This proves that $S$ is
+        dependent.
     \end{proof}
 \end{example}
 
