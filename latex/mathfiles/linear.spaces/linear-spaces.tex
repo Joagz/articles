@@ -89,10 +89,10 @@ The following examples can be proven to be linear spaces
           have a problem with axioms of additions. We can't ensure the sum of two
           polynomials of degree $n$ has degree $n$).
     \item The set of all polynomials
-    \item The set of continuous functions in an interval $\left[a, b\right]$. This space
+    \item The set of continuous functions on an interval $\left[a, b\right]$. This space
           is designated as $C(a,b)$.
-    \item The set of all integrable functions in an interval
-    \item The set of differentiable functions in an interval
+    \item The set of all integrable functions on an interval
+    \item The set of differentiable functions on an interval
     \item A plane in $\mathbb R^3$ with the equation $ax+by+cz=0$. Note that this plane
           must always go through the origin to be a linear space.
 \end{enumerate}
@@ -250,5 +250,76 @@ vector.
         dependent.
     \end{proof}
 \end{example}
+
+\begin{theorem}
+    Let $S=\{x_1,x_2,\dots,x_k\}$ an independent set formed by $k$ elements
+    of a linear space $V$ and let $L(S)$ be the linear span of $S$. Then, any
+    set of $k+1$ elements from $L(S)$ is dependent.
+\end{theorem}
+
+What this theorem says is that, taking any set of vectors in the linear span of
+$S$, this is, formed by combining elements of $S$ (this vectors can be of any
+nature), then, if we form a subset of the linear span of $S$ and it has more
+elements than $S$ itself, the set will be dependent. This is because we are not
+providing any new ``dimension'' to the new set. Say $S\in \mathbb{R^{3}}$, as
+we are restricted to be in $\mathbb{R^{3}}$, taking $4$ vectors won't make any
+object in $R^{i>3}$
+
+\begin{proof}
+    Let $T=\{y_1,y_2,\dots,y_{n+1}\}\subset L(S)$, this means that each $y_i$ is
+    a linear combination of elements in $S$
+
+    \[
+        y_i=\sum_{j=1}^{n}{a_{ij}x_j}, \quad \textnormal{for } i=1,2,\dots,n+1
+    \]
+
+    For $T$ to be dependent, there must be some scalar set
+    $C=\{c_1,c_2,\dots,c_{n+1}\}$, where not all of them are zero, that satisfies
+
+    \[
+        \sum_{i=1}^{n+1}{c_i y_i}=0
+    \]
+
+    We now want to prove by induction that for $n-1$ elements of $T$, there is a
+    linear combination that satisfies dependency. Thus, we can try to form an
+    equation that represents $T$ as a linear combination of $n-1$ elements. For
+    this, we are going to take one element of $T$, multiply it by some scalar and
+    subtract each element of $T$.
+
+    Take the $1^{st}$ element in $T$ and multiply it by $c_i=\frac{a_{i1}}{a_11}$
+
+    \[
+        c_i y_1 = a_{i1}x_1 + \sum_{j=2}^{n}{c_i a_{1j} x_j}
+    \]
+
+    Now subtract $y_1$
+
+    \begin{equation}
+        \begin{split}
+            c_i y_1 - y_i= a_{i1}x_1 + \sum_{j=2}^{n}{c_i a_{1j} x_j} - a_{i1}x1 +
+            \sum_{j=2}^{n}{a_{ij}x_j}
+            \\ = \sum_{j=2}^{n}{c_i a_{1j} x_j - a_{ij}x_j}
+            \\ = \sum_{j=2}^{n}{\left(c_i a_{1j}- a_{ij}\right)x_j}
+        \end{split}
+    \end{equation}
+
+    Equation (1.1) is indeed a linear combination of $n-1$ elements of $S$. By
+    induction for $n$, we can prove that there are $n$ scalars
+    $t_2,t_3,\dots,t_{n+1}$, that satisfy
+
+    \begin{equation}
+        \begin{split}
+            \sum_{j=2}^{n+1}{t_i\left(c_i y_1- y_i\right)} = 0
+        \end{split}
+    \end{equation}
+
+    As each $y_i$ is a linear combination of elements of $S$, we can write $y_i$ in
+    terms of $y_1$.
+    
+    Equation (1.2) is solvable, because $y_i=c_i y_1$, this is true by the fact
+    that $T\subset L(S)$.
+\end{proof}
+
+\section{Basis and dimension}
 
 \end{document}
