@@ -1,0 +1,10 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{1}{}%
+\contentsline {section}{\numberline {1.1}Definition of a linear space}{1}{}%
+\contentsline {section}{\numberline {1.2}Examples of linear spaces}{2}{}%
+\contentsline {section}{\numberline {1.3}Consequences of the axioms}{3}{}%
+\contentsline {section}{\numberline {1.4}Subspaces of a linear space}{3}{}%
+\contentsline {section}{\numberline {1.5}Dependent and independent subsets of a linear space}{4}{}%
+\contentsline {section}{\numberline {1.6}Basis and dimension}{6}{}%
+\contentsline {subsection}{\numberline {1.6.1}Components}{7}{}%
+\contentsline {chapter}{\numberline {2}Euclid spaces, inner products and norms}{9}{}%

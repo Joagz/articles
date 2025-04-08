@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2025.4.5)  7 APR 2025 19:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2025.4.5)  7 APR 2025 21:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -6,10 +6,10 @@ entering extended mode
 **/home/joagz/Desktop/git.clones/articles/latex/mathfiles/linear.spaces/linear-spaces.tex
 (/home/joagz/Desktop/git.clones/articles/latex/mathfiles/linear.spaces/linear-spaces.tex
 LaTeX2e <2022-11-01> patch level 1
-L3 programming layer <2023-01-16> (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
-Document Class: report 2022/07/02 v1.4n Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+L3 programming layer <2023-01-16> (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2022/07/02 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo
+File: bk10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
 \c@chapter=\count186
@@ -380,33 +380,52 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 16.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 16.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
+
+] (./linear-spaces.toc)
+\tf@toc=\write4
+\openout4 = `linear-spaces.toc'.
+
+ [3] [4
+
+]
 Chapter 1.
 [1
 
-] [2] [3] [4] [5] [6] (./linear-spaces.aux) ) 
+] [2] [3] [4] [5] [6]
+Overfull \hbox (22.0257pt too wide) in paragraph at lines 364--367
+\OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 V$ \OT1/cmr/m/n/10 be a lin-ear space with $[] \OML/cmm/m/it/10 V \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 n$\OT1/cmr/m/n/10 , and con-sider an or-dered ba-sis $[]$.
+ []
+
+[7] [8
+
+]
+Chapter 2.
+[9] (./linear-spaces.aux) ) 
 Here is how much of TeX's memory you used:
- 13777 strings out of 476091
- 278992 string characters out of 5794082
- 1861330 words of memory out of 5000000
- 33927 multiletter control sequences out of 15000+600000
- 522107 words of font info for 69 fonts, out of 8000000 for 9000
+ 13792 strings out of 476091
+ 279161 string characters out of 5794082
+ 1862330 words of memory out of 5000000
+ 33938 multiletter control sequences out of 15000+600000
+ 522759 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,17n,104p,502b,741s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on linear-spaces.pdf (7 pages, 185308 bytes).
+ 102i,17n,104p,464b,741s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on linear-spaces.pdf (13 pages, 207298 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
+ 135 PDF objects out of 1000 (max. 8388607)
+ 85 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

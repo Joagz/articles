@@ -1,27 +1,28 @@
-\documentclass{report}
+\documentclass{book}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage[english]{babel}
 \usepackage{amsthm}
 \usepackage{tikz}
+
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{example}{Example}[chapter]
 \newtheorem{definition}{Definition}[chapter]
 
 \title{Linear spaces}
-
 \author{Joaquín Gómez}
 
 \begin{document}
+\frontmatter
 \maketitle
+\tableofcontents
 
+\mainmatter
 \chapter{Introduction}
 \section{Definition of a linear space}
 Let $V$ be a non-empty set of objects, called \textit{elements}. The set V is
 called linear space if it satisfies the following ten axioms, which are stated
 in three groups.
-
-\(\)
 
 \section*{Axioms of a linear space}
 
@@ -286,7 +287,7 @@ object in $R^{i>3}$
     this, we are going to take one element of $T$, multiply it by some scalar and
     subtract each element of $T$.
 
-    Take the $1^{st}$ element in $T$ and multiply it by $c_i=\frac{a_{i1}}{a_11}$
+    Take the $1^{st}$ element in $T$ and multiply it by $c_i=\frac{a_{i1}}{a_{11}}$
 
     \[
         c_i y_1 = a_{i1}x_1 + \sum_{j=2}^{n}{c_i a_{1j} x_j}
@@ -315,11 +316,79 @@ object in $R^{i>3}$
 
     As each $y_i$ is a linear combination of elements of $S$, we can write $y_i$ in
     terms of $y_1$.
-    
+
     Equation (1.2) is solvable, because $y_i=c_i y_1$, this is true by the fact
     that $T\subset L(S)$.
 \end{proof}
 
 \section{Basis and dimension}
+\begin{definition}
+    A finite set $S$ of elements of a linear space $V$ is called a \textit{finite basis} of $V$ is $S$ is independent and spans $V$.
+    $V$ is of finite dimension if it has a finite basis. Otherwise, $V$ has infinite dimension.
+\end{definition}
+
+\begin{theorem}
+    Let $V$ be a linear space of finite dimension. Then any finite basis of $V$ has the same number of elements.
+\end{theorem}
+
+\begin{proof}
+    This theorem can be proved with theorem $1.4$, let $S$ and $T$ be two finite bases for $V$, with $k$ and $m$ elements respectively.
+    If $S$ generates $V$, then $V$ must have $k$ elements, we know that any set of $k+1$ elements of $V$ is dependent. Thus, $T$ must have
+    $m\geq k$ elements. Applying the same reasoning vice-versa yields that $k=m$.
+\end{proof}
+
+This does not mean that a set of $k+1$ elements of $V$ can't span $V$. It
+states that, the number of elements for a finite basis of a linear space $V$ of
+dimension $k$, must have the same number of elements.
+
+\begin{definition}
+    If a linear space $V$ has a finite basis of $n$ elements, we write $n=\dim V$.
+\end{definition}
+
+The following theorem will not be proven. However, it has an intuitive
+explanation.
+
+\begin{theorem}
+    Let $V$ be a linear space of finite dimension, with $\dim V = n$. Then
+
+    \begin{enumerate}
+        \item If $S$ is a finite basis for $V$, and $T$ is a set of independent elements of
+              $V$, then $T\subseteq S$.
+        \item Any set of $n$ independent elements of $V$ is a finite basis for $V$.
+    \end{enumerate}
+
+\end{theorem}
+
+\subsection{Components}
+
+Let $V$ be a linear space with $\dim V = n$, and consider an ordered basis
+$\left\{e_1, e_2,\dots,e_n\right\}$. This ordered basis is considered as an
+n-tuple $\left(e_1,e_2,\dots,e_n\right)$.
+
+\begin{definition}
+    An ordered basis of a linear space $V$ is a set of elements of $V$ that form a basis and provides information
+    about the order of its elements.
+\end{definition}
+
+If $x\in V$, we can express $x$ as a linear combination of elements of the
+basis
+
+\begin{equation}
+    \begin{split}
+        x=\sum_{i=1}^{n}{c_i e_i}
+    \end{split}
+\end{equation}
+
+This ensures that there is only one representation of $x$, take $x =
+    \sum_{i=1}^{n}{c_i e_i}$, and $x = \sum_{i=1}^{n}{d_i e_i}$. Then
+
+\[
+    \sum_{i=1}^{n}{c_i e_i} = \sum_{i=1}^{n}{d_i e_i}
+\]
+
+Then $\sum_{i=1}^{n}{(c_i - d_i) e_i} = O$, where $O$ is the zero
+vector/element of $V$. This means that $c_i=d_i$ for $i=1,2,\dots,n$.
+
+\chapter{Euclid spaces, inner products and norms}
 
 \end{document}

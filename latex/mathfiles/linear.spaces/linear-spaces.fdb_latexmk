@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1744066185 "/home/joagz/Desktop/git.clones/articles/latex/mathfiles/linear.spaces/linear-spaces.tex" "linear-spaces.pdf" "linear-spaces" 1744066186 0
+["pdflatex"] 1744072521 "/home/joagz/Desktop/git.clones/articles/latex/mathfiles/linear.spaces/linear-spaces.tex" "linear-spaces.pdf" "linear-spaces" 1744072522 0
   "/etc/texmf/web2c/texmf.cnf" 1743802065 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/joagz/Desktop/git.clones/articles/latex/mathfiles/linear.spaces/linear-spaces.tex" 1744066185 11788 0f21b2f4d22e26d0f06bf2c0c1a5b73a ""
+  "/home/joagz/Desktop/git.clones/articles/latex/mathfiles/linear.spaces/linear-spaces.tex" 1744072521 14372 9b18ca171d2e33a886ccf430c9e84706 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -21,6 +21,7 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1136768653 1292 296a67155bdbfc32aa9c636f21e91433 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1136768653 1300 b62933e007d01cfd073f79b963c01526 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1136768653 1292 21c1c5bfeaebccffdb478fd231a0997d ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsl10.tfm" 1136768653 1508 efecb4a315fe0975509670a272d75ef5 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1136768653 1124 6c73e740cf17375f03eec0ee63599741 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
@@ -37,6 +38,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1248133631 32362 179c33bbf43f19adbb3825bb4e36e57a ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1248133631 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb" 1248133631 35022 e40946b20bfdcd1099eafb2bcd9f25dd ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ""
@@ -109,8 +111,8 @@
   "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty" 1654720880 88393 1adf6fa3f245270d06e3d4f8910f7fc5 ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty" 1654720880 4474 f04cd1cc7bd76eb033e6fb12eb6a0d77 ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty" 1654720880 2444 70065bddd85997dc1fd0bb7ae634e5fa ""
-  "/usr/share/texlive/texmf-dist/tex/latex/base/report.cls" 1667332637 23203 3d69f4661dd74a5edb1507ff18e40fb9 ""
-  "/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo" 1667332637 8448 c33a4e1cb35cee9b33c2b21033b73e39 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo" 1667332637 8288 112ab7cde007e881d9e0607234536be3 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/book.cls" 1667332637 23268 e47ccb36cfcf2953d1028f31ec508224 ""
   "/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1579991033 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg" 1459978653 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""
   "/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1465944070 1224 978390e9c2234eab29404bc21b268d1e ""
@@ -137,10 +139,12 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1681034085 39561 34c98e380bf7c7201ee6a7909aff625a ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1743877044 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1743877087 7882291 774a3e7bd499795b13a0a569b97618bd ""
-  "linear-spaces.aux" 1744066186 1004 66267fc0ce658b2173036f1662ab39c4 "pdflatex"
-  "linear-spaces.tex" 1744066185 11788 0f21b2f4d22e26d0f06bf2c0c1a5b73a ""
+  "linear-spaces.aux" 1744072522 1313 2e293cf6344d080dadee0c6a8e6260af "pdflatex"
+  "linear-spaces.tex" 1744072521 14372 9b18ca171d2e33a886ccf430c9e84706 ""
+  "linear-spaces.toc" 1744072522 709 d4c5c5d38d8b84542737fc9172d59383 "pdflatex"
   (generated)
   "linear-spaces.aux"
   "linear-spaces.log"
   "linear-spaces.pdf"
+  "linear-spaces.toc"
   (rewritten before read)
