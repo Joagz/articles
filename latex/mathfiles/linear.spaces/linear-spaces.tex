@@ -387,8 +387,53 @@ This ensures that there is only one representation of $x$, take $x =
 \]
 
 Then $\sum_{i=1}^{n}{(c_i - d_i) e_i} = O$, where $O$ is the zero
-vector/element of $V$. This means that $c_i=d_i$ for $i=1,2,\dots,n$.
+vector/element of $V$. This means that $c_i=d_i$ for $i=1,2,\dots,n$. So there
+is only one representation of $x$ in $V$.
 
 \chapter{Euclid spaces, inner products and norms}
+
+An euclid space is a linear space with an ordered basis, that satisfies
+euclid's axioms.
+
+Euclid spaces satisfy the transitive property
+\begin{equation*}
+    \begin{split}
+        \textnormal{if } a=b \textnormal{ and } b=c, \textnormal{ then } a=c
+    \end{split}
+\end{equation*}
+
+The sum equality property
+\begin{equation*}
+    \begin{split}
+        \textnormal{if } a=b \textnormal{ then } a+c=b+c
+    \end{split}
+\end{equation*}
+
+The sum equality property also holds if we replace $c\to (-1)c$.
+
+The reflective property, which states that two line segments of the same size
+and direction are the same.
+
+The whole is bigger than the part. Let $A$ be a set and $B\subset A$, then
+\begin{equation*}
+    \begin{split}
+        \textnormal{card} > \textnormal{card} B
+    \end{split}
+\end{equation*}
+
+Euclid spaces' satisfy euclidean geometry. They are metric spaces, this means
+that they have a distance function associated to them.
+
+They can be defined as finite dimensional vector spaces, with inner product,
+that satisfy the axioms of a linear space (multiplication by scalars and
+addition of elements).
+
+We define the inner product of vectors to be: \textit{for two vectors
+    $x,y\in\mathbb{R^{n}}$, the inner product $\left(x,y\right)$ is defined as}
+    \begin{equation}
+        \begin{split}
+            \left(x,y\right) = \sum_{i=1}^{n}{x_i y_i}
+        \end{split}
+    \end{equation}
 
 \end{document}
