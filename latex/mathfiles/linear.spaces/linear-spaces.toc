@@ -7,4 +7,4 @@
 \contentsline {section}{\numberline {1.5}Dependent and independent subsets of a linear space}{4}{}%
 \contentsline {section}{\numberline {1.6}Basis and dimension}{6}{}%
 \contentsline {subsection}{\numberline {1.6.1}Components}{7}{}%
-\contentsline {chapter}{\numberline {2}Euclid spaces, inner products and norms}{9}{}%
+\contentsline {chapter}{\numberline {2}Euclidean spaces, inner products and norms}{9}{}%

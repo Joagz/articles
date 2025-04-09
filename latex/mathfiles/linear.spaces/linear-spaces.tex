@@ -4,6 +4,7 @@
 \usepackage[english]{babel}
 \usepackage{amsthm}
 \usepackage{tikz}
+\usetikzlibrary{calc,patterns,angles,quotes}
 
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{example}{Example}[chapter]
@@ -390,50 +391,162 @@ Then $\sum_{i=1}^{n}{(c_i - d_i) e_i} = O$, where $O$ is the zero
 vector/element of $V$. This means that $c_i=d_i$ for $i=1,2,\dots,n$. So there
 is only one representation of $x$ in $V$.
 
-\chapter{Euclid spaces, inner products and norms}
+\chapter{Euclidean spaces, inner products and norms}
 
-An euclid space is a linear space with an ordered basis, that satisfies
-euclid's axioms.
+We start the section by defining what is a Euclidean space.
 
-Euclid spaces satisfy the transitive property
-\begin{equation*}
-    \begin{split}
-        \textnormal{if } a=b \textnormal{ and } b=c, \textnormal{ then } a=c
-    \end{split}
-\end{equation*}
+\begin{definition}
+    A \textit{Euclidean space} is a finite-dimensional linear space that satisfies
+    Euclidean geometry. They also are metric spaces, which are sets that have a notion
+    of distance between its elements. Euclidean spaces are equipped with an \textit{inner product}.
+\end{definition}
 
-The sum equality property
-\begin{equation*}
-    \begin{split}
-        \textnormal{if } a=b \textnormal{ then } a+c=b+c
-    \end{split}
-\end{equation*}
+\begin{definition}
+    The \textit{inner product} is a function that maps two elements $x$ and $y$ from a linear space
+    $V$ to a real number. We write the inner product as $\left(x,y\right)$.
 
-The sum equality property also holds if we replace $c\to (-1)c$.
+    Any inner product satisfies the following properties:
 
-The reflective property, which states that two line segments of the same size
-and direction are the same.
+    \begin{enumerate}
+        \item $\left(x,y\right) = \overline{\left(y,x\right)}$ (hermitian symmetry)
+        \item $\left(x,y+z\right) = \left(x,y\right) + \left(x,z\right)$ (linearity)
+        \item $c\left(x,y\right) = \left(cx,y\right)$ (homogeneity)
+        \item $\left(x,x\right) \geq 0$ (positive definite)
+    \end{enumerate}
 
-The whole is bigger than the part. Let $A$ be a set and $B\subset A$, then
-\begin{equation*}
-    \begin{split}
-        \textnormal{card} > \textnormal{card} B
-    \end{split}
-\end{equation*}
+    \textbf{Remember}: a linear space with inner product is called a Euclidean space.
+\end{definition}
 
-Euclid spaces' satisfy euclidean geometry. They are metric spaces, this means
-that they have a distance function associated to them.
+\begin{example}[Inner product of two vectors in $\mathbb{R}^{2}$]
 
-They can be defined as finite dimensional vector spaces, with inner product,
-that satisfy the axioms of a linear space (multiplication by scalars and
-addition of elements).
+    \begin{center}
+        \begin{tikzpicture}
+            \coordinate (u1) at (-2,3);
+            \coordinate (u2) at (3,2);
+            \coordinate (O) at (0,0);
+            \coordinate (x) at (5,0);
+            \coordinate (y) at (0,5);
 
-We define the inner product of vectors to be: \textit{for two vectors
-    $x,y\in\mathbb{R^{n}}$, the inner product $\left(x,y\right)$ is defined as}
+            \draw[->, ultra thick] (O)--(x);
+            \draw[->, ultra thick] (O)--(y);
+
+            \draw[->, thick] (O)--(u1);
+            \draw[->, thick] (O)--(u2);
+
+            \draw (u1) + (.2,.2) node{$u$};
+            \draw (u2) + (.2,.2) node{$v$};
+            \pic [draw, ->, "$\theta$", angle eccentricity=1.5] {angle = x--O--u1};
+            \pic [draw, ->, "$\phi$", angle eccentricity=2] {angle = x--O--u2};
+        \end{tikzpicture}
+    \end{center}
+
+    Now, we have $u=\left(u_{x},u_{y}\right)$ and $v=\left(v_x, v_y\right)$. If we
+    define the inner product of two vectors as
+
+    \[
+        \left(u,v\right) = u \cdot v = \sum_{i=1}^{n}{u_i v_i}
+    \]
+
+    For $n=2$, we have $u \cdot v = u_x v_x + u_y v_y$. We know the following
+    relationships
+
     \begin{equation}
         \begin{split}
-            \left(x,y\right) = \sum_{i=1}^{n}{x_i y_i}
+            \cos{\theta} = \frac{u_x}{|u|},\qquad
+            \sin{\theta} = \frac{u_y}{|u|}
+            \\\\
+            \cos{\phi} = \frac{v_x}{|v|},\qquad
+            \sin{\phi} = \frac{v_y}{|v|}
         \end{split}
     \end{equation}
+
+    If we solve for $u$ and $v$ and substitute in the inner product formula, we get 
+
+    \begin{equation}
+        \begin{split}
+            u\cdot v = |u|\cdot|v|\cos\theta\cos\phi + |u|\cdot|v|\sin\theta\sin\phi
+            \\ = |u||v|(\cos\theta\cos\phi + \sin\theta\sin\phi)
+            \\ = |u||v|(\cos{\left(\theta - \phi\right)})
+        \end{split}
+    \end{equation}
+
+    This means that the dot product of two vectors is the product of their length
+    times the cosine of the angle between them. The angle between $u$ and $v$ is
+    given by
+
+    \begin{equation}
+        \begin{split}
+            \theta - \phi = \arccos{\left(\frac{u\cdot v}{|u| |v|}\right)}
+        \end{split}
+    \end{equation}
+
+\end{example}
+
+Well, this rises a question. How can you derive the inner product for a real
+vector space? Well, there are various points to note, but let's imagine that we
+want to measure the length of a vector. How can we measure distance? But also,
+we want to measure the distance between two vectors. Let's go with an example
+to make things clearer.
+
+\begin{example}[Distance of two vectors in $\mathbb{R}^{n}$]
+    We first define two vectors $u=\left(u_1,u_2,\dots,u_n\right)$ and $v=\left(v_1, v-2, \dots, v_n\right)$
+
+    Now, a third vector, we call it $w=u-v$ has squared length
+    \begin{equation}
+        \begin{split}
+            |w|^{2} = (u_1-v_1)^{2} + (u_2-v_2)^{2} + \cdots + (u_n-v_n)^{2}
+        \end{split}
+    \end{equation}
+
+    Expanding one of the right-hand side terms we get $\left(u_i-v_i\right)^{2} =
+        u_i^{2} - 2 v_i u_i + v_i^{2}$. Grouping the terms in (2.4) results in
+    \begin{equation}
+        \begin{split}
+            |w|^{2} = \sum_{i=1}^{n}{\left(u_i^{2}\right)} + \sum_{i=1}^{n}{\left(v_i^{2}\right)} - 2 \sum_{i=1}^{n}{u_i v_i}
+        \end{split}
+    \end{equation}
+
+    Note that in (2.5) the dot product appears in the last term of the right-hand
+    side. We can rewrite the equation as
+    \begin{equation}
+        \begin{split}
+            |w|^{2} = v \cdot v + u \cdot u - 2u \cdot v
+        \end{split}
+    \end{equation}
+
+    And using formula (2.2)
+    \begin{equation}
+        \begin{split}
+            |w|^{2} = |v|^{2} + |u|^{2} - 2|u||v|\cos\theta
+        \end{split}
+    \end{equation}
+
+    Where $\theta$ is the angle between $u$ and $v$. Note that, because the angle
+    between $u$ and $u$ is zero, $\cos\theta = 0$.
+\end{example}
+
+Equation (2.7) is nothing more than the \textit{Law of Cosines}. Now, the dot
+product does not follow a ``natural pattern'' as one would call it. Think of
+the exponential function, it has a very natural reasoning, for example, in the
+growth of populations or in differential equations. However, the dot product is
+present when we measure elements in Euclidean spaces, as segments or vectors.
+
+The dot product is not ``derived'' in a way most things are. Instead, it is
+useful because it simply ``appears'' in measurement.
+
+\textbf{The inner product} is a generalization of the dot product in more general spaces.
+Each space can have a different definition for its inner product. For example 
+
+\begin{example}[Inner product of a functional space $C(a,b)$]
+
+    Let $f:\mathbb{R} \to \mathbb{R}$ and $g:\mathbb{R} \to \mathbb{R}$ be continuous functions 
+    in an interval $[a,b]$, the inner product is defined as
+    \begin{equation}
+        \begin{split}
+            \left(f,g\right) = \int_{a}^{b}{f(x)g(x)dx}
+        \end{split}
+    \end{equation}
+    
+\end{example}
 
 \end{document}
