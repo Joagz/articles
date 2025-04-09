@@ -6,5 +6,7 @@
 \contentsline {section}{\numberline {1.4}Subspaces of a linear space}{3}{}%
 \contentsline {section}{\numberline {1.5}Dependent and independent subsets of a linear space}{4}{}%
 \contentsline {section}{\numberline {1.6}Basis and dimension}{6}{}%
-\contentsline {subsection}{\numberline {1.6.1}Components}{7}{}%
+\contentsline {section}{\numberline {1.7}Components}{7}{}%
 \contentsline {chapter}{\numberline {2}Euclidean spaces, inner products and norms}{9}{}%
+\contentsline {section}{\numberline {2.1}Dot product and inner product}{9}{}%
+\contentsline {section}{\numberline {2.2}Norms and length}{11}{}%

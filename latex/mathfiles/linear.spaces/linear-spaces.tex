@@ -360,7 +360,7 @@ explanation.
 
 \end{theorem}
 
-\subsection{Components}
+\section{Components}
 
 Let $V$ be a linear space with $\dim V = n$, and consider an ordered basis
 $\left\{e_1, e_2,\dots,e_n\right\}$. This ordered basis is considered as an
@@ -400,6 +400,22 @@ We start the section by defining what is a Euclidean space.
     Euclidean geometry. They also are metric spaces, which are sets that have a notion
     of distance between its elements. Euclidean spaces are equipped with an \textit{inner product}.
 \end{definition}
+
+Euclidean spaces have a set of properties, that were defined as axioms in
+\textit{Euclid's Elements}, which are
+\begin{enumerate}
+    \item If $a = b$ and $b = c$ then $a = c$ (the transitive property)
+    \item If $a = b$ then $a + c = b + c$ (the equal sum property)
+    \item If a line segment $\overline{AB}$ coincides in length and direction with
+          $\overline{CD}$ then $\overline{AB} = \overline{CD}$.
+    \item The whole is greater than the part. This can be thought as: \textit{let $A$ and
+              $B\subset A$ be two arbitrary sets, then $A$ is ``bigger'' than $B$}.
+    \item Things that are double of the same thing are equal to each other. (This one is
+          very obvious, consider two equal circles with radius $r_1$ and $r_2$, then we
+          can say that $r_1=r_2$).
+\end{enumerate}
+
+\section{Dot product and inner product}
 
 \begin{definition}
     The \textit{inner product} is a function that maps two elements $x$ and $y$ from a linear space
@@ -460,7 +476,7 @@ We start the section by defining what is a Euclidean space.
         \end{split}
     \end{equation}
 
-    If we solve for $u$ and $v$ and substitute in the inner product formula, we get 
+    If we solve for $u$ and $v$ and substitute in the inner product formula, we get
 
     \begin{equation}
         \begin{split}
@@ -502,7 +518,7 @@ to make things clearer.
         u_i^{2} - 2 v_i u_i + v_i^{2}$. Grouping the terms in (2.4) results in
     \begin{equation}
         \begin{split}
-            |w|^{2} = \sum_{i=1}^{n}{\left(u_i^{2}\right)} + \sum_{i=1}^{n}{\left(v_i^{2}\right)} - 2 \sum_{i=1}^{n}{u_i v_i}
+            \sum_{i=1}^{n}{\left(w_i^{2}\right)} = \sum_{i=1}^{n}{\left(u_i^{2}\right)} + \sum_{i=1}^{n}{\left(v_i^{2}\right)} - 2 \sum_{i=1}^{n}{u_i v_i}
         \end{split}
     \end{equation}
 
@@ -510,7 +526,7 @@ to make things clearer.
     side. We can rewrite the equation as
     \begin{equation}
         \begin{split}
-            |w|^{2} = v \cdot v + u \cdot u - 2u \cdot v
+            w \cdot w = v \cdot v + u \cdot u - 2u \cdot v
         \end{split}
     \end{equation}
 
@@ -522,31 +538,33 @@ to make things clearer.
     \end{equation}
 
     Where $\theta$ is the angle between $u$ and $v$. Note that, because the angle
-    between $u$ and $u$ is zero, $\cos\theta = 0$.
+    between a vector and itself is $\theta = 0$, $\cos\theta = 1$.
 \end{example}
 
 Equation (2.7) is nothing more than the \textit{Law of Cosines}. Now, the dot
 product does not follow a ``natural pattern'' as one would call it. Think of
 the exponential function, it has a very natural reasoning, for example, in the
 growth of populations or in differential equations. However, the dot product is
-present when we measure elements in Euclidean spaces, as segments or vectors.
+present when we measure elements in Euclidean spaces, like segments or vectors.
 
 The dot product is not ``derived'' in a way most things are. Instead, it is
-useful because it simply ``appears'' in measurement.
+useful because it simply ``appears'' in measurements.
 
-\textbf{The inner product} is a generalization of the dot product in more general spaces.
-Each space can have a different definition for its inner product. For example 
+The \textbf{inner product} is a generalization of the dot product in more general spaces.
+Each space can have a different definition for its inner product. For example
 
 \begin{example}[Inner product of a functional space $C(a,b)$]
 
-    Let $f:\mathbb{R} \to \mathbb{R}$ and $g:\mathbb{R} \to \mathbb{R}$ be continuous functions 
-    in an interval $[a,b]$, the inner product is defined as
+    Let $f:\mathbb{R} \to \mathbb{R}$ and $g:\mathbb{R} \to \mathbb{R}$ be
+    continuous functions in an interval $[a,b]$, the inner product is defined as
     \begin{equation}
         \begin{split}
             \left(f,g\right) = \int_{a}^{b}{f(x)g(x)dx}
         \end{split}
     \end{equation}
-    
+
+    \section{Norms and length}
+
 \end{example}
 
 \end{document}
