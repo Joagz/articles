@@ -616,7 +616,7 @@ Definition (2.3) satisfies the properties of a norm.
 
     \begin{equation*}
         \begin{split}
-             & \|\sin(\psi)\| = \left(\sin(\psi), \sin(\psi)\right)
+            & \|\sin(\psi)\| = \left(\sin(\psi), \sin(\psi)\right)
             \\      & = \sqrt{\int_{\theta_1}^{\theta_2}{\left[\sin(\psi)\right]^{2}d\psi}}
             \\      & = \sqrt{\left[\frac{\psi}{2} - \frac{\sin\left(2\psi\right)}{4}\right]_{\theta_1}^{\theta_2}}
             \\ &= \sqrt{\frac{\theta_1 + \theta_2}{2} - \frac{\sin(\theta_2)\cos(\theta_2)-\sin(\theta_1)\cos(\theta_1)}{2}}
@@ -642,7 +642,7 @@ $\mathbb{R}$, and our vector is in $\mathbb{R}^{2}$.
         \coordinate (l1) at (-2,-1);
         \coordinate (l2) at (4,2);
 
-        \draw[thick] (l1)--(l2);
+        \draw[thick, dashed] (l1)--(l2);
         \draw[->, thick] (0,0)--(0,5);
         \draw[->, thick] (0,0)--(5,0);
         \draw[->, very thick] (0,0)--(v);
@@ -652,7 +652,7 @@ $\mathbb{R}$, and our vector is in $\mathbb{R}^{2}$.
         \draw (l2) + (0.2,0.2) node{$l$};
         \draw (e) + (0, 1) node{$e$};
         \draw (v) + (-1, -1) node{$v$};
-        \draw (e) + (-.9, -.9) node{$proj_l {v}$};
+        \draw (e) + (-.9, -.9) node{$proj_u {v}$};
 
     \end{tikzpicture}
 \end{center}
@@ -660,7 +660,7 @@ $\mathbb{R}$, and our vector is in $\mathbb{R}^{2}$.
 This is the most basic example of projection. Let's deduce a formula.
 
 \begin{example}
-    Let $v\in\mathbb{R}^{2}$ and let $l$ be a line 
+    Let $v\in\mathbb{R}^{2}$ and let $l$ be a line
     in $\mathbb{R}^{2}$ parametrized by a vector $u$ as $f(t)=ut$.
 
     \begin{center}
@@ -669,13 +669,13 @@ This is the most basic example of projection. Let's deduce a formula.
             \coordinate (e) at (14/15, 7/15);
             \coordinate (l1) at (0,0);
             \coordinate (l2) at (4,2);
-    
-            \draw[thick] (l1)--(l2);
+
+            \draw[thick, dashed] (l1)--(l2);
             \draw[->, thick] (0,0)--(0,5);
             \draw[->, thick] (0,0)--(5,0);
             \draw[->, very thick] (0,0)--(v);
             \draw[->, very thick] (0,0)--(e);
-    
+
             \draw (l2) + (0.2,0.2) node{$l$};
             \draw (v) + (-1, -1) node{$v$};
             \draw (e) + (.1,.3) node{$u$};
@@ -683,16 +683,178 @@ This is the most basic example of projection. Let's deduce a formula.
         \end{tikzpicture}
     \end{center}
 
-What we want to find is some constant $k$ such that $ku$ is perpendicular to $l$.
-We know from the previous image that $e=proj_l v - v = uk-v$
-\begin{align*}
+    What we want to find is some constant $k$ such that $ku$ is perpendicular to
+    $l$. We know from the previous image that $e=proj_u v - v = uk-v$
+
+    \begin{equation*}
+        \begin{split}
+            (ku-v)\cdot u = k\|u\|^{2} - v\cdot u = 0
+        \end{split}
+    \end{equation*}
+
+    Then $k=\frac{v\cdot u}{\|u\|^{2}}$. The formula for projection becomes
+
+    \begin{equation}
+        \begin{split}
+            proj_u v = ku = \frac{v\cdot u}{\|u\|^{2}}\cdot u
+        \end{split}
+    \end{equation}
+
+    We call this projection in terms of $u$, because $l$ is parametrized by $u$.
+\end{example}
+
+Now, we want to extend this idea to any linear space. We can see that a
+projection is a multiplication of the ``projection basis'' by some scalar.
+
+This gives us an idea of what the inner product is: we can think of the inner
+product as ``how much of some element is onto other element''. Think of
+projecting a vector $v$ onto $u$ when $v\perp u$.
+
+\begin{center}
+    \begin{tikzpicture}
+        \coordinate (v) at (2,0);
+        \coordinate (e) at (0,2);
+        \coordinate (c) at (0.778836684617, 1.84212198801);
+        \coordinate (d) at (0.39733866159, 1.96013315568);
+
+        \draw[->] (0,0)--(v);
+        \draw[->] (0,0)--(e);
+        \draw[->] (0,0)--(c);
+        \draw[->] (0,0)--(d);
+        \draw[dotted] (0.39733866159,0) -- (d);
+        \draw[dotted] (0.778836684617,0) -- (c);
+        \draw[->, thick] (0,0) -- (0.778836684617,0);
+        \draw[->, thick] (0,0) -- (0.39733866159,0);
+    \end{tikzpicture}
+\end{center}
+
+You can see that the projection tends to a vector with no length. This can be
+proven easily with (2.2):
+
+\begin{equation}
     \begin{split}
-        
+        proj_u v = u\cdot\frac{u\cdot v}{\|u\|^{2}}
+        \\ = u\cdot\frac{\|v\|}{\|u\|} \cos\psi
     \end{split}
-\end{align*}
+\end{equation}
 
+The $\frac{\|v\|}{\|u\|}$ part is the amount of times $u$ fits in $v$, and if
+$\psi = \frac{\pi}{2}$ then the projection is the $O$ vector.
 
+\begin{example}[Projections in $\mathbb{R}^{n}$]
+    Let $x\in\mathbb{R}^{n}$ be a vector in a plane, this plane must be of dimension $n-1$.
+    Thus, it has a basis with $n-1$ elements given by
+    \begin{equation*}
+        W = \left(e_1, e_2,\dots, e_{n-1}\right)
+    \end{equation*}
 
+    Where $e_1,e_2,\dots,e_{n-1}\in\mathbb{R}^{n}$. These vectors parametrize the
+    plane, such that $x$ can be written as
+    \begin{equation}
+        \begin{split}
+            x = \sum_{i=1}^{n-1}{c_i e_i}
+        \end{split}
+    \end{equation}
+
+    for any scalars $c_1,c_2,\dots,c_{n-1}$. Now, suppose that we have a vector
+    $v\in\mathbb{R}^{n}$ that preferably, does not lie in this plane.
+
+    To find the projection, we can set a set of equation that are analogous to the
+    example in $\mathbb{R}^{2}$:
+    \begin{equation}
+        \begin{split}
+            \begin{cases}
+                e_1(v - k x) = 0 \\
+                e_2(v - k x) = 0 \\
+                \cdots           \\
+                e_{n-1}(v - k x) = 0
+            \end{cases}
+        \end{split}
+    \end{equation}
+
+    Where $k\in\mathbb{R}$. What we want is to make each basis vector orthogonal to
+    a vector $x$ that connects $v$ to the plane. In other words, the vector
+    $(v-kx)$ will be perpendicular to the plane.
+
+    We will collect each basis vector into a matrix
+    \begin{equation}
+        A = \left[
+            \begin{matrix}
+                \vdots & \vdots &        & \vdots  \\
+                e_1    & e_2    & \cdots & e_{n-1} \\
+                \vdots & \vdots &        & \vdots  \\
+            \end{matrix}
+            \right]
+    \end{equation}
+
+    Here, $A$ has dimension $n\times (n-1)$. The system of equations in (3.4)
+    becomes
+    \begin{equation}
+        A^{T}\left(v-kx\right) = 0
+    \end{equation}
+
+    But we can rewrite $x$ as a vector $c$ times $A$, so that
+    \begin{equation}
+        x = Ac =  \left[\begin{matrix}
+                \vdots & \vdots &        & \vdots  \\
+                e_1    & e_2    & \cdots & e_{n-1} \\
+                \vdots & \vdots &        & \vdots  \\
+            \end{matrix}\right]\cdot\left[\begin{matrix}
+                c_1 \\c_2\\\vdots\\c_{n-1}
+            \end{matrix}\right]
+    \end{equation}
+
+    You can verify that this is the same as writing $x$ in the form (3.3).
+    Rewriting equation (3.6) leaves
+    \begin{equation*}
+        A^{T}\left(v-Ac\right) = 0
+    \end{equation*}
+
+    We omit the term $k$ since we will assume that the vector $c$ scales $x$
+    accordingly. Expanding the equation
+    \begin{equation}
+        \begin{split}
+            A^{T}\left(v-Ac\right) = A^{T}v - A^{T}Ac = 0
+        \end{split}
+    \end{equation}
+
+    Now, we solve for $c$
+    \begin{equation}
+        \begin{split}
+            c={(A^{T}A)}^{-1}A^{T}v
+        \end{split}
+    \end{equation}
+
+    Now, as the projection is given by scaling all the basis vectors in $A$ by $c$
+    (think of $c$ as the scalar term in the 2-dimensional example), we can write
+    our projection vector $p$ as
+
+    \begin{equation}
+        p = Ac = A{(A^{T}A)}^{-1}A^{T}v = Pv
+    \end{equation}
+
+    We define $P$ to be the \textbf{projection matrix}, and $v$ is the vector
+    projected onto the plane $A$.
+
+    To figure out the equation of the plane, we think of the definition of a plane:
+    each vector in the plane must be perpendicular to a normal vector. This means
+    that we always have $A\cdot n = O$, where $n$ is the normal vector.
+
+    We can write the equation for an hyperplane in $\mathbb{R}^{n-1}$ as
+    \begin{equation}
+        n^{T}(x-x_0) = 0
+    \end{equation}
+
+    where:
+    \begin{itemize}
+        \item $n \in \mathbb{R}^n$ is the \textbf{normal vector} to the hyperplane,
+        \item $x \in \mathbb{R}^n$ is any point \textbf{on} the hyperplane,
+        \item $x_0 \in \mathbb{R}^n$ is a fixed point in the hyperplane (used to position or ``anchor'' the hyperplane in space).
+    \end{itemize}
+
+    This equation states that the vector from $x_0$ to any point $x$ on the
+    hyperplane is \textbf{orthogonal} to the normal vector $n$, ensuring all such
+    points lie in the same flat $(n-1)$-dimensional space.
 \end{example}
 
 \end{document}
