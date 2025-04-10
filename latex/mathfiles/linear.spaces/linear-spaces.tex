@@ -550,21 +550,111 @@ present when we measure elements in Euclidean spaces, like segments or vectors.
 The dot product is not ``derived'' in a way most things are. Instead, it is
 useful because it simply ``appears'' in measurements.
 
-The \textbf{inner product} is a generalization of the dot product in more general spaces.
-Each space can have a different definition for its inner product. For example
+The \textbf{inner product} is a generalization of the dot product in more
+general spaces. Each space can have a different definition for its inner
+product. For example
 
-\begin{example}[Inner product of a functional space $C(a,b)$]
+    [Inner product of a functional space $C(a,b)$]
 
-    Let $f:\mathbb{R} \to \mathbb{R}$ and $g:\mathbb{R} \to \mathbb{R}$ be
-    continuous functions in an interval $[a,b]$, the inner product is defined as
-    \begin{equation}
+Let $f:\mathbb{R} \to \mathbb{R}$ and $g:\mathbb{R} \to \mathbb{R}$ be
+continuous functions in an interval $[a,b]$, the inner product is defined as
+\begin{equation}
+    \begin{split}
+        \left(f,g\right) = \int_{a}^{b}{f(x)g(x)dx}
+    \end{split}
+\end{equation}
+
+\section{Norms and length}
+
+The norm of an element $x$ in a linear space is written as $\|x\|$ and has the
+following properties:
+
+\begin{enumerate}
+    \item $\|x\| > 0$ if $x\neq 0$
+    \item $\|x\| = 0$ if $x = 0$
+    \item For a scalar $a$, $\|ax\| = |a|\cdot \|x\|$
+    \item For two elements $y$ and $x$ in a linear space, $\|x+y\| \leq \|x\| + \|y\|$
+\end{enumerate}
+
+The $4^{th}$ property is the triangle inequality.
+
+\begin{definition}
+    Let $x$ be an element of a linear space $V$.
+    The norm of $x$ is defined as $\left(x,x\right)^{1/2}$, this is,
+    the square root of the inner product of $x$ with itself.
+\end{definition}
+
+Definition (2.3) satisfies the properties of a norm.
+
+\begin{example}
+    Let $x\in\mathbb{R}^{n}$, the norm of a vector is given by the pythagorean theorem
+    \begin{equation*}
         \begin{split}
-            \left(f,g\right) = \int_{a}^{b}{f(x)g(x)dx}
+            \|x\| = \sqrt{x_1^{2} + x_2^{2} + \cdots + x_n^{2}}
+            = \sqrt{\sum_{i=1}^{n}{x_i^{2}}}
         \end{split}
-    \end{equation}
+    \end{equation*}
 
-    \section{Norms and length}
-
+    Finally, we can see that $\|x\|=\sqrt{\left(x,x\right)}$, we defined the inner
+    product of a real vector space as the dot product $\left(\cdot, \cdot\right):
+        V\times V \to \mathbb{R}$. Here $V$ denotes the linear space, in our current
+    example $V=\mathbb{R}^{n}$.
 \end{example}
+
+\begin{example}
+    Let $V$ be the functional space $C(a,b)$, the norm of a function $f$ the interval $\left[a,b\right]$ is
+
+    \begin{equation*}
+        \begin{split}
+            \|f\| = \sqrt{\int_{a}^{b}{\left[f(\psi)\right]^{2}d\psi}}
+        \end{split}
+    \end{equation*}
+
+    This measure in functional spaces are useful when dealing with negative values
+    on the integral. For example, the $\sin (\psi)$ function is zero when
+    integrated in its period. However we can use the norm to measure it:
+
+    \begin{equation*}
+        \begin{split}
+             & \|\sin(\psi)\| = \left(\sin(\psi), \sin(\psi)\right)
+            \\    & = \sqrt{\int_{\theta_1}^{\theta_2}{\left[\sin(\psi)\right]^{2}d\psi}}
+            \\    & = \sqrt{\left[\frac{\psi}{2} - \frac{\sin\left(2\psi\right)}{4}\right]_{\theta_1}^{\theta_2}}
+            \\ &= \sqrt{\frac{\theta_1 + \theta_2}{2} - \frac{\sin(\theta_2)\cos(\theta_2)-\sin(\theta_1)\cos(\theta_1)}{2}}
+        \end{split}
+    \end{equation*}
+
+    If $\theta_1=0$ and $\theta_2=2\pi$ we have $\|\sin(\psi)\|=\sqrt{\pi}$.
+\end{example}
+
+\chapter{Projections onto subspaces}
+
+A projection is an idempotent mapping of a set (or any structure) into a subset
+(or sub-structure). Idempotent means that, projecting once is the same as
+projecting $n$-times.
+
+We will see this as a vector being projected in a line, a line is a subspace of 
+$\mathbb{R}$, and our vector is in $\mathbb{R}^{2}$.
+
+\begin{center}
+    \begin{tikzpicture}
+        \coordinate (v) at (2,3);
+        \coordinate (e) at (14/5, 7/5);
+        \coordinate (l1) at (-2,-1);
+        \coordinate (l2) at (4,2);
+
+        \draw[thick] (l1)--(l2);
+        \draw[->, thick] (0,0)--(0,5);
+        \draw[->, thick] (0,0)--(5,0);
+        \draw[->, very thick] (0,0)--(v);
+        \draw[dashed] (v)--(e);
+        \draw[->, very thick] (0,0)--(e);
+
+        \draw (l2) + (0.2,0.2) node{$l$};
+        \draw (e) + (0, 1) node{$e$};
+        \draw (v) + (-1, -1) node{$v$};
+        \draw (e) + (-.9, -.9) node{$proj_l {v}$};
+
+    \end{tikzpicture}
+\end{center}
 
 \end{document}
