@@ -17,6 +17,27 @@
 \frontmatter
 \maketitle
 \tableofcontents
+\section*{Symbol Glossary}
+
+\begin{tabular}{@{}llp{8.5cm}@{}}
+    \textbf{Symbol}     & \textbf{Meaning}             & \textbf{Context / Notes}                                                                \\
+    \\[-0.8em] % add a little spacing
+    $V$                 & Linear space                 & The main set we're working in                                                           \\
+    $x, y, z$           & Elements of $V$              & Usually vectors or functions                                                            \\
+    $a, b, c$           & Scalars (real numbers)       & Typically from $\mathbb{R}$                                                             \\
+    $O$                 & Zero vector (element of $V$) & Use this consistently for the "zero of the space"                                       \\
+    $0$                 & Scalar zero                  & Element of $\mathbb{R}$                                                                 \\
+    $I$                 & Identity element             & Scalar $1$ in scalar multiplication or the identity matrix (e.g., $I = \text{diag}(1)$) \\
+    $L(S)$              & Linear span of a set $S$     & Smallest subspace containing all linear combinations of $S$                             \\
+    $\dim V$            & Dimension of $V$             & Number of elements in a basis for $V$                                                   \\
+    $\|x\|$             & Norm (length) of element $x$ & Defined as $\sqrt{(x, x)}$ using the inner product                                      \\
+    $(x, y)$            & Inner product of $x$ and $y$ & Dot product in $\mathbb{R}^n$, or more generally defined                                \\
+    $x_i$               & Component of vector $x$      & Used in expressions like $x = \sum c_i e_i$                                             \\
+    $c_i$               & Scalar coefficient           & Used in linear combinations                                                             \\
+    $e_i$               & Basis vector                 & In an ordered basis of $V$                                                              \\
+    $P$                 & Projection matrix            & Used for projecting onto subspaces                                                      \\
+    $\mathrm{proj}_u v$ & Projection of $v$ onto $u$   & Defined as $\left(\frac{v \cdot u}{\|u\|^2}\right) u$                                   \\
+\end{tabular}
 
 \mainmatter
 \chapter{Introduction}
@@ -855,6 +876,9 @@ $\psi = \frac{\pi}{2}$ then the projection is the $O$ vector.
     This equation states that the vector from $x_0$ to any point $x$ on the
     hyperplane is \textbf{orthogonal} to the normal vector $n$, ensuring all such
     points lie in the same flat $(n-1)$-dimensional space.
+
+    In this definition we didn't use the basis vectors in $W$, however as $x$ is a
+    combination of basis vectors, it is not necessary to explicitly write them.
 \end{example}
 
 \end{document}
