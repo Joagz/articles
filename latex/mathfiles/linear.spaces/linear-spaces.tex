@@ -636,9 +636,9 @@ Definition (2.3) satisfies the properties of a norm.
 
     \begin{equation*}
         \begin{split}
-            & \|\sin(\psi)\| = \left(\sin(\psi), \sin(\psi)\right)
-            \\      & = \sqrt{\int_{\theta_1}^{\theta_2}{\left[\sin(\psi)\right]^{2}d\psi}}
-            \\      & = \sqrt{\left[\frac{\psi}{2} - \frac{\sin\left(2\psi\right)}{4}\right]_{\theta_1}^{\theta_2}}
+             & \|\sin(\psi)\| = \left(\sin(\psi), \sin(\psi)\right)
+            \\                      & = \sqrt{\int_{\theta_1}^{\theta_2}{\left[\sin(\psi)\right]^{2}d\psi}}
+            \\                      & = \sqrt{\left[\frac{\psi}{2} - \frac{\sin\left(2\psi\right)}{4}\right]_{\theta_1}^{\theta_2}}
             \\ &= \sqrt{\frac{\theta_1 + \theta_2}{2} - \frac{\sin(\theta_2)\cos(\theta_2)-\sin(\theta_1)\cos(\theta_1)}{2}}
         \end{split}
     \end{equation*}
@@ -878,6 +878,97 @@ $\psi = \frac{\pi}{2}$ then the projection is the $O$ vector.
 
     In this definition we didn't use the basis vectors in $W$, however as $x$ is a
     combination of basis vectors, it is not necessary to explicitly write them.
+\end{example}
+
+Some important applications of projections are \textbf{linear regression}, or
+the \textbf{Fourier series} we will see how to derive them later.
+
+% TODO: Fourier series %
+
+\begin{example}[Linear Regression]
+    Let $S$ be a set of points in $\mathbb{R}^{n-1}$, suppose we can map the points
+    with a scalar field given by $f:\mathbb{R}^{n-1}\to\mathbb{R}$, this means that
+    $S$ can be written as:
+    \begin{equation}
+        \begin{split}
+            S = \left\{\left(x_{11},x_{12},\dots,x_{1(n-1)},z_{1} \right), \dots, \left(x_{m1}, x_{m2},\dots,x_{m(n-1)}, z_m\right)\right\}
+        \end{split}
+    \end{equation}
+
+    We can set a system of equations that uses a coefficient vector $u$ and a
+    \textit{bias}:
+    \begin{equation}
+        \begin{cases}
+             & x_{11}u_1 + x_{12}u_2 + \cdots + x_{1(n-1)}u_{n-1} + b = z_1
+            \\             & x_{21}u_1 + x_{22}u_2 + \cdots + x_{2(n-1)}u_{n-1} + b = z_2
+            \\             & \qquad \qquad \qquad \qquad \vdots
+            \\ &x_{m1}u_1 + x_{m2}u_2 + \cdots + x_{m(n-1)}u_{n-1} + b = z_m
+        \end{cases}
+    \end{equation}
+
+    Each $z$ is a combination of $n-1$ independent variables, we can rewrite the
+    system as
+    \begin{equation}
+        \left[
+            \begin{matrix}
+                x_{11} & x_{12} & \cdots & x_{1(n-1)} \\
+                x_{21} & x_{22} & \cdots & x_{2(n-1)} \\
+                \vdots & \vdots & \ddots & \vdots     \\
+                x_{m1} & x_{m2} & \cdots & x_{m(n-1)} \\
+            \end{matrix}
+            \right]\cdot \left[
+            \begin{matrix}
+                u_1 \\u_2\\\vdots\\u_{n-1}
+            \end{matrix}
+            \right] = \left[
+            \begin{matrix}
+                z_1 \\z_2\\\vdots\\z_m
+            \end{matrix}
+            \right]
+    \end{equation}
+    \begin{equation*}
+        X\cdot u = z
+    \end{equation*}
+
+    We want to fit the equation to an approximation vector $\hat u$. The vector $z$
+    lies in a hyperplane. $\hat u$ is essentially a vector that gives the direction
+    of a line that fits these points at best. This works because, the projection
+    gives the minimum distance to $z$.
+    \begin{equation}
+        \hat u = {\left(X^{T}X\right)}^{-1}X^{T}z
+    \end{equation}
+
+    But this approximation only has one dimension for the output. If you let $z$ be
+    a matrix, so that each output of the system of equations is a vector, then
+    define $u$ to be a $n\times p$ matrix and $z$ to be $m\times p$.
+    \begin{equation}
+        \left[
+            \begin{matrix}
+                x_{11} & x_{12} & \cdots & x_{1(n-1)} \\
+                x_{21} & x_{22} & \cdots & x_{2(n-1)} \\
+                \vdots & \vdots & \ddots & \vdots     \\
+                x_{m1} & x_{m2} & \cdots & x_{m(n-1)} \\
+            \end{matrix}
+            \right]\cdot \left[
+            \begin{matrix}
+                u_{11} & \cdots & u_{1p} \\
+                u_{21} & \cdots & u_{2p} \\
+                \vdots & \ddots & \vdots \\
+                u_{n1} & \cdots & u_{np} \\
+            \end{matrix}
+            \right] = \left[
+            \begin{matrix}
+                z_{11} & \cdots & z_{1p} \\
+                z_{21} & \cdots & z_{2p} \\
+                \vdots & \ddots & \vdots \\
+                z_{m1} & \cdots & z_{mp} \\
+            \end{matrix}
+            \right]
+    \end{equation}
+
+    Then $\hat u$ has dimension $n\times p$. 
+
+
 \end{example}
 
 \end{document}
