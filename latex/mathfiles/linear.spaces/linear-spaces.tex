@@ -636,7 +636,7 @@ Definition (2.3) satisfies the properties of a norm.
 
     \begin{equation*}
         \begin{split}
-             & \|\sin(\psi)\| = \left(\sin(\psi), \sin(\psi)\right)
+            & \|\sin(\psi)\| = \left(\sin(\psi), \sin(\psi)\right)
             \\                      & = \sqrt{\int_{\theta_1}^{\theta_2}{\left[\sin(\psi)\right]^{2}d\psi}}
             \\                      & = \sqrt{\left[\frac{\psi}{2} - \frac{\sin\left(2\psi\right)}{4}\right]_{\theta_1}^{\theta_2}}
             \\ &= \sqrt{\frac{\theta_1 + \theta_2}{2} - \frac{\sin(\theta_2)\cos(\theta_2)-\sin(\theta_1)\cos(\theta_1)}{2}}
@@ -645,6 +645,135 @@ Definition (2.3) satisfies the properties of a norm.
 
     If $\theta_1=0$ and $\theta_2=2\pi$ we have $\|\sin(\psi)\|=\sqrt{\pi}$.
 \end{example}
+
+\begin{theorem}
+    In the Euclidean space $V$, every inner product satisfies the Cauchy-Schwarz inequality:
+
+    \begin{equation}
+        |\left(x,y\right)|^{2} \leq \left(x,x\right)\left(y,y\right)
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    Let $z=ax+by$. If $x=0$ and $y=0$ the problem is trivial and the equality holds. Else, we can use
+    the fact that $\left(z,z\right) \geq 0$ and by using the properties of the inner product:
+    \begin{equation*}
+        \begin{split}
+            &\left(z,z\right) = \left(ax+by, ax+by\right)
+            \\  &= \left(ax,ax\right) + \left(ax,by\right) + \left(by,ax\right) +\left(by,by\right)
+            \\  &= a\bar{a}\left(x,x\right) + a\bar{b}\left(x,y\right) + b\bar{a}\left(y,x\right) + b\bar{b}\left(y,y\right)
+            \\  &\geq 0
+        \end{split}
+    \end{equation*}
+
+    Now, let $a = \bar{a} = (y,y)$
+    \begin{equation*}
+        \begin{split}
+            \left(y,y\right)\left(y,y\right)\left(x,x\right) + \bar{b}\left(y,y\right)\left(x,y\right) + b\left(y,y\right)\left(y,x\right) + b\bar{b}\left(y,y\right)
+            \geq 0
+        \end{split}
+    \end{equation*}
+
+    Dividing everything by $\left(y,y\right)$ leaves
+    \begin{equation*}
+        \begin{split}
+            \left(y,y\right)\left(x,x\right) + \bar{b}\left(x,y\right) + b\left(y,x\right) + b\bar{b}
+            \geq 0
+        \end{split}
+    \end{equation*}
+
+    If we let $b = -\left(x,y\right)$, such that its conjugate $\bar{b} =
+        -\left(y,x\right)$, we obtain
+    \begin{equation*}
+        \begin{split}
+            &\left(x,x\right)\left(y,y\right) - \left(x,y\right)\left(y,x\right) - \left(x,y\right)\left(y,x\right) + \left(x,y\right)\left(y,x\right)
+            \\  &\left(x,x\right)\left(y,y\right) - \left(x,y\right)\left(y,x\right) \geq 0
+        \end{split}
+    \end{equation*}
+
+    If we reorder the terms of this equation, we are left with the Cauchy-Schwarz
+    inequality
+    \begin{equation*}
+        \left(x,y\right)\left(x,y\right) \leq \left(x,x\right)\left(y,y\right)
+    \end{equation*}
+\end{proof}
+
+\begin{example}
+    Applying theorem (2.1) in $C(a,b)$, with inner product $\left(f,g\right)=\int_{a}^{b}{f(t)g(t)dt}$, results in
+
+    \begin{equation*}
+        {\left(\int_{a}^{b}{f(t)g(t)dt}\right)}^{2} \leq \left(\int_{a}^{b}{{\left[f(t)\right]}^{2}dt}\right)\left(\int_{a}^{b}{{\left[g(t)\right]}^{2}dt}\right)
+    \end{equation*}
+\end{example}
+
+The triangle inequality is a direct consequence of the Cauchy-Schwarz
+inequality, see
+\begin{proof}[The triangle inequality]
+    Let $x,v\in V$ where $V$ is an Euclidean space. With the properties of the inner product we can see that
+    \begin{equation}
+        \begin{split}
+            &\|x+y\|^{2} = \left(x+y,x+y\right)
+            \\  & = \left(x,x\right) + \left(x,y\right) + \left(y,x\right) + \left(y,y\right)
+            \\  & = \left(x,x\right) + \left(x,y\right) + \overline{\left(x,y\right)} + \left(y,y\right)
+        \end{split}
+    \end{equation}
+\end{proof}
+
+The sum $\left(x,y\right) + \overline{\left(x,y\right)}$ is real, see
+\begin{equation*}
+    z = a + bi \longrightarrow \bar{z} = a - bi, \textnormal{ such that } z + \bar{z} = 2a
+\end{equation*}
+
+So, we can use the Cauchy-Schwarz inequality. See that $\|(x,y)\|^{2}\leq
+    \|x\|\|y\|$ and $\|(y,x)\|^{2} = \|\overline{(x,y)}\|^{2} \leq \|x\|\|y\|$.
+Transforming (2.10) into an inequality holds
+\begin{equation*}
+    \begin{split}
+        \|x+y\|^{2}=\left(x,x\right) + \left(x,y\right) + \overline{\left(x,y\right)} + \left(y,y\right)
+        \\  = \|x\|^{2} + \|y\|^{2} + \left(x,y\right) + \overline{\left(x,y\right)}
+        \\  \leq  \|x\|^{2} + \|y\|^{2} + 2\|x\|\|y\|
+    \end{split}
+\end{equation*}
+
+You can easily see that $\|x\|^{2} + \|y\|^{2} + 2\|x\|\|y\| =
+    (\|x\|+\|y\|)^{2}$. We get
+\begin{equation}
+    \|x+y\|^{2} \leq (\|x\|+\|y\|)^{2}
+\end{equation}
+
+This proves the triangular inequality
+\begin{equation*}
+    \|x+y\| \leq \|x\|+\|y\|
+\end{equation*}
+
+\begin{definition}
+    In a real euclid space $V$, the angle between two non-null elements $x$ and $y$ is defined as the number $\theta$
+    in the interval $\left[0,\pi\right]$. This number satisfies the following equation
+    \begin{equation}
+        \cos\theta = \dfrac{\left(x,y\right)}{\|x\|\|y\|}
+    \end{equation}
+\end{definition}
+
+By using the Cauchy-Schwarz inequality in (2.4) we can prove that
+\begin{equation*}
+    \begin{split}
+        \|(x,y)\|^{2} = \|x\|^{2}\|y\|^{2}\cos^{2}\theta \leq \|x\|\|y\|
+    \end{split}
+\end{equation*}
+
+Such that $\|x\|\|y\|\cos^{2}\theta \leq 1$. But we know that $\|x\|\geq 0$ and
+$\|y\|\geq 0$, so
+\begin{equation*}
+    0 \leq \|x\|\|y\|\cos^{2}\theta \leq 1
+\end{equation*}
+
+This is the same as
+\begin{equation*}
+    0 \leq \|(x,y)\|^{2} \leq 1
+\end{equation*}
+
+Thus, $-1 \leq (x,y) \leq 1$. This proves that the quotient in the right-hand
+side of (2.12) is in $[-1,1]$, so $\cos\theta$ will go from $[0,\pi]$.
 
 \chapter{Projections onto subspaces}
 
@@ -900,25 +1029,26 @@ the \textbf{Fourier series} we will see how to derive them later.
     \begin{equation}
         \begin{cases}
              & x_{11}u_1 + x_{12}u_2 + \cdots + x_{1(n-1)}u_{n-1} + b = z_1
-            \\             & x_{21}u_1 + x_{22}u_2 + \cdots + x_{2(n-1)}u_{n-1} + b = z_2
-            \\             & \qquad \qquad \qquad \qquad \vdots
+            \\                                                         & x_{21}u_1 + x_{22}u_2 + \cdots + x_{2(n-1)}u_{n-1} + b = z_2
+            \\                                                         & \qquad \qquad \qquad \qquad \vdots
             \\ &x_{m1}u_1 + x_{m2}u_2 + \cdots + x_{m(n-1)}u_{n-1} + b = z_m
         \end{cases}
     \end{equation}
 
-    Each $z$ is a combination of $n-1$ independent variables, we can rewrite the
-    system as
+    Each $z$ is a combination of $n-1$ independent variables, plus a bias term. We
+    can rewrite the system as an $m\times n$ matrix multiplied by an $n\times 1$
+    vector
     \begin{equation}
         \left[
             \begin{matrix}
-                x_{11} & x_{12} & \cdots & x_{1(n-1)} \\
-                x_{21} & x_{22} & \cdots & x_{2(n-1)} \\
-                \vdots & \vdots & \ddots & \vdots     \\
-                x_{m1} & x_{m2} & \cdots & x_{m(n-1)} \\
+                1      & x_{11} & x_{12} & \cdots & x_{1(n-1)} \\
+                1      & x_{21} & x_{22} & \cdots & x_{2(n-1)} \\
+                \vdots & \vdots & \vdots & \ddots & \vdots     \\
+                1      & x_{m1} & x_{m2} & \cdots & x_{m(n-1)} \\
             \end{matrix}
             \right]\cdot \left[
             \begin{matrix}
-                u_1 \\u_2\\\vdots\\u_{n-1}
+                b \\ u_1 \\\vdots\\u_{n-1}
             \end{matrix}
             \right] = \left[
             \begin{matrix}
@@ -944,17 +1074,17 @@ the \textbf{Fourier series} we will see how to derive them later.
     \begin{equation}
         \left[
             \begin{matrix}
-                x_{11} & x_{12} & \cdots & x_{1(n-1)} \\
-                x_{21} & x_{22} & \cdots & x_{2(n-1)} \\
+                1      & x_{11} & \cdots & x_{1(n-1)} \\
+                1      & x_{21} & \cdots & x_{2(n-1)} \\
                 \vdots & \vdots & \ddots & \vdots     \\
-                x_{m1} & x_{m2} & \cdots & x_{m(n-1)} \\
+                1      & x_{m1} & \cdots & x_{m(n-1)} \\
             \end{matrix}
             \right]\cdot \left[
             \begin{matrix}
-                u_{11} & \cdots & u_{1p} \\
-                u_{21} & \cdots & u_{2p} \\
-                \vdots & \ddots & \vdots \\
-                u_{n1} & \cdots & u_{np} \\
+                b_1        & \cdots & b_p        \\
+                u_{11}     & \cdots & u_{1p}     \\
+                \vdots     & \ddots & \vdots     \\
+                u_{(n-1)1} & \cdots & u_{(n-1)p} \\
             \end{matrix}
             \right] = \left[
             \begin{matrix}
@@ -966,9 +1096,92 @@ the \textbf{Fourier series} we will see how to derive them later.
             \right]
     \end{equation}
 
-    Then $\hat u$ has dimension $n\times p$. 
+    Then $\hat u$ has dimension $n \times p$, defining a hyperplane that best fits
+    the data in $X$ across all output dimensions.
 
+    While $\hat u$ provides an approximation for each point in $X$, the hyperplane
+    must fit all points. In an $n$-dimensional space, this requires only $n$
+    coefficients.
 
+    For that, we can take the mean of each row (as we have $n$ rows) and
+    approximate a plane with the following equation:
+    \begin{equation}
+        \begin{split}
+            P(x_1, x_2, \dots, x_{n-1}) = \bar{b} + \bar{u}_1 x_1 + \cdots + \bar{u}_{n-1} x_{n-1}        \end{split}
+    \end{equation} Where
+    \begin{itemize}
+        \item $\bar{b} = \dfrac{1}{p}\sum_{i=1}^{p}{b_i}$
+        \item $\bar{u}_i = \dfrac{1}{p}\sum_{j=1}^{p}{u_{i j}}$ for $\,i\in\left\{1,2,\dots,n-1\right\}$
+    \end{itemize}
+
+    \textbf{Worked example: } Suppose that we have a set of points given in the table below:
+
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            \textbf{Point} & $x_1$ & $x_2$ & $z^{(1)}$ & $z^{(2)}$ \\
+            \hline
+            1              & 2     & 3     & 10        & 11        \\
+            2              & 6     & 7     & 9         & 8         \\
+            3              & 4     & 2     & 7         & 9         \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+    Note that we have two different outputs, namely $z^{(1)}$ and $z^{(2)}$. This
+    is because we can have multiple readings for the same inputs $x_1,x_2$.
+
+    Now, using the method described above we can set up our system of equations
+    \begin{equation}
+        \begin{split}
+            X\cdot u = z \\[1em]
+            \begin{bmatrix}
+                1 & 2 & 3 \\
+                1 & 6 & 7 \\
+                1 & 4 & 2 \\
+            \end{bmatrix}
+            \cdot
+            \begin{bmatrix}
+                b_1    & b_2    \\
+                u_{11} & u_{12} \\
+                u_{21} & u_{22}
+            \end{bmatrix}
+            &=
+            \begin{bmatrix}
+                10 & 11 \\
+                9  & 8  \\
+                7  & 9  \\
+            \end{bmatrix}
+        \end{split}
+    \end{equation}
+
+    Solving for $\hat{u} = \left(X^{T}X\right)^{-1}X^{T}z$:
+    \[
+        \hat{u} =
+        \begin{bmatrix}
+            9.6667  & 12.3333 \\
+            -1.0833 & -0.9167 \\
+            0.8333  & 0.1667
+        \end{bmatrix}
+    \]
+
+    Now, we take the mean of each row and convert it to a column vector $\bar{u}$
+    \[
+        \bar{u} = \left[
+            \begin{matrix}
+                \bar{b} \\\bar{u}_1\\\bar{u}_2
+            \end{matrix}
+            \right] = \left[
+            \begin{matrix}
+                11 \\ -1 \\ 0.5
+            \end{matrix}
+            \right]
+    \]
+
+    This gives a final approximation
+    \[
+        P(x, y) = 11 - x + \dfrac{1}{2}y
+    \]
 \end{example}
 
 \end{document}
