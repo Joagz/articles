@@ -1029,8 +1029,8 @@ the \textbf{Fourier series} we will see how to derive them later.
     \begin{equation}
         \begin{cases}
              & x_{11}u_1 + x_{12}u_2 + \cdots + x_{1(n-1)}u_{n-1} + b = z_1
-            \\                                                         & x_{21}u_1 + x_{22}u_2 + \cdots + x_{2(n-1)}u_{n-1} + b = z_2
-            \\                                                         & \qquad \qquad \qquad \qquad \vdots
+            \\                                                                   & x_{21}u_1 + x_{22}u_2 + \cdots + x_{2(n-1)}u_{n-1} + b = z_2
+            \\                                                                   & \qquad \qquad \qquad \qquad \vdots
             \\ &x_{m1}u_1 + x_{m2}u_2 + \cdots + x_{m(n-1)}u_{n-1} + b = z_m
         \end{cases}
     \end{equation}
@@ -1182,6 +1182,132 @@ the \textbf{Fourier series} we will see how to derive them later.
     \[
         P(x, y) = 11 - x + \dfrac{1}{2}y
     \]
+\end{example}
+
+\section{Orthogonalization}
+
+Formally, orthogonalization is the process of taking a set of independent
+vectors in some linear space $V$ and transforming them into an orthogonal
+basis. We define an orthogonal basis as
+
+\begin{definition}
+    An orthogonal basis of a linear space $V$ is a set of $n=\dim V$ elements, called
+    $S=\left\{v_1,v_2,\dots,v_n\right\}$ such that the inner product
+
+    \begin{equation}
+        \left(v_i, v_j\right) = 0, \textnormal{ if } i\neq j
+    \end{equation}
+\end{definition}
+
+\begin{example}
+    We commonly define the basis of vector spaces like $\mathbb{R}^{2}$, $\mathbb{R}^{3}$, \dots, $\mathbb{R}^{n}$ to be orthogonal.
+    We denote their elements as $e_1, e_2,\dots, e_n$.
+\end{example}
+
+The \textbf{Gram-Schmidt} process converts a set of $n$ independent elements to
+an orthogonal basis for the space that they span.
+
+\section{Gram-Schmidt orthogonalization}
+
+Let $X=\left\{x_1, x_2,\dots,x_n\right\}$ be a set of independent elements of a
+linear space $V$. We want to build an orthogonal basis
+$Y=\left\{y_1,y_2,\dots,y_n\right\}$ in $V$.
+
+To do so, we start by taking the first element of $X$. Let $y_1 = x_1$ be the
+first element of the basis. The rest of the elements will be built around this
+one.
+
+If we take the second element, namely $x_2$, and we project $x_2$ onto $y_1$,
+you can easily check (by drawing it) that the vector $x_2 -
+    \textnormal{proj}_{y_1}{x_2}$ is orthogonal to $x_1$. You can see the
+projection formula derivation in the previous section. With this, we define
+$y_2 = x_2 - \frac{\left(x_2,y_1\right)}{\left(y_1,y_1\right)}y_1$.
+
+Now, we have a basis of two vectors. Geometrically, it represents a plane. The
+third vector will not be coplanar to these two, because of their independency.
+Thus, we can project the vector onto the plane by combining both projections
+onto $y_1$ and $y_2$. So $y_3 = x_3 - \left(\textnormal{proj}_{y_2}{x_3}+
+    \textnormal{proj}_{y_1}{x_3}\right)$.
+
+In figure $3.1$ you can see a graphical description. The orthogonal basis is
+$b_1,b_2,b_3$. Take a closer look at $a_3$, this is the third independent
+vector, $c_3$ is a linear combination of $c_{32}$ and $c_{31}$, who are the
+projections of $a_3$ onto $b_1$ and $b_2$. You can think of these projections
+as the ``components'' of $a_3$ in the direction of $b_1$ and $b_2$. Thus, the
+sum of those components form $c_3$, and $a_3 - c_3$ is a vector orthogonal to
+$b_1$ and $b_2$.
+
+\begin{figure}
+    \caption{Gram-Schmidt orthogonalization in $\mathbb{R}^{3}$}
+    \centering
+    \includegraphics[width=0.25\textwidth]{An-illustration-of-Gram-Schmidt-transformation}
+\end{figure}
+
+To find all the vectors, we can write the following equations. For $r = 1, 2,
+    \dots, n-1$ we have
+\begin{equation}
+    y_1 = x_1
+\end{equation}
+\begin{equation}
+    y_{r+1} = x_{r+1} - \sum_{i=1}^{r}{\dfrac{\left(x_{r+1}, y_i\right)}{\left(y_i, y_i\right)}x_{r+1}}
+\end{equation}
+
+Or, alternatively
+\begin{equation}
+    y_{r+1} = x_{r+1} - \sum_{i=1}^{r}{\textnormal{proj}_{y_i}{x_{r+1}}}
+\end{equation}
+
+These are the formulas for \textbf{Gram-Schmidt} orthogonalization.
+
+\begin{example}[Fourier Series]
+    To approximate continuous functions in an interval $\left[0,2\pi\right]$, Fourier discovered that
+    he could combine trigonometric polynomials. Let $V=C(0,2\pi)$ the linear space of all real continuous functions
+    in the interval $\left[0,2\pi\right]$, we define the inner product as $\left(f,g\right) = \int_{a}^{b}{f(x)g(x)dx}$.
+
+    Now, we try to find a normal set of trigonometric functions, this are the basis
+    elements of our linear space. First, consider the functions $\cos{kx}$ and
+    $\sin{kx}$. In a previous section we've seen that the norm of these functions
+    is $\sqrt \pi$. Now, define a finite set of $n$ elements consisting of these
+    trigonometric functions, and define them as $\psi_0, \psi_1, \dots$ where
+    \begin{equation}
+        \psi_0(x) = \dfrac{1}{\sqrt{2\pi}}, \quad \psi_{2k-1}(x) = \dfrac{\cos{kx}}{\sqrt{\pi}}, \quad \psi_{2k}(x) = \dfrac{\sin{kx}}{\sqrt{\pi}}
+    \end{equation}
+
+    for $k \geq 1$. You can check that $\left(\psi_{2k-1},
+        \psi_{2k}\right)=\dfrac{1}{\pi}\int_{0}^{2\pi}{\cos{(kx)}\sin{(kx)}dx} = 0$ for
+    all $k$. Also, for two elements $p,q\leq \dim V$ where $p\neq q$, we have that
+    \begin{equation}
+        \begin{split}
+            \dfrac{1}{\pi}\int_{0}^{2\pi}{\cos(px)\cos(qx)dx} = 0 \\[1em]
+            \dfrac{1}{\pi}\int_{0}^{2\pi}{\sin(px)\sin(qx)dx} = 0
+        \end{split}
+    \end{equation}
+
+    Thus, the set $\Psi =
+        \left\{\psi_0,\psi_1,\dots,\psi_{2k-1},\psi_{2k},\dots\right\}$ is a normalized
+    orthogonal basis of $V$.
+
+    These elements span a subspace $S$, so $S = L\left(\psi_0,\psi_1,\dots\right)$.
+    If we want to approximate a function $f$, we must take the projection of $f$
+    onto $S$. Let $f_n$ be the projection onto an $n$ dimensional subspace $S$
+    spanned by the elements of $\Psi$:
+    \begin{equation}
+        f_n = \sum_{k=1}^{n}{(f, \psi_k)\psi_k}, \quad\textnormal{where }(f,\psi_k) = \int_{0}^{2\pi}{f(x)\psi_k(x)\,dx}
+    \end{equation}
+    Note that we omit the coefficient $\frac{1}{(\psi_k,\psi_k)}$, as $\psi_k$ is normalized it has norm $1$.
+
+    Using the formulas in (3.23) we can write (3.25) as 
+    \begin{equation}
+        f_n = a_0 + \sum_{k=1}^{n}\left({a_k \cos{kx} + b_k \sin {kx}}\right)
+    \end{equation}
+    where
+    \begin{equation}
+        \begin{split}
+            &a_0 = \dfrac{1}{2\pi}\int_{0}^{2\pi}{f(x)\,dx}\\[1em]
+            &a_k = \dfrac{1}{\pi}\int_{0}^{2\pi}{f(x)\cos(kx)\,dx}\\[1em]
+            &b_k = \dfrac{1}{\pi}\int_{0}^{2\pi}{f(x)\sin(kx)\,dx}
+        \end{split}
+    \end{equation}
 \end{example}
 
 \end{document}
