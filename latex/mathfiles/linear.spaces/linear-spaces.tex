@@ -1298,7 +1298,7 @@ These are the formulas for \textbf{Gram-Schmidt} orthogonalization.
 
     Using the formulas in (3.23) we can write (3.25) as 
     \begin{equation}
-        f_n = a_0 + \sum_{k=1}^{n}\left({a_k \cos{kx} + b_k \sin {kx}}\right)
+        f_n(x) = a_0 + \sum_{k=1}^{n}\left({a_k \cos{kx} + b_k \sin {kx}}\right)
     \end{equation}
     where
     \begin{equation}
@@ -1307,6 +1307,11 @@ These are the formulas for \textbf{Gram-Schmidt} orthogonalization.
             &a_k = \dfrac{1}{\pi}\int_{0}^{2\pi}{f(x)\cos(kx)\,dx}\\[1em]
             &b_k = \dfrac{1}{\pi}\int_{0}^{2\pi}{f(x)\sin(kx)\,dx}
         \end{split}
+    \end{equation}
+
+    \textbf{Fourier series} can be written as 
+    \begin{equation}
+        f(x) = a_0 + \sum_{k=1}^{\infty}\left({a_k \cos{kx} + b_k \sin {kx}}\right)
     \end{equation}
 \end{example}
 
