@@ -1029,8 +1029,8 @@ the \textbf{Fourier series} we will see how to derive them later.
     \begin{equation}
         \begin{cases}
              & x_{11}u_1 + x_{12}u_2 + \cdots + x_{1(n-1)}u_{n-1} + b = z_1
-            \\                                                                   & x_{21}u_1 + x_{22}u_2 + \cdots + x_{2(n-1)}u_{n-1} + b = z_2
-            \\                                                                   & \qquad \qquad \qquad \qquad \vdots
+            \\                                                                              & x_{21}u_1 + x_{22}u_2 + \cdots + x_{2(n-1)}u_{n-1} + b = z_2
+            \\                                                                              & \qquad \qquad \qquad \qquad \vdots
             \\ &x_{m1}u_1 + x_{m2}u_2 + \cdots + x_{m(n-1)}u_{n-1} + b = z_m
         \end{cases}
     \end{equation}
@@ -1296,7 +1296,7 @@ These are the formulas for \textbf{Gram-Schmidt} orthogonalization.
     \end{equation}
     Note that we omit the coefficient $\frac{1}{(\psi_k,\psi_k)}$, as $\psi_k$ is normalized it has norm $1$.
 
-    Using the formulas in (3.23) we can write (3.25) as 
+    Using the formulas in (3.23) we can write (3.25) as
     \begin{equation}
         f_n(x) = a_0 + \sum_{k=1}^{n}\left({a_k \cos{kx} + b_k \sin {kx}}\right)
     \end{equation}
@@ -1309,10 +1309,118 @@ These are the formulas for \textbf{Gram-Schmidt} orthogonalization.
         \end{split}
     \end{equation}
 
-    \textbf{Fourier series} can be written as 
+    \textbf{Fourier series} can be written as
     \begin{equation}
         f(x) = a_0 + \sum_{k=1}^{\infty}\left({a_k \cos{kx} + b_k \sin {kx}}\right)
     \end{equation}
 \end{example}
+
+\chapter{Linear Transformations}
+
+\section{Definition}
+A transformation is a function whose domain and image are subspaces of a linear
+space. Let $T$ be a transformation, we denote
+\begin{equation}
+    T: V \to W
+\end{equation}
+to say that $T$ maps
+elements from its domain, $V$, to its image, $W$. Remember, $V$ is any linear space and $W$ is a
+subset of that linear space.
+
+A linear transformation is a kind of transformation that follows certain
+properties. Let $T: V\to W$ be a linear transformation, then
+\begin{enumerate}
+    \item T(x+y) = T(x)+T(y)
+    \item T(cx) = cT(x)
+\end{enumerate}
+for $x,y\in V$ and $c\in \mathbb{R}$.
+
+Both properties can be combined to get
+\begin{equation*}
+    T(ax+by) = aT(x)+bT(y),
+\end{equation*}
+which can be generalized as
+\begin{equation}
+    T\left(\sum_{i=1}^{n}{k_i x_i}\right) = \sum_{i=1}^{n}{k_i T(x_i)}
+\end{equation}
+for $x_1,x_2,\dots, x_n\in V$ and $k_1,k_2,\dots,k_n \in \mathbb{R}$.
+
+\section{Kernel and range}
+
+We must recap some concepts from the previous chapters. We know that any linear
+space must have a \textit{zero element}, commonly we will denote this element
+as $O$.
+
+Linear transformations map from a subspace to another subspace of the same
+linear space. The definition of a subspace given in theorem 1.3 says that any
+subspace $S$ of a linear space $V$ must satisfy the ten axioms of closure.
+Axiom 5 says that there must be a zero element, so any transformation must map
+the zero element.
+
+There will be a subset in the domain of $T$ that will map this element. This is
+called \textbf{kernel}.
+
+\begin{definition}
+    The \textbf{kernel} of a linear transformation $T: V\to W$ is a subset $K\subseteq V$ such that
+    \begin{equation}
+        K(T) = \left\{x: x\in V \wedge T(x)=0\right\}
+    \end{equation}
+\end{definition}
+
+As any subspace, $T(V)$ spans another subspace. This is called the
+\textbf{range} of $T$.
+
+\begin{theorem}
+    The set $T(V)$ (range of $T$) is a subspace of $W$.
+    Furthermore, $T$ maps the zero element on $V$ to the zero element of $W$.
+\end{theorem}
+
+\begin{proof}
+    Let $e_1,e_2,\dots,e_n\in V$ be independent, and $k_1,k_2,\dots,k_n\in \mathbb{R}$.
+    We can form every element in $V$ as a combination of these elements. Let $y$ be any
+    element in $V$ given by
+    \begin{equation*}
+        y = \sum_{i=1}^{n}{k_i e_i},
+    \end{equation*}
+    then we have $T(y)\in W$. If this applies for any $y$, then it does for any element in $V$.
+
+    Now, to prove the second sentence, let $x\in V$ and $c\in \mathbb{R}$. The
+    transformation $T(cx)=0$, then $cT(x) = 0$ if $c=0$ for any $x$ ($0x=O$).
+\end{proof}
+
+\subsection{Dimension of the kernel and range of a transformation}
+
+We are interested in the relationship between the dimension of $K(T)$ and
+$T(V)$. For this, we present the following theorem.
+
+\begin{theorem}
+    If $V$ is a linear space of finite dimension, then $T(V)$ is and we have
+    \begin{equation}
+        \dim N(T) + \dim K(T) = \dim V
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    Let $n=\dim V$, and $e_1,e_2,\dots,e_k$ be a basis for $K(T)$, where
+    $k=\dim K(T)$. A basis of $V$ can be
+    \begin{equation*}
+        e_1,\dots,e_k,e_{k+1},\dots,e_{k+r}
+    \end{equation*}
+    where $k+r=n$.
+
+    If we take an element $y$ from $V$, we can write it as
+    \begin{equation*}
+        y=\sum^{k+r}_{i=1}{c_i e_i}, \quad \textnormal{for any scalars } c_1,c_2,\dots,c_{k+r}
+    \end{equation*}
+
+    If we apply the transformation, we get
+    \begin{equation*}
+        T(y)=T\left(\sum^{k+r}_{i=1}{c_i e_i}\right) = \sum^{k+r}_{i=k+1}{c_i T(e_i)}
+    \end{equation*}
+    Note that we have changed $i$ to be $k+1$, because $T(e_1) = \cdots = T(e_k) = O$.
+
+    This proves that any element in $T(V)$ is a combination of $r$ independent
+    elements, so $r=\dim T(V)$, which proves the theorem. 
+\end{proof}
 
 \end{document}

@@ -13,3 +13,7 @@
 \contentsline {chapter}{\numberline {3}Projections onto subspaces}{15}{}%
 \contentsline {section}{\numberline {3.1}Orthogonalization}{20}{}%
 \contentsline {section}{\numberline {3.2}Gram-Schmidt orthogonalization}{20}{}%
+\contentsline {chapter}{\numberline {4}Linear Transformations}{23}{}%
+\contentsline {section}{\numberline {4.1}Definition}{23}{}%
+\contentsline {section}{\numberline {4.2}Kernel and range}{23}{}%
+\contentsline {subsection}{\numberline {4.2.1}Dimension of the kernel and range of a transformation}{24}{}%
