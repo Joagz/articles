@@ -1,5 +1,6 @@
 \documentclass{article}
 \RequirePackage{amsfonts}
+\usepackage{amsmath}
 \usepackage[spanish]{babel}
 \usepackage[inkscapeformat=png]{svg}
 
@@ -162,20 +163,14 @@ $m=4.65\times10^{-26} [kg]$.
 
 \subsection*{Solución}
 
-Con la fórmula de la presión
-
-\[
-  P = \frac{2}{3}\frac{N}{V}E_c
-\]
-
-Podemos ver que tenemos el volumen $V$ del gas, la velocidad media $v_{rms}^2$,
-la temperatura $T$ y la masa $m$ de cada partícula. De forma que obtenemos
-
-\[
-P=\frac{\frac{2}{3}Nmv_{rms}^2}{V}=\frac{\frac{2}{3}N}{1}
-= \frac{1000}{3} \cdot(4.65\times10^{-26})\cdot N
-\]
-
-Lo que faltaría sería el número de partículas en el recipiente. (?)
+\begin{equation*}
+ \begin{split}
+    &P=\frac{1}{3}\frac{n \cdot N_A}{V} m {v^2}_{rms}
+    \\
+    &\approx\frac{1}{3}\cdot\frac{1 \cdot 6,022\times 10^{23}[mol]\cdot [mol^{-1}]}{1[m^3]} (4,65\times 10^{-26}[kg])\cdot 500\left[\frac m s\right]
+    \\
+    &\approx 4,66705 \left[\dfrac{kg}{m\cdot s^2}\right] = 4,66705 \left[Pa\right]
+  \end{split}
+\end{equation*} 
 
 \end{document}

@@ -6,9 +6,9 @@
 \usepackage{tikz}
 \usetikzlibrary{calc,patterns,angles,quotes}
 
-\newtheorem{theorem}{Theorem}[chapter]
-\newtheorem{example}{Example}[chapter]
-\newtheorem{definition}{Definition}[chapter]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
 
 \title{Linear spaces}
 \author{Joaquín Gómez}
@@ -1029,8 +1029,8 @@ the \textbf{Fourier series} we will see how to derive them later.
     \begin{equation}
         \begin{cases}
              & x_{11}u_1 + x_{12}u_2 + \cdots + x_{1(n-1)}u_{n-1} + b = z_1
-            \\                                                                              & x_{21}u_1 + x_{22}u_2 + \cdots + x_{2(n-1)}u_{n-1} + b = z_2
-            \\                                                                              & \qquad \qquad \qquad \qquad \vdots
+            \\                                                                                          & x_{21}u_1 + x_{22}u_2 + \cdots + x_{2(n-1)}u_{n-1} + b = z_2
+            \\                                                                                          & \qquad \qquad \qquad \qquad \vdots
             \\ &x_{m1}u_1 + x_{m2}u_2 + \cdots + x_{m(n-1)}u_{n-1} + b = z_m
         \end{cases}
     \end{equation}
@@ -1352,7 +1352,7 @@ space must have a \textit{zero element}, commonly we will denote this element
 as $O$.
 
 Linear transformations map from a subspace to another subspace of the same
-linear space. The definition of a subspace given in theorem 1.3 says that any
+linear space. The definition of a subspace given in theorem 1.4.1 says that any
 subspace $S$ of a linear space $V$ must satisfy the ten axioms of closure.
 Axiom 5 says that there must be a zero element, so any transformation must map
 the zero element.
@@ -1393,8 +1393,8 @@ As any subspace, $T(V)$ spans another subspace. This is called the
 We are interested in the relationship between the dimension of $K(T)$ and
 $T(V)$. For this, we present the following theorem.
 
-\begin{theorem}
-    If $V$ is a linear space of finite dimension, then $T(V)$ is and we have
+\begin{theorem}[Rank-Nullity Theorem]
+    If $V$ is a linear space of finite dimension. Let $T$ be a linear transformation, then $T(V)$ must be finite and we have
     \begin{equation}
         \dim N(T) + \dim K(T) = \dim V
     \end{equation}
@@ -1420,7 +1420,49 @@ $T(V)$. For this, we present the following theorem.
     Note that we have changed $i$ to be $k+1$, because $T(e_1) = \cdots = T(e_k) = O$.
 
     This proves that any element in $T(V)$ is a combination of $r$ independent
-    elements, so $r=\dim T(V)$, which proves the theorem. 
+    elements, so $r=\dim T(V)$, which proves the theorem.
+\end{proof}
+
+Now, we are going to give an example with infinite linear spaces.
+
+\begin{theorem}
+    Let $V$ be a linear space of \textbf{infinite dimension}.
+    Let $T$ be a linear transformation $T: V\to W$. Then at least
+    $T(V)$ (image of $T$) or $K(T)$ (kernel of $T$) must have infinite
+    dimension.
+\end{theorem}
+
+\begin{proof}
+    Suppose that
+    \begin{equation*}
+        \begin{cases}
+            \dim T(V) = r \\
+            \dim K(T) = k
+        \end{cases}
+    \end{equation*}
+
+    Now, let $e_1,\dots,e_k$ be a base for $K(T)$. And let a base for $V$ be
+    \begin{equation*}
+        e_1,\dots,e_k,e_{k+1},\dots,e_{k+n},
+    \end{equation*}
+    where $n > r$. By contradiction, we want to prove that this is not
+    possible. Any element $y\in V$ can be expressed as
+    \begin{equation*}
+        y=\sum_{i=1}^{k+n}{c_i e_i},\quad \textnormal{for scalars } c_1,\dots,c_{k+n}.
+    \end{equation*}
+    Applying the transformation on $y$ leaves
+    \begin{equation*}
+        T(y) = \sum_{i=1}^{k+n}{c_i T(e_i)},
+    \end{equation*}
+    but because $T(e_1) = \cdots = T(e_k) = 0$, we can express it as
+    \begin{equation*}
+        T(y) = \sum_{i=k+1}^{k+n}{c_i T(e_i)}
+    \end{equation*}
+
+    The contradiction arises because if $\dim T(V) = r$, then the set $T(V)$ will
+    be linearly dependent by theorem 1.5.1 (because $n>r$). This violates the
+    Rank-Nullity Theorem (4.2.2). For the theorem to hold, at least the range
+    $T(V)$ or the kernel $K(T)$ must have infinite dimension.
 \end{proof}
 
 \end{document}
