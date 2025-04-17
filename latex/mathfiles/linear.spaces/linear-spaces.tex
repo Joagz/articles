@@ -411,7 +411,7 @@ Then $\sum_{i=1}^{n}{(c_i - d_i) e_i} = O$, where $O$ is the zero
 vector/element of $V$. This means that $c_i=d_i$ for $i=1,2,\dots,n$. So there
 is only one representation of $x$ in $V$.
 
-\chapter{Euclidean spaces, inner products and norms}
+\chapter{Euclidean spaces}
 
 We start the section by defining what is a Euclidean space.
 
@@ -747,7 +747,7 @@ This proves the triangular inequality
 \end{equation*}
 
 \begin{definition}
-    In a real euclid space $V$, the angle between two non-null elements $x$ and $y$ is defined as the number $\theta$
+    In a real Euclidean space $V$, the angle between two non-null elements $x$ and $y$ is defined as the number $\theta$
     in the interval $\left[0,\pi\right]$. This number satisfies the following equation
     \begin{equation}
         \cos\theta = \dfrac{\left(x,y\right)}{\|x\|\|y\|}
@@ -1029,8 +1029,8 @@ the \textbf{Fourier series} we will see how to derive them later.
     \begin{equation}
         \begin{cases}
              & x_{11}u_1 + x_{12}u_2 + \cdots + x_{1(n-1)}u_{n-1} + b = z_1
-            \\                                                                                          & x_{21}u_1 + x_{22}u_2 + \cdots + x_{2(n-1)}u_{n-1} + b = z_2
-            \\                                                                                          & \qquad \qquad \qquad \qquad \vdots
+            \\                                                                                                       & x_{21}u_1 + x_{22}u_2 + \cdots + x_{2(n-1)}u_{n-1} + b = z_2
+            \\                                                                                                       & \qquad \qquad \qquad \qquad \vdots
             \\ &x_{m1}u_1 + x_{m2}u_2 + \cdots + x_{m(n-1)}u_{n-1} + b = z_m
         \end{cases}
     \end{equation}
@@ -1464,5 +1464,83 @@ Now, we are going to give an example with infinite linear spaces.
     Rank-Nullity Theorem (4.2.2). For the theorem to hold, at least the range
     $T(V)$ or the kernel $K(T)$ must have infinite dimension.
 \end{proof}
+
+\section{Inverses}
+
+Let $T: V \to W$ be a function. An \textbf{inverse} is a function that,
+multiplied by $T$, maps from $W$ to $V$.
+
+\begin{definition}
+    Let $T: V \to W$. A left inverse $I_l$ is a function such that
+    \begin{equation}
+        I_l \circ T(x) = x,\quad x\in V
+    \end{equation}
+
+    A right inverse $I_r$ satisfies
+    \begin{equation}
+        T(x)\circ I_r = x
+    \end{equation}
+
+    If $I = I_r = I_l$, we call $I$ the inverse of $T$.
+\end{definition}
+
+(We are doing a composition of functions, defined as: \textit{for two
+    functions $f: V\to W$ and $g: S \to V$, and $x\in S$}
+\begin{equation}
+    \begin{split}
+        f\circ g = (f\circ g)(x) = f\left[g(x)\right]
+    \end{split}
+\end{equation}
+note that the domain of $f$ is the image of $g$)
+
+The condition for a function to be invertible is that it must be a one-to-one
+mapping from $V$ to $W$.
+
+\begin{definition}[One-to-one mapping]
+    A one-to-one mapping from a set $V$ to a set $W$ is a function $T: V \to W$ that satisfies the following property.
+    Let $x_1,x_2\in V$, then
+    \begin{equation}
+        T(x_1) = T(x_2), \textnormal{ implies } x_1 = x_2
+    \end{equation}
+
+    In other words, a one-to-one mapping ensures that for each element in $V$,
+    there is only one equivalent element in $W$.
+\end{definition}
+
+With this criteria, there is a theorem that ensures that every one-to-one
+mapping has left and right inverses. The inverse equivalence is not always the
+case.
+
+\begin{theorem}
+    If $T:V \to W$ is a one-to-one mapping, then it has a left inverse and a right inverse. Also, $T$ only has one left inverse,
+    and it is the same as the right inverse.
+\end{theorem}
+
+\begin{proof}
+    The one-to-one mapping definition says that for two elements $x_1,x_2\in V$, the transformation
+    satisfies $T(x_1) = T(x_2)$ if and only if $x_1=x_2$. This ensures that there is at least one left
+    inverse, let $y\in W$ and $S(y)=x$ be a left inverse
+    \begin{equation*}
+        T\left[S(y)\right] = y
+    \end{equation*}
+    Now, let $S'(y)$ be another left inverse, as $T\left[S(y)\right] = y$ and $T\left[S'(y)\right] = y$,
+    there is only one left inverse.
+
+    Now, if $y=T(x)$, we have
+    \begin{equation}
+        x = S\left[T(x)\right] = S(y)
+    \end{equation}
+    Applying $T$ again, we are left with $T(x)$, so indeed, the left and right inverses are the same.
+\end{proof}
+
+Let's recap and give a complete definition
+
+\begin{definition}
+    Let $T:V \to W$ be one-to-one in $V$. $T$ has only one unique inverse (left and right), and
+    we designate it by $T^{-1}$. We say that $T$ is \textbf{invertible} and we name $T^{-1}$ the
+    inverse of $T$.
+\end{definition}
+
+\section{One to one mappings}
 
 \end{document}
