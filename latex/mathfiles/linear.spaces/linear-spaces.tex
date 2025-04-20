@@ -1029,8 +1029,8 @@ the \textbf{Fourier series} we will see how to derive them later.
     \begin{equation}
         \begin{cases}
              & x_{11}u_1 + x_{12}u_2 + \cdots + x_{1(n-1)}u_{n-1} + b = z_1
-            \\                                                                                                       & x_{21}u_1 + x_{22}u_2 + \cdots + x_{2(n-1)}u_{n-1} + b = z_2
-            \\                                                                                                       & \qquad \qquad \qquad \qquad \vdots
+            \\                                                                                                                          & x_{21}u_1 + x_{22}u_2 + \cdots + x_{2(n-1)}u_{n-1} + b = z_2
+            \\                                                                                                                          & \qquad \qquad \qquad \qquad \vdots
             \\ &x_{m1}u_1 + x_{m2}u_2 + \cdots + x_{m(n-1)}u_{n-1} + b = z_m
         \end{cases}
     \end{equation}
@@ -1542,5 +1542,52 @@ Let's recap and give a complete definition
 \end{definition}
 
 \section{One to one mappings}
+
+We have already defined a one-to-one mapping as a \textbf{function} $f$ with
+domain in $V$, such that
+\begin{equation*}
+    f(x_1) = f(x_2), \, \textnormal{if and only if } x_1 = x_2
+\end{equation*}
+
+The following theorem proves that any linear transformation is a one-to-one
+mapping.
+\begin{theorem}
+    Let $T: V \to W$ be a linear transformation. Then the following are equivalent:
+    \begin{enumerate}
+        \item $T$ is one-to-one (injective)
+        \item $T$ is invertible and $T^{-1}$ is a linear transformation
+        \item For all $x \in V$, if $T(x) = O$, then $x = O$
+    \end{enumerate}
+\end{theorem}
+
+% !TODO we should rewrite this more clearly
+
+\begin{proof}
+    We will prove that $(1)\implies (2) \implies (3) \implies (1)$ (1 implies 2, and 2 implies 3, so 1 implies 3).
+
+    \begin{itemize}
+        \item First, if $T$ is one-to-one, by theorem 4.3.1 we can prove (2). So (1) implies
+              (2). If $T$ has an inverse $T^{-1}$, then it must be one-to-one. So (2) implies
+              (1).
+        \item Suppose that $x\in V$ with $\dim V = n$ and an independent basis
+              $e_1,\dots,e_n$, we can write $x$ as
+              \begin{equation*}
+                  x=\sum_{i=1}^{n}{c_i e_i}, \quad \textnormal{for a set of scalars }c_1,\dots,c_n
+              \end{equation*}
+              if $x=O$, it implies $c_1=\cdots=c_n=0$, because the basis of $V$ is independent. Then, applying $T$ leads to
+              \begin{equation*}
+                  T(x)=\sum_{i=1}^{n}{c_i T(e_i)}
+              \end{equation*}
+              All the scalars are zero, so $T(x) = O$.
+
+              As $T$ is linear, suppose that $T(x) = T(y)$, so $T(x) - T(y)= T(x-y) = O$,
+              this means that $x-y=O$.
+
+              The inverse $T^{-1}(x) = T^{-1}(y)$ must by linear by (2), so $T^{-1}(x) -
+                  T^{-1}(y) = T^{-1}(x-y)=O$. This proves (3).
+
+              As all implications are true, the theorem is proven.
+    \end{itemize}
+\end{proof}
 
 \end{document}
