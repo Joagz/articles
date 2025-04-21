@@ -639,9 +639,9 @@ Definition (2.3) satisfies the properties of a norm.
 
     \begin{equation*}
         \begin{split}
-            & \|\sin(\psi)\| = \left(\sin(\psi), \sin(\psi)\right)
-            \\                      & = \sqrt{\int_{\theta_1}^{\theta_2}{\left[\sin(\psi)\right]^{2}d\psi}}
-            \\                      & = \sqrt{\left[\frac{\psi}{2} - \frac{\sin\left(2\psi\right)}{4}\right]_{\theta_1}^{\theta_2}}
+             & \|\sin(\psi)\| = \left(\sin(\psi), \sin(\psi)\right)
+            \\                            & = \sqrt{\int_{\theta_1}^{\theta_2}{\left[\sin(\psi)\right]^{2}d\psi}}
+            \\                            & = \sqrt{\left[\frac{\psi}{2} - \frac{\sin\left(2\psi\right)}{4}\right]_{\theta_1}^{\theta_2}}
             \\ &= \sqrt{\frac{\theta_1 + \theta_2}{2} - \frac{\sin(\theta_2)\cos(\theta_2)-\sin(\theta_1)\cos(\theta_1)}{2}}
         \end{split}
     \end{equation*}
@@ -662,9 +662,9 @@ Definition (2.3) satisfies the properties of a norm.
     the fact that $\left(z,z\right) \geq 0$ and by using the properties of the inner product:
     \begin{equation*}
         \begin{split}
-            &\left(z,z\right) = \left(ax+by, ax+by\right)
-            \\  &= \left(ax,ax\right) + \left(ax,by\right) + \left(by,ax\right) +\left(by,by\right)
-            \\  &= a\bar{a}\left(x,x\right) + a\bar{b}\left(x,y\right) + b\bar{a}\left(y,x\right) + b\bar{b}\left(y,y\right)
+             & \left(z,z\right) = \left(ax+by, ax+by\right)
+            \\        & = \left(ax,ax\right) + \left(ax,by\right) + \left(by,ax\right) +\left(by,by\right)
+            \\        & = a\bar{a}\left(x,x\right) + a\bar{b}\left(x,y\right) + b\bar{a}\left(y,x\right) + b\bar{b}\left(y,y\right)
             \\  &\geq 0
         \end{split}
     \end{equation*}
@@ -689,7 +689,7 @@ Definition (2.3) satisfies the properties of a norm.
         -\left(y,x\right)$, we obtain
     \begin{equation*}
         \begin{split}
-            &\left(x,x\right)\left(y,y\right) - \left(x,y\right)\left(y,x\right) - \left(x,y\right)\left(y,x\right) + \left(x,y\right)\left(y,x\right)
+             & \left(x,x\right)\left(y,y\right) - \left(x,y\right)\left(y,x\right) - \left(x,y\right)\left(y,x\right) + \left(x,y\right)\left(y,x\right)
             \\  &\left(x,x\right)\left(y,y\right) - \left(x,y\right)\left(y,x\right) \geq 0
         \end{split}
     \end{equation*}
@@ -715,8 +715,8 @@ inequality, see
     Let $x,v\in V$ where $V$ is an Euclidean space. With the properties of the inner product we can see that
     \begin{equation}
         \begin{split}
-            &\|x+y\|^{2} = \left(x+y,x+y\right)
-            \\  & = \left(x,x\right) + \left(x,y\right) + \left(y,x\right) + \left(y,y\right)
+             & \|x+y\|^{2} = \left(x+y,x+y\right)
+            \\        & = \left(x,x\right) + \left(x,y\right) + \left(y,x\right) + \left(y,y\right)
             \\  & = \left(x,x\right) + \left(x,y\right) + \overline{\left(x,y\right)} + \left(y,y\right)
         \end{split}
     \end{equation}
@@ -1032,8 +1032,8 @@ the \textbf{Fourier series} we will see how to derive them later.
     \begin{equation}
         \begin{cases}
              & x_{11}u_1 + x_{12}u_2 + \cdots + x_{1(n-1)}u_{n-1} + b = z_1
-            \\                                                                                                                                                     & x_{21}u_1 + x_{22}u_2 + \cdots + x_{2(n-1)}u_{n-1} + b = z_2
-            \\                                                                                                                                                     & \qquad \qquad \qquad \qquad \vdots
+            \\                                                                                                                                                           & x_{21}u_1 + x_{22}u_2 + \cdots + x_{2(n-1)}u_{n-1} + b = z_2
+            \\                                                                                                                                                           & \qquad \qquad \qquad \qquad \vdots
             \\ &x_{m1}u_1 + x_{m2}u_2 + \cdots + x_{m(n-1)}u_{n-1} + b = z_m
         \end{cases}
     \end{equation}
@@ -1149,7 +1149,7 @@ the \textbf{Fourier series} we will see how to derive them later.
                 u_{11} & u_{12} \\
                 u_{21} & u_{22}
             \end{bmatrix}
-            &=
+             & =
             \begin{bmatrix}
                 10 & 11 \\
                 9  & 8  \\
@@ -1306,9 +1306,9 @@ These are the formulas for \textbf{Gram-Schmidt} orthogonalization.
     where
     \begin{equation}
         \begin{split}
-            &a_0 = \dfrac{1}{2\pi}\int_{0}^{2\pi}{f(x)\,dx}\\[1em]
-            &a_k = \dfrac{1}{\pi}\int_{0}^{2\pi}{f(x)\cos(kx)\,dx}\\[1em]
-            &b_k = \dfrac{1}{\pi}\int_{0}^{2\pi}{f(x)\sin(kx)\,dx}
+             & a_0 = \dfrac{1}{2\pi}\int_{0}^{2\pi}{f(x)\,dx}        \\[1em]
+             & a_k = \dfrac{1}{\pi}\int_{0}^{2\pi}{f(x)\cos(kx)\,dx} \\[1em]
+             & b_k = \dfrac{1}{\pi}\int_{0}^{2\pi}{f(x)\sin(kx)\,dx}
         \end{split}
     \end{equation}
 
@@ -1614,7 +1614,6 @@ mapping.
     \begin{equation}
         T(e_i) - T(e_j) = T(e_i - e_j) = O \implies e_i = e_j
     \end{equation}
-
     For any combination of the basis, let $x_i =\sum_{j=1}^{n}{c_{ij} e_j}$ for a
     set of scalars $c_{ij},\dots,c_{in}$, then
     \begin{equation}
@@ -1725,14 +1724,33 @@ And just write
 \end{equation}
 We can represent the whole transformation as an $m\times n$ matrix
 \begin{equation}
-    \left[
+    M=\left[
         \begin{matrix}
-            t_{11} & t_{12} & \cdots & t_{1n}\\
-            t_{21} & t_{22} & \cdots & t_{2n}\\
+            t_{11} & t_{12} & \cdots & t_{1n} \\
+            t_{21} & t_{22} & \cdots & t_{2n} \\
             \vdots & \vdots & \ddots & \vdots \\
             t_{m1} & t_{m2} & \cdots & t_{mn}
         \end{matrix}
         \right]
 \end{equation}
+Each column corresponds to a basis element from $W$. To apply the transformation
+we can multiply this matrix by a column vector in $V$.
+\begin{equation}
+    T(x) = Mx = \left[
+        \begin{matrix}
+            t_{11} & t_{12} & \cdots & t_{1n} \\
+            t_{21} & t_{22} & \cdots & t_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            t_{m1} & t_{m2} & \cdots & t_{mn}
+        \end{matrix}
+        \right]\cdot \left[\begin{matrix}
+            x_1 \\ x_2 \\ \vdots \\x_n
+        \end{matrix}\right]
+\end{equation}
+So we have successfully related matrices with transformation. If you know linear algebra,
+the notions of kernel and linear span apply equally. We could work on other concepts of matrix
+algebra, but we will not. However, I will use matrix representation when necessary.
+
+
 
 \end{document}
