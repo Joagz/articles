@@ -19,3 +19,4 @@
 \contentsline {subsection}{\numberline {4.2.1}Dimension of the kernel and range of a transformation}{24}{}%
 \contentsline {section}{\numberline {4.3}Inverses}{26}{}%
 \contentsline {section}{\numberline {4.4}One to one mappings}{27}{}%
+\contentsline {section}{\numberline {4.5}Matrix representation}{28}{}%

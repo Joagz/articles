@@ -20,25 +20,26 @@
 
 \pagebreak
 \section*{Symbol Glossary}
-\begin{tabular}{@{}llp{8.5cm}@{}}
-    \textbf{Symbol}     & \textbf{Meaning}             & \textbf{Context / Notes}                                                                \\
+\begin{tabular}{@{}llp{5.5cm}@{}}
+    \textbf{Symbol}     & \textbf{Meaning}             & \textbf{Context / Notes}                                    \\
     \\[-0.8em] % add a little spacing
-    $V$                 & Linear space                 & The main set we're working in                                                           \\
-    $O$                 & Zero vector (element of $V$) & Use this consistently for the "zero of the space"                                       \\
-    $0$                 & Scalar zero                  & Element of $\mathbb{R}$                                                                 \\
-    $I$                 & Identity element             & Scalar $1$ in scalar multiplication or the identity matrix (e.g., $I = \text{diag}(1)$) \\
-    $L(S)$              & Linear span of a set $S$     & Smallest subspace containing all linear combinations of $S$                             \\
-    $\dim V$            & Dimension of $V$             & Number of elements in a basis for $V$                                                   \\
-    $\|x\|$             & Norm (length) of element $x$ & Defined as $\sqrt{(x, x)}$ using the inner product                                      \\
-    $(x, y)$            & Inner product of $x$ and $y$ & Dot product in $\mathbb{R}^n$, or more generally defined                                \\
-    $x_i$               & Component of vector $x$      & Used in expressions like $x = \sum c_i e_i$                                             \\
-    $c_i$               & Scalar coefficient           & Used in linear combinations                                                             \\
-    $e_i$               & Basis vector                 & In an ordered basis of $V$                                                              \\
-    $P$                 & Projection matrix            & Used for projecting onto subspaces                                                      \\
-    $\mathrm{proj}_u v$ & Projection of $v$ onto $u$   & Defined as $\left(\frac{v \cdot u}{\|u\|^2}\right) u$                                   \\
+    $V$                 & Linear space                 & The main set we're working in                               \\[1em]
+    $O$                 & Zero vector (element of $V$) & Use this consistently for the "zero of the space"           \\[1em]
+    $0$                 & Scalar zero                  & Element of $\mathbb{R}$                                     \\[1em]
+    $I$                 & Identity element             & Scalar $1$ in scalar multiplication or the identity matrix  \\[1em]
+    $L(S)$              & Linear span of a set $S$     & Smallest subspace containing all linear combinations of $S$ \\[1em]
+    $\dim V$            & Dimension of $V$             & Number of elements in a basis for $V$                       \\[1em]
+    $\|x\|$             & Norm (length) of element $x$ & Defined as $\sqrt{(x, x)}$ using the inner product          \\[1em]
+    $(x, y)$            & Inner product of $x$ and $y$ & Dot product in $\mathbb{R}^n$, or more generally defined    \\[1em]
+    $x_i$               & Component of vector $x$      & Used in expressions like $x = \sum c_i e_i$                 \\[1em]
+    $c_i$               & Scalar coefficient           & Used in linear combinations                                 \\[1em]
+    $e_i$               & Basis vector                 & In an ordered basis of $V$                                  \\[1em]
+    $P$                 & Projection matrix            & Used for projecting onto subspaces                          \\[1em]
+    $\mathrm{proj}_u v$ & Projection of $v$ onto $u$   & Defined as $\left(\frac{v \cdot u}{\|u\|^2}\right) u$       \\[1em]
 \end{tabular}
 
 \mainmatter
+
 \chapter{Introduction}
 \section{Definition of a linear space}
 Let $V$ be a non-empty set of objects, called \textit{elements}. The set V is
@@ -383,8 +384,10 @@ explanation.
 \section{Components}
 
 Let $V$ be a linear space with $\dim V = n$, and consider an ordered basis
-$\left\{e_1, e_2,\dots,e_n\right\}$. This ordered basis is considered as an
-n-tuple $\left(e_1,e_2,\dots,e_n\right)$.
+
+\[\left\{e_1, e_2,\dots,e_n\right\}\]
+This ordered basis is considered as an n-tuple
+$\left(e_1,e_2,\dots,e_n\right)$.
 
 \begin{definition}
     An ordered basis of a linear space $V$ is a set of elements of $V$ that form a basis and provides information
@@ -1029,8 +1032,8 @@ the \textbf{Fourier series} we will see how to derive them later.
     \begin{equation}
         \begin{cases}
              & x_{11}u_1 + x_{12}u_2 + \cdots + x_{1(n-1)}u_{n-1} + b = z_1
-            \\                                                                                                                          & x_{21}u_1 + x_{22}u_2 + \cdots + x_{2(n-1)}u_{n-1} + b = z_2
-            \\                                                                                                                          & \qquad \qquad \qquad \qquad \vdots
+            \\                                                                                                                                                     & x_{21}u_1 + x_{22}u_2 + \cdots + x_{2(n-1)}u_{n-1} + b = z_2
+            \\                                                                                                                                                     & \qquad \qquad \qquad \qquad \vdots
             \\ &x_{m1}u_1 + x_{m2}u_2 + \cdots + x_{m(n-1)}u_{n-1} + b = z_m
         \end{cases}
     \end{equation}
@@ -1589,5 +1592,147 @@ mapping.
               As all implications are true, the theorem is proven.
     \end{itemize}
 \end{proof}
+
+\begin{theorem}
+    Let $T: V\to W$ be a linear transformation, suppose that $V$ is a finite set with $\dim V = n$.
+    Then, the following propositions are equivalent:
+
+    \begin{enumerate}
+        \item $T$ is one-to-one in $V$.
+        \item If $e_1,\dots,e_p$ are independent elements of $V$, then $T(e_1),\dots, T(e_p)$
+              are indepentent elements of $T(V)$.
+        \item $\dim T(V) = n$.
+        \item If $\left\{e_1,\dots, e_n\right\}$ is a basis for $V$, $\left\{T(e_1),\dots,
+                  T(e_n)\right\}$ is a basis for $T(V)$.
+    \end{enumerate}
+
+\end{theorem}
+
+\begin{proof}
+    If $V$ has independent elements $e_1,\dots,e_p$, and $T$ is a linear transformation.
+    With the previous theorem we have that
+    \begin{equation}
+        T(e_i) - T(e_j) = T(e_i - e_j) = O \implies e_i = e_j
+    \end{equation}
+
+    For any combination of the basis, let $x_i =\sum_{j=1}^{n}{c_{ij} e_j}$ for a
+    set of scalars $c_{ij},\dots,c_{in}$, then
+    \begin{equation}
+        T(x_i) = \sum_{j=1}^{n}{c_{ij} T(e_j)}
+    \end{equation}
+    So for two transformations to be equal, we have
+    \begin{equation}
+        T(x_k) - T(x_p) = \sum_{j=1}^{n}{T(e_j)(c_{kj} - c_{pj})} = 0
+    \end{equation}
+    So $c_{kj} = c_{pj}$ for $j=1,2,\dots,n$.Thus, $x_k=x_p$. This proves (1).
+
+    To prove (2), suppose (3) is true, so $T(V)$ has dimension $n$ and $p\leq n$
+    \begin{equation}
+        \sum_{i=1}^{p}c_i{T(e_p)}=0
+    \end{equation}
+    Such that $T\left(\sum_{i=1}^{p}c_i{e_p}\right)=0$, this proves that $c_1 = \cdots = c_p = 0$, so
+    the subset $\left\{T(e_1),\dots,T(e_p)\right\}$ is independent. For $p=n$ this is true, so this proves
+    (4), because any set of independent elements of a linear space is a basis; the second
+    statement of (4) is true because $\left\{T(e_1),\dots,T(e_n)\right\}$ is independent.
+\end{proof}
+
+\section{Matrix representation}
+
+Any linear transformation has a matrix representation. But first, we will
+define how transformations are written, as we need a more clear syntax.
+
+The following theorem defines how a linear transformation maps a linear space
+to another
+
+\begin{theorem}
+    Let $e_1,e_2,\dots,e_n$ be a basis for an n-dimensional linear space $V$. Let $u_1,u_2,\dots,u_n$ be a basis
+    for a linear space $W$. Then, there exists one and only one linear transformation such that
+    \begin{equation}
+        T(e_k) = u_k \quad \textnormal{for } k=1,2,\dots,n
+    \end{equation}
+    This transformation applies any element $x\in V$ like
+    \begin{equation}
+        \textnormal{if }x=\sum_{i=1}^{n}{x_k e_k}\textnormal{ then } T(x)=\sum_{i=1}^{n}{x_k u_k}
+    \end{equation}
+\end{theorem}
+
+We will ignore the proof for this theorem because is trivial. However, you can
+prove it by yourself by applying the previous concepts.
+
+To find a matrix representation, we can group the scalars $x_1, x_2,\dots,x_n$
+from (4.15) to form a vector
+\begin{equation}
+    x = \left[
+        \begin{matrix}
+            x_1 \\ x_2 \\ \vdots \\ x_n
+        \end{matrix}
+        \right]
+\end{equation}
+We have already defined the dot product of two vectors. We can see that applying $T$ on $x$ is the same as
+\begin{equation}
+    T(x) = \left[
+        \begin{matrix}
+            x_1 & x_2 & \cdots & x_n
+        \end{matrix}
+        \right]\cdot  \left[
+        \begin{matrix}
+            T(e_1) \\ T(e_2) \\ \vdots \\ T(e_n)
+        \end{matrix}
+        \right]
+\end{equation}
+Using theorem (4.5.1) we have
+\begin{equation}
+    T(x) = \left[
+        \begin{matrix}
+            x_1 & x_2 & \cdots & x_n
+        \end{matrix}
+        \right]\cdot  \left[
+        \begin{matrix}
+            u_1 \\ u_2 \\ \vdots \\ u_n
+        \end{matrix}
+        \right] = \sum_{i=1}^{n}{x_k u_k}
+\end{equation}
+Now, suppose that the elements $u_1,\dots,u_n$ can be expressed as a combination of $m$ independent elements $w_1,\dots,w_m\in W$,
+then, we have
+\begin{equation}
+    T(e_k) = u_k = \sum_{i=1}^{m}{t_{ik}w_i}\quad \textnormal{for }k=1,2,\dots,n
+\end{equation}
+So each $u_k$ has a vector representation
+\begin{equation*}
+    \left[
+        \begin{matrix}
+            t_{1k} & t_{2k} & \cdots & t_{mk}
+        \end{matrix}
+        \right]\cdot  \left[
+        \begin{matrix}
+            w_1 \\ w_2 \\ \vdots \\ w_m
+        \end{matrix}
+        \right]
+\end{equation*}
+We ignore the basis vector
+$\left[
+        \begin{matrix}
+            w_1 & w_2 & \cdots & w_m
+        \end{matrix}
+        \right]$
+And just write
+\begin{equation}
+    t_k=\left[
+        \begin{matrix}
+            t_{k1} \\ t_{2k} \\ \vdots \\ t_{mk}
+        \end{matrix}
+        \right]
+\end{equation}
+We can represent the whole transformation as an $m\times n$ matrix
+\begin{equation}
+    \left[
+        \begin{matrix}
+            t_{11} & t_{12} & \cdots & t_{1n}\\
+            t_{21} & t_{22} & \cdots & t_{2n}\\
+            \vdots & \vdots & \ddots & \vdots \\
+            t_{m1} & t_{m2} & \cdots & t_{mn}
+        \end{matrix}
+        \right]
+\end{equation}
 
 \end{document}
