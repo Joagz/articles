@@ -639,7 +639,7 @@ Definition (2.3) satisfies the properties of a norm.
 
     \begin{equation*}
         \begin{split}
-             & \|\sin(\psi)\| = \left(\sin(\psi), \sin(\psi)\right)
+            & \|\sin(\psi)\| = \left(\sin(\psi), \sin(\psi)\right)
             \\                            & = \sqrt{\int_{\theta_1}^{\theta_2}{\left[\sin(\psi)\right]^{2}d\psi}}
             \\                            & = \sqrt{\left[\frac{\psi}{2} - \frac{\sin\left(2\psi\right)}{4}\right]_{\theta_1}^{\theta_2}}
             \\ &= \sqrt{\frac{\theta_1 + \theta_2}{2} - \frac{\sin(\theta_2)\cos(\theta_2)-\sin(\theta_1)\cos(\theta_1)}{2}}
@@ -662,7 +662,7 @@ Definition (2.3) satisfies the properties of a norm.
     the fact that $\left(z,z\right) \geq 0$ and by using the properties of the inner product:
     \begin{equation*}
         \begin{split}
-             & \left(z,z\right) = \left(ax+by, ax+by\right)
+            & \left(z,z\right) = \left(ax+by, ax+by\right)
             \\        & = \left(ax,ax\right) + \left(ax,by\right) + \left(by,ax\right) +\left(by,by\right)
             \\        & = a\bar{a}\left(x,x\right) + a\bar{b}\left(x,y\right) + b\bar{a}\left(y,x\right) + b\bar{b}\left(y,y\right)
             \\  &\geq 0
@@ -689,7 +689,7 @@ Definition (2.3) satisfies the properties of a norm.
         -\left(y,x\right)$, we obtain
     \begin{equation*}
         \begin{split}
-             & \left(x,x\right)\left(y,y\right) - \left(x,y\right)\left(y,x\right) - \left(x,y\right)\left(y,x\right) + \left(x,y\right)\left(y,x\right)
+            & \left(x,x\right)\left(y,y\right) - \left(x,y\right)\left(y,x\right) - \left(x,y\right)\left(y,x\right) + \left(x,y\right)\left(y,x\right)
             \\  &\left(x,x\right)\left(y,y\right) - \left(x,y\right)\left(y,x\right) \geq 0
         \end{split}
     \end{equation*}
@@ -715,7 +715,7 @@ inequality, see
     Let $x,v\in V$ where $V$ is an Euclidean space. With the properties of the inner product we can see that
     \begin{equation}
         \begin{split}
-             & \|x+y\|^{2} = \left(x+y,x+y\right)
+            & \|x+y\|^{2} = \left(x+y,x+y\right)
             \\        & = \left(x,x\right) + \left(x,y\right) + \left(y,x\right) + \left(y,y\right)
             \\  & = \left(x,x\right) + \left(x,y\right) + \overline{\left(x,y\right)} + \left(y,y\right)
         \end{split}
@@ -1032,8 +1032,8 @@ the \textbf{Fourier series} we will see how to derive them later.
     \begin{equation}
         \begin{cases}
              & x_{11}u_1 + x_{12}u_2 + \cdots + x_{1(n-1)}u_{n-1} + b = z_1
-            \\                                                                                                                                                           & x_{21}u_1 + x_{22}u_2 + \cdots + x_{2(n-1)}u_{n-1} + b = z_2
-            \\                                                                                                                                                           & \qquad \qquad \qquad \qquad \vdots
+            \\                                                                                                                                                                                                          & x_{21}u_1 + x_{22}u_2 + \cdots + x_{2(n-1)}u_{n-1} + b = z_2
+            \\                                                                                                                                                                                                          & \qquad \qquad \qquad \qquad \vdots
             \\ &x_{m1}u_1 + x_{m2}u_2 + \cdots + x_{m(n-1)}u_{n-1} + b = z_m
         \end{cases}
     \end{equation}
@@ -1149,7 +1149,7 @@ the \textbf{Fourier series} we will see how to derive them later.
                 u_{11} & u_{12} \\
                 u_{21} & u_{22}
             \end{bmatrix}
-             & =
+            & =
             \begin{bmatrix}
                 10 & 11 \\
                 9  & 8  \\
@@ -1306,9 +1306,9 @@ These are the formulas for \textbf{Gram-Schmidt} orthogonalization.
     where
     \begin{equation}
         \begin{split}
-             & a_0 = \dfrac{1}{2\pi}\int_{0}^{2\pi}{f(x)\,dx}        \\[1em]
-             & a_k = \dfrac{1}{\pi}\int_{0}^{2\pi}{f(x)\cos(kx)\,dx} \\[1em]
-             & b_k = \dfrac{1}{\pi}\int_{0}^{2\pi}{f(x)\sin(kx)\,dx}
+            & a_0 = \dfrac{1}{2\pi}\int_{0}^{2\pi}{f(x)\,dx}        \\[1em]
+            & a_k = \dfrac{1}{\pi}\int_{0}^{2\pi}{f(x)\cos(kx)\,dx} \\[1em]
+            & b_k = \dfrac{1}{\pi}\int_{0}^{2\pi}{f(x)\sin(kx)\,dx}
         \end{split}
     \end{equation}
 
@@ -1600,7 +1600,7 @@ mapping.
     \begin{enumerate}
         \item $T$ is one-to-one in $V$.
         \item If $e_1,\dots,e_p$ are independent elements of $V$, then $T(e_1),\dots, T(e_p)$
-              are indepentent elements of $T(V)$.
+              are independent elements of $T(V)$.
         \item $\dim T(V) = n$.
         \item If $\left\{e_1,\dots, e_n\right\}$ is a basis for $V$, $\left\{T(e_1),\dots,
                   T(e_n)\right\}$ is a basis for $T(V)$.
@@ -1651,7 +1651,7 @@ to another
     \end{equation}
     This transformation applies any element $x\in V$ like
     \begin{equation}
-        \textnormal{if }x=\sum_{i=1}^{n}{x_k e_k}\textnormal{ then } T(x)=\sum_{i=1}^{n}{x_k u_k}
+        \textnormal{if }x=\sum_{k=1}^{n}{x_k e_k}\textnormal{ then } T(x)=\sum_{k=1}^{n}{x_k u_k}
     \end{equation}
 \end{theorem}
 
@@ -1718,7 +1718,7 @@ And just write
 \begin{equation}
     t_k=\left[
         \begin{matrix}
-            t_{k1} \\ t_{2k} \\ \vdots \\ t_{mk}
+            t_{k1} \\ t_{2k} \\ \cdots \\ t_{mk}
         \end{matrix}
         \right]
 \end{equation}
@@ -1736,21 +1736,227 @@ We can represent the whole transformation as an $m\times n$ matrix
 Each column corresponds to a basis element from $W$. To apply the transformation
 we can multiply this matrix by a column vector in $V$.
 \begin{equation}
-    T(x) = Mx = \left[
+    T(x) = M^{T}x = \left[
         \begin{matrix}
-            t_{11} & t_{12} & \cdots & t_{1n} \\
-            t_{21} & t_{22} & \cdots & t_{2n} \\
+            t_{11} & t_{21} & \cdots & t_{n1} \\
+            t_{12} & t_{22} & \cdots & t_{n2} \\
             \vdots & \vdots & \ddots & \vdots \\
-            t_{m1} & t_{m2} & \cdots & t_{mn}
+            t_{1m} & t_{2m} & \cdots & t_{nm}
         \end{matrix}
         \right]\cdot \left[\begin{matrix}
             x_1 \\ x_2 \\ \vdots \\x_n
         \end{matrix}\right]
 \end{equation}
-So we have successfully related matrices with transformation. If you know linear algebra,
-the notions of kernel and linear span apply equally. We could work on other concepts of matrix
-algebra, but we will not. However, I will use matrix representation when necessary.
+Here $T$ is the transpose operator. In linear algebra we multiply ``rows by columns'',
+so, to follow that way of thinking, we transpose the matrix. The transpose operator affects
+a matrix $A$ of size $m\times n$ in the following way: \textit{if $A=\left(a_{ij}\right)^{m,n}_{i,j=1}$},
+then
 
+\begin{equation}
+    A^{T} = A=\left(a_{ji}\right)^{m,n}_{i,j=1}
+\end{equation}
 
+Pay close attention to the change of indexes, from $ij$ to $ji$.
 
+So we have successfully related matrices with transformation. If you know
+linear algebra, the notions of kernel and linear span apply equally. We could
+work on other concepts of matrix algebra, but will skip it. However, I will use
+matrix representation when necessary.
+
+\section{Matrix multiplication}
+
+In regard to linear transformations, a matrix multiplication is a composition
+of two transformations.
+
+\begin{definition}
+    Let $T: U \to V$ and $S: V \to W$ be two linear transformations. Then a transformation
+    $ST : U \to W$ is a composition given by $S\left[T(x)\right]$ for $x\in U$.
+\end{definition}
+Now, we will conveniently define a ``function'' to get the matrix representation of a transformation.
+
+\begin{definition}
+    If $T: V \to W$ is any linear transformation, it has a matrix representation given by
+    \begin{equation}
+        m(T) = \left(t_{ij}\right)^{m,n}_{i,j=1}
+    \end{equation}
+    Where $\dim V = n$ and $\dim W = m$.
+\end{definition}
+This new definition will be useful for notation purposes, so we don't have to give each matrix a new letter.
+Now, we want to give definition (4.6.2) a matrix notation. We know that we can apply both transformations the following way
+\begin{theorem}
+    Given two transformations $T: U \to V$ and $S: V \to W$, for linear spaces $U,V$ and $W$, such that
+    \begin{equation*}
+        \dim U = n\quad\dim V = p\quad\dim W = m
+    \end{equation*}
+    There is a matrix representation of $ST = S\left[T(x)\right]$ for any $x\in U$ given by
+    \begin{equation*}
+        S\left[T(x)\right] = \left[m(S)\cdot m(T)\right]\cdot x
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    If we have a basis for $U$ given by $e_1,e_2,\dots,e_n$ that can be written in terms
+    of an independent set of elements $u_1,u_2,\dots,u_p\in V$, then
+    \begin{equation}
+        T(e_k) = \sum_{i=1}^{p}{t_{ik} u_i}
+    \end{equation}
+    Then, if the set $u_1,u_2,\dots,u_p$ is independent, it is a basis for $V$, if it can be written in terms of
+    independent elements $w_1,w_2,\dots,w_m\in W$, then
+    \begin{equation}
+        S(u_k) = \sum_{i=1}^{m}{s_{ik} w_i}
+    \end{equation}
+    Now, if we calculate $ST$ we have, for each $e_1,e_2,\dots,e_n$
+    \begin{equation}
+        S\left[T\left(e_k\right)\right] = S\left[\sum_{i=1}^{p}{t_{ik} u_i}\right] = \sum_{i=1}^{p}{t_{ik} S(u_i)}
+    \end{equation}
+    Applying (4.26) we are left with
+    \begin{equation}
+        S\left[T\left(e_k\right)\right]=\sum_{i=1}^{p}{t_{ik} \left(\sum_{j=1}^{m}{s_{ji}w_j}\right)}
+    \end{equation}
+    The matrix representation for this transformation is, for each $j=1,2,\dots,m$ and $k=1,2,\dots,n$
+    \begin{equation*}
+        \left[\begin{matrix}
+                s_{j1} & s_{j2} & \cdots & s_{jp}
+            \end{matrix}\right]
+        \left[\begin{matrix}
+                t_{1k} \\t_{2k}\\\vdots\\t_{pk}
+            \end{matrix}\right]
+    \end{equation*}
+    If we want to represent the whole sum in terms of matrices, we would write
+    \begin{equation}
+        \left(
+        \left[\begin{matrix}
+                s_{11} & s_{12} & \cdots & s_{1p}
+            \end{matrix}\right]
+        + \cdots +
+        \left[\begin{matrix}
+                s_{m1} & s_{m2} & \cdots & s_{mp}
+            \end{matrix}\right]
+        \right)\cdot  \left[\begin{matrix}
+                t_{1k} \\ t_{2k} \\ \cdots \\ t_{pk}
+            \end{matrix}\right]
+    \end{equation}
+    % Now, if we look at the matrix representation $m(T)$ we have
+    % \begin{equation*}
+    %     m(T)=\left[
+    %         \begin{matrix}
+    %             t_{11} & t_{12} & \cdots & t_{1n} \\
+    %             t_{21} & t_{22} & \cdots & t_{2n} \\
+    %             \vdots & \vdots & \ddots & \vdots \\
+    %             t_{m1} & t_{m2} & \cdots & t_{mn}
+    %         \end{matrix}
+    %         \right]
+    % \end{equation*}
+    For any $x\in U$, applying $S\left[T(x)\right]$ results in
+    \begin{equation}
+        S\left[T(x)\right] = S\left[T\left(\sum_{j=1}^{n}{x_j e_j}\right)\right] = \sum_{j=1}^{n}{x_j S\left[T(e_j)\right]}
+    \end{equation}
+    The result (4.28) is useful now
+    \begin{equation}
+        S\left[T(x)\right]
+        = \sum_{j=1}^{n}{x_j \left(\sum_{i=1}^{p}{t_{ij} S(u_i)}\right)}
+        = \sum_{j=1}^{n}{x_j \left(\sum_{i=1}^{p}{t_{ij}\left\{\sum_{k=1}^{m}s_{ki} w_k\right\}}\right)}
+    \end{equation}
+    Reordering the sums, we have
+    \begin{equation}
+        S\left[T(x)\right] = \sum_{i=1}^{p}{\sum_{j=1}^{n}{\sum_{k=1}^{m}{x_j t_{ij} s_{ki} w_k}}}
+    \end{equation}
+    This is super confusing! Although it seems complicated, it is not at all. If we let $k$ fixed, we can
+    represent the sum in matrix form as
+    \begin{equation}
+        \left[\begin{matrix}
+                s_{k1} & s_{k2} & \cdots & s_{kp}
+            \end{matrix}\right] \left(
+        \left[\begin{matrix}
+                t_{11} \\t_{21}\\\vdots\\t_{p1}
+            \end{matrix}\right] + \cdots + \left[\begin{matrix}
+                t_{1n} \\t_{2n}\\\vdots\\t_{pn}
+            \end{matrix}\right]
+        \right)
+    \end{equation}
+    Now, if we iterate for $k=1,2,\dots,m$, we would have a matrix product, so
+    \begin{equation}
+        S\left[T(x)\right] = \left[
+            \begin{matrix}
+                s_{11} & s_{12} & \cdots & s_{1p} \\
+                s_{21} & s_{22} & \cdots & s_{2p} \\
+                \vdots & \vdots & \ddots & \vdots \\
+                s_{m1} & s_{m2} & \cdots & s_{mp}
+            \end{matrix}
+            \right] \cdot \left[
+            \begin{matrix}
+                t_{11} & t_{12} & \cdots & t_{1n} \\
+                t_{21} & t_{22} & \cdots & t_{2n} \\
+                \vdots & \vdots & \ddots & \vdots \\
+                t_{p1} & t_{p2} & \cdots & t_{pn}
+            \end{matrix}
+            \right]\cdot \left[
+            \begin{matrix}
+                x_{1} \\ x_{2} \\ \vdots \\ x_{n} \\
+            \end{matrix}
+            \right]
+    \end{equation}
+    Which is equal to writing $S\left[T(x)\right] = \left[m(S)\cdot m(T)\right]\cdot x$.
+\end{proof}
+
+The result of $m(S)\cdot m(T)$ is an $m\times n$ matrix, because $m(S)$ is of
+dimension $m\times p$ and $m(T)$ is a $p\times n$ matrix.
+
+\subsection{Matrix multiplication definition}
+
+Before defining matrix multiplication, let's state the following notation to
+make a clear interpretation of each component of the matrix
+
+\begin{definition}
+    Given a matrix $A$, we denote by $A_{j=k}$ the $k^{\text{th}}$ column of $A$, and by $A_{i=k}$ the $k^{\text{th}}$ row of $A$.
+\end{definition}
+
+Now, we define matrix multiplication
+
+\begin{definition}[Matrix multiplication]
+    Given two linear transformations $T: U \to V$ and $S: V \to W$ such that
+    \begin{equation*}
+        \dim U = n\quad\dim V = p\quad\dim W = m
+    \end{equation*}
+    We let matrix multiplication be a function
+    \begin{equation*}
+        \lambda: \mathbb{R}^{m \times p} \times \mathbb{R}^{p \times n} \to \mathbb{R}^{m \times n}    \end{equation*}
+    Which is defined as
+    \begin{equation*}
+        m(S) \cdot m(T) = m(ST) = \left[\begin{matrix}
+                \sum_{k=1}^{p}{s_{1k} t_{k1}} & \cdots & \sum_{k=1}^{p}{s_{1k} t_{kn}} \\
+                \vdots                        & \ddots & \vdots                        \\
+                \sum_{k=1}^{p}{s_{mk} t_{k1}} & \cdots & \sum_{k=1}^{p}{s_{mk} t_{kn}}
+            \end{matrix}\right]
+    \end{equation*}
+
+    So that
+
+    \begin{equation*}
+        m(S) \cdot m(T) = m(ST) = \left[\begin{matrix}
+                m(S)_{i=1}\cdot m(T)_{j=1} & \cdots & m(S)_{i=1}\cdot m(T)_{j=n} \\
+                \vdots                     & \ddots & \vdots                     \\
+                m(S)_{i=m}\cdot m(T)_{j=1} & \cdots & m(S)_{i=m}\cdot m(T)_{j=n}
+            \end{matrix}\right]
+    \end{equation*}
+\end{definition}
+
+Although this definition is confusing at first, it is useful because it
+emphasizes the relationship between linear transformation composition and
+matrix multiplication. However, we now provide a second, more computationally
+convenient definition.
+
+\begin{definition}[Matrix multiplication, second definition]
+    If $A = \left(a_{ij}\right)^{p,n}_{i,j=1}$, $B = \left(b_{ij}\right)^{m,p}_{i,j=1}$, then
+    \begin{equation*}
+        C = B\cdot A
+    \end{equation*}
+    defines a matrix $C = \left(c_{ij}\right)^{m,n}_{i,j=1}$ where
+    \begin{equation*}
+        c_{ij} = \sum_{k=1}^{p} {b_{ik} a_{kj}}
+    \end{equation*}
+\end{definition}
+
+This makes clear that each entry in the matrix is the dot product between the
+$i^{\text{th}}$ row vector of the left-hand matrix and the $j^{\text{th}}$
+column vector of the right-hand matrix.
 \end{document}

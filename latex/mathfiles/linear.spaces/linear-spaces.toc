@@ -20,3 +20,5 @@
 \contentsline {section}{\numberline {4.3}Inverses}{26}{}%
 \contentsline {section}{\numberline {4.4}One to one mappings}{27}{}%
 \contentsline {section}{\numberline {4.5}Matrix representation}{28}{}%
+\contentsline {section}{\numberline {4.6}Matrix multiplication}{30}{}%
+\contentsline {subsection}{\numberline {4.6.1}Matrix multiplication definition}{32}{}%
