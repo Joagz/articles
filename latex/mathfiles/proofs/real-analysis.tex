@@ -1,0 +1,59 @@
+\documentclass[./my-proofs.tex]{subfiles}
+
+\begin{document}
+\section{Real Analysis}
+
+\subsection{De Morgan's Laws: Finite and Infinite Cases}
+\begin{enumerate}
+    \item Show how induction can be used to conclude that
+          \begin{equation}
+              {\left(A_1\cup A_2 \cup \cdots \cup A_n\right)}^{c} =A_1^{c} \cap A_2^{c} \cap \cdots \cap A_n^{c}
+          \end{equation}
+          for any finite $n\in\mathbb{N}$.
+
+    \item Conclude that
+          \begin{equation}
+              {\left(\bigcup^{\infty}_{i=1}{A_i}\right)}^{c} = \bigcap^{\infty}_{i=1}{A_i^{c}}
+          \end{equation}
+\end{enumerate}
+
+\begin{enumerate}
+    \item Morgan's Laws state that $(A\cap B)^{c} = A^{c} \cup B^{c}$ and ${(A \cup B)}^{c}
+              = A^{c} \cap B^{c}$, if we suppose that the initial case is true, suppose that
+          it is true for $n$ and for $n+1$ we have
+          \begin{equation}
+              \begin{split}
+                  {\left(\left(A_1\cup \cdots \cup A_n\right)\cup A_{n+1}\right)}^{c} = {\left(A_1\cup \cdots \cup A_n\right)}^{c}\cap A_{n+1}^{c} \\
+                  =  \left(A_1^{c} \cap \cdots \cap A_n^{c}\right)\cap A_{n+1}^{c}\\
+                  =  A_1^{c} \cap \cdots \cap A_n^{c}\cap A_{n+1}^{c}
+              \end{split}
+          \end{equation}
+          Which proves the statement.
+
+    \item We will prove it for both sides, first we can look at the following logic and
+          apply it to the proof: \textit{If $x\in A$ implies that $x\in B$, then
+              $B\subseteq A$. On the other hand, if $x\in B$ implies that $x\in A$, then
+              $B\supseteq A$}. To put it in words, if $x$ is part of $A$ means that it is
+          \textit{always true} that $x\in B$, then $B$ is contained in $A$, but in the
+          other way, $x$ being in $B$ does not imply that $x$ is in $A$. To prove
+          equivalence, both statements should be true, this is, $B\subseteq A$ and
+          $B\supseteq A$.
+
+          \begin{itemize}
+              \item[($\subseteq$)] If $x\in\bigcap^{\infty}_{i=1}{A_i^{c}}$, then $x\in A_i^{c}$ for all $i\in\mathbb{N}$.
+                  This implies that $x\notin A_i$ for all $i\in\mathbb{N}$, thus $x\notin{\bigcup^{\infty}_{i=1}{A_i}}$, which is the
+                  same as $x\in{\left(\bigcup^{\infty}_{i=1}{A_i}\right)}^{c}$. So we have
+                  \begin{equation}
+                      {\left(\bigcup^{\infty}_{i=1}{A_i}\right)}^{c} \subseteq \bigcap^{\infty}_{i=1}{A_i^{c}}
+                  \end{equation}
+
+              \item[($\supseteq$)] If $x\in{\left(\bigcup^{\infty}_{i=1}{A_i}\right)}^{c}$, then $x\notin A_i$ for all $i\in\mathbb{N}$.
+                  This is the same as $x\in A_i^{c}$ for all $i\in\mathbb{N}$. Thus $x\in\bigcap^{\infty}_{i=1}{A_i^{c}}$. We conclude that
+                  \begin{equation}
+                      {\left(\bigcup^{\infty}_{i=1}{A_i}\right)}^{c} \supseteq \bigcap^{\infty}_{i=1}{A_i^{c}}
+                  \end{equation}
+
+          \end{itemize}
+\end{enumerate}
+
+\end{document}
