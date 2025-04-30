@@ -1,0 +1,1094 @@
+\documentclass[../linear-spaces.tex]{subfiles}
+
+\begin{document}
+\chapter{Euclidean spaces}
+
+We start the section by defining what is a Euclidean space.
+
+\begin{definition}
+    A \textit{Euclidean space} is a finite-dimensional linear space that satisfies
+    Euclidean geometry. They also are metric spaces, which are sets that have a notion
+    of distance between its elements. Euclidean spaces are equipped with an \textit{inner product}.
+\end{definition}
+
+Euclidean spaces have a set of properties, that were defined as axioms in
+\textit{Euclid's Elements}, which are
+\begin{enumerate}
+    \item If $a = b$ and $b = c$ then $a = c$ (the transitive property)
+    \item If $a = b$ then $a + c = b + c$ (the equal sum property)
+    \item If a line segment $\overline{AB}$ coincides in length and direction with
+          $\overline{CD}$ then $\overline{AB} = \overline{CD}$.
+    \item The whole is greater than the part. This can be thought as: \textit{let $A$ and
+              $B\subset A$ be two arbitrary sets, then $A$ is ``bigger'' than $B$}.
+    \item Things that are double of the same thing are equal to each other. (This one is
+          very obvious, consider two equal circles with radius $r_1$ and $r_2$, then we
+          can say that $r_1=r_2$).
+\end{enumerate}
+
+\section{Dot product and inner product}
+
+\begin{definition}
+    The \textit{inner product} is a function that maps two elements $x$ and $y$ from a linear space
+    $V$ to a real number. We write the inner product as $\left(x,y\right)$.
+
+    Any inner product satisfies the following properties:
+
+    \begin{enumerate}
+        \item $\left(x,y\right) = \overline{\left(y,x\right)}$ (hermitian symmetry)
+        \item $\left(x,y+z\right) = \left(x,y\right) + \left(x,z\right)$ (linearity)
+        \item $c\left(x,y\right) = \left(cx,y\right)$ (homogeneity)
+        \item $\left(x,x\right) \geq 0$ (positive definite)
+    \end{enumerate}
+
+    \textbf{Remember}: a linear space with inner product is called a Euclidean space.
+\end{definition}
+
+\begin{example}[Inner product of two vectors in $\mathbb{R}^{2}$]
+
+    \begin{center}
+        \begin{tikzpicture}
+            \coordinate (u1) at (-2,3);
+            \coordinate (u2) at (3,2);
+            \coordinate (O) at (0,0);
+            \coordinate (x) at (5,0);
+            \coordinate (y) at (0,5);
+
+            \draw[->, ultra thick] (O)--(x);
+            \draw[->, ultra thick] (O)--(y);
+
+            \draw[->, thick] (O)--(u1);
+            \draw[->, thick] (O)--(u2);
+
+            \draw (u1) + (.2,.2) node{$u$};
+            \draw (u2) + (.2,.2) node{$v$};
+            \pic [draw, ->, "$\theta$", angle eccentricity=1.5] {angle = x--O--u1};
+            \pic [draw, ->, "$\phi$", angle eccentricity=2] {angle = x--O--u2};
+        \end{tikzpicture}
+    \end{center}
+
+    Now, we have $u=\left(u_{x},u_{y}\right)$ and $v=\left(v_x, v_y\right)$. If we
+    define the inner product of two vectors as
+
+    \[
+        \left(u,v\right) = u \cdot v = \sum_{i=1}^{n}{u_i v_i}
+    \]
+
+    For $n=2$, we have $u \cdot v = u_x v_x + u_y v_y$. We know the following
+    relationships
+
+    \begin{equation}
+        \begin{split}
+            \cos{\theta} = \frac{u_x}{|u|},\qquad
+            \sin{\theta} = \frac{u_y}{|u|}
+            \\\\
+            \cos{\phi} = \frac{v_x}{|v|},\qquad
+            \sin{\phi} = \frac{v_y}{|v|}
+        \end{split}
+    \end{equation}
+
+    If we solve for $u$ and $v$ and substitute in the inner product formula, we get
+
+    \begin{equation}
+        \begin{split}
+            u\cdot v = |u|\cdot|v|\cos\theta\cos\phi + |u|\cdot|v|\sin\theta\sin\phi
+            \\ = |u||v|(\cos\theta\cos\phi + \sin\theta\sin\phi)
+            \\ = |u||v|(\cos{\left(\theta - \phi\right)})
+        \end{split}
+    \end{equation}
+
+    This means that the dot product of two vectors is the product of their length
+    times the cosine of the angle between them. The angle between $u$ and $v$ is
+    given by
+
+    \begin{equation}
+        \begin{split}
+            \theta - \phi = \arccos{\left(\frac{u\cdot v}{|u| |v|}\right)}
+        \end{split}
+    \end{equation}
+
+\end{example}
+
+Well, this rises a question. How can you derive the inner product for a real
+vector space? Well, there are various points to note, but let's imagine that we
+want to measure the length of a vector. How can we measure distance? But also,
+we want to measure the distance between two vectors. Let's go with an example
+to make things clearer.
+
+\begin{example}[Distance of two vectors in $\mathbb{R}^{n}$]
+    We first define two vectors $u=\left(u_1,u_2,\dots,u_n\right)$ and $v=\left(v_1, v-2, \dots, v_n\right)$
+
+    Now, a third vector, we call it $w=u-v$ has squared length
+    \begin{equation}
+        \begin{split}
+            |w|^{2} = (u_1-v_1)^{2} + (u_2-v_2)^{2} + \cdots + (u_n-v_n)^{2}
+        \end{split}
+    \end{equation}
+
+    Expanding one of the right-hand side terms we get $\left(u_i-v_i\right)^{2} =
+        u_i^{2} - 2 v_i u_i + v_i^{2}$. Grouping the terms in (2.4) results in
+    \begin{equation}
+        \begin{split}
+            \sum_{i=1}^{n}{\left(w_i^{2}\right)} = \sum_{i=1}^{n}{\left(u_i^{2}\right)} + \sum_{i=1}^{n}{\left(v_i^{2}\right)} - 2 \sum_{i=1}^{n}{u_i v_i}
+        \end{split}
+    \end{equation}
+
+    Note that in (2.5) the dot product appears in the last term of the right-hand
+    side. We can rewrite the equation as
+    \begin{equation}
+        \begin{split}
+            w \cdot w = v \cdot v + u \cdot u - 2u \cdot v
+        \end{split}
+    \end{equation}
+
+    And using formula (2.2)
+    \begin{equation}
+        \begin{split}
+            |w|^{2} = |v|^{2} + |u|^{2} - 2|u||v|\cos\theta
+        \end{split}
+    \end{equation}
+
+    Where $\theta$ is the angle between $u$ and $v$. Note that, because the angle
+    between a vector and itself is $\theta = 0$, $\cos\theta = 1$.
+\end{example}
+
+Equation (2.7) is nothing more than the \textit{Law of Cosines}. Now, the dot
+product does not follow a ``natural pattern'' as one would call it. Think of
+the exponential function, it has a very natural reasoning, for example, in the
+growth of populations or in differential equations. However, the dot product is
+present when we measure elements in Euclidean spaces, like segments or vectors.
+
+The dot product is not ``derived'' in a way most things are. Instead, it is
+useful because it simply ``appears'' in measurements.
+
+The \textbf{inner product} is a generalization of the dot product in more
+general spaces. Each space can have a different definition for its inner
+product. For example
+
+    [Inner product of a functional space $C(a,b)$]
+
+Let $f:\mathbb{R} \to \mathbb{R}$ and $g:\mathbb{R} \to \mathbb{R}$ be
+continuous functions in an interval $[a,b]$, the inner product is defined as
+\begin{equation}
+    \begin{split}
+        \left(f,g\right) = \int_{a}^{b}{f(x)g(x)dx}
+    \end{split}
+\end{equation}
+
+\section{Norms and length}
+
+The norm of an element $x$ in a linear space is written as $\|x\|$ and has the
+following properties:
+
+\begin{enumerate}
+    \item $\|x\| > 0$ if $x\neq 0$
+    \item $\|x\| = 0$ if $x = 0$
+    \item For a scalar $a$, $\|ax\| = |a|\cdot \|x\|$
+    \item For two elements $y$ and $x$ in a linear space, $\|x+y\| \leq \|x\| + \|y\|$
+\end{enumerate}
+
+The $4^{th}$ property is the triangle inequality.
+
+\begin{definition}
+    Let $x$ be an element of a linear space $V$.
+    The norm of $x$ is defined as $\left(x,x\right)^{1/2}$, this is,
+    the square root of the inner product of $x$ with itself.
+\end{definition}
+
+Definition (2.3) satisfies the properties of a norm.
+
+\begin{example}
+    Let $x\in\mathbb{R}^{n}$, the norm of a vector is given by the pythagorean theorem
+    \begin{equation*}
+        \begin{split}
+            \|x\| = \sqrt{x_1^{2} + x_2^{2} + \cdots + x_n^{2}}
+            = \sqrt{\sum_{i=1}^{n}{x_i^{2}}}
+        \end{split}
+    \end{equation*}
+
+    Finally, we can see that $\|x\|=\sqrt{\left(x,x\right)}$, we defined the inner
+    product of a real vector space as the dot product $\left(\cdot, \cdot\right):
+        V\times V \to \mathbb{R}$. Here $V$ denotes the linear space, in our current
+    example $V=\mathbb{R}^{n}$.
+\end{example}
+
+\begin{example}
+    Let $V$ be the functional space $C(a,b)$, the norm of a function $f$ the interval $\left[a,b\right]$ is
+
+    \begin{equation*}
+        \begin{split}
+            \|f\| = \sqrt{\int_{a}^{b}{\left[f(\psi)\right]^{2}d\psi}}
+        \end{split}
+    \end{equation*}
+
+    This measure in functional spaces are useful when dealing with negative values
+    on the integral. For example, the $\sin (\psi)$ function is zero when
+    integrated in its period. However we can use the norm to measure it:
+
+    \begin{equation*}
+        \begin{split}
+            & \|\sin(\psi)\| = \left(\sin(\psi), \sin(\psi)\right)
+            \\                            & = \sqrt{\int_{\theta_1}^{\theta_2}{\left[\sin(\psi)\right]^{2}d\psi}}
+            \\                            & = \sqrt{\left[\frac{\psi}{2} - \frac{\sin\left(2\psi\right)}{4}\right]_{\theta_1}^{\theta_2}}
+            \\ &= \sqrt{\frac{\theta_1 + \theta_2}{2} - \frac{\sin(\theta_2)\cos(\theta_2)-\sin(\theta_1)\cos(\theta_1)}{2}}
+        \end{split}
+    \end{equation*}
+
+    If $\theta_1=0$ and $\theta_2=2\pi$ we have $\|\sin(\psi)\|=\sqrt{\pi}$.
+\end{example}
+
+\begin{theorem}
+    In the Euclidean space $V$, every inner product satisfies the Cauchy-Schwarz inequality:
+
+    \begin{equation}
+        |\left(x,y\right)|^{2} \leq \left(x,x\right)\left(y,y\right)
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    Let $z=ax+by$. If $x=0$ and $y=0$ the problem is trivial and the equality holds. Else, we can use
+    the fact that $\left(z,z\right) \geq 0$ and by using the properties of the inner product:
+    \begin{equation*}
+        \begin{split}
+            & \left(z,z\right) = \left(ax+by, ax+by\right)
+            \\        & = \left(ax,ax\right) + \left(ax,by\right) + \left(by,ax\right) +\left(by,by\right)
+            \\        & = a\bar{a}\left(x,x\right) + a\bar{b}\left(x,y\right) + b\bar{a}\left(y,x\right) + b\bar{b}\left(y,y\right)
+            \\  &\geq 0
+        \end{split}
+    \end{equation*}
+
+    Now, let $a = \bar{a} = (y,y)$
+    \begin{equation*}
+        \begin{split}
+            \left(y,y\right)\left(y,y\right)\left(x,x\right) + \bar{b}\left(y,y\right)\left(x,y\right) + b\left(y,y\right)\left(y,x\right) + b\bar{b}\left(y,y\right)
+            \geq 0
+        \end{split}
+    \end{equation*}
+
+    Dividing everything by $\left(y,y\right)$ leaves
+    \begin{equation*}
+        \begin{split}
+            \left(y,y\right)\left(x,x\right) + \bar{b}\left(x,y\right) + b\left(y,x\right) + b\bar{b}
+            \geq 0
+        \end{split}
+    \end{equation*}
+
+    If we let $b = -\left(x,y\right)$, such that its conjugate $\bar{b} =
+        -\left(y,x\right)$, we obtain
+    \begin{equation*}
+        \begin{split}
+            & \left(x,x\right)\left(y,y\right) - \left(x,y\right)\left(y,x\right) - \left(x,y\right)\left(y,x\right) + \left(x,y\right)\left(y,x\right)
+            \\  &\left(x,x\right)\left(y,y\right) - \left(x,y\right)\left(y,x\right) \geq 0
+        \end{split}
+    \end{equation*}
+
+    If we reorder the terms of this equation, we are left with the Cauchy-Schwarz
+    inequality
+    \begin{equation*}
+        \left(x,y\right)\left(x,y\right) \leq \left(x,x\right)\left(y,y\right)
+    \end{equation*}
+\end{proof}
+
+\begin{example}
+    Applying theorem (2.1) in $C(a,b)$, with inner product $\left(f,g\right)=\int_{a}^{b}{f(t)g(t)dt}$, results in
+
+    \begin{equation*}
+        {\left(\int_{a}^{b}{f(t)g(t)dt}\right)}^{2} \leq \left(\int_{a}^{b}{{\left[f(t)\right]}^{2}dt}\right)\left(\int_{a}^{b}{{\left[g(t)\right]}^{2}dt}\right)
+    \end{equation*}
+\end{example}
+
+The triangle inequality is a direct consequence of the Cauchy-Schwarz
+inequality, see
+\begin{proof}[The triangle inequality]
+    Let $x,v\in V$ where $V$ is an Euclidean space. With the properties of the inner product we can see that
+    \begin{equation}
+        \begin{split}
+            & \|x+y\|^{2} = \left(x+y,x+y\right)
+            \\        & = \left(x,x\right) + \left(x,y\right) + \left(y,x\right) + \left(y,y\right)
+            \\  & = \left(x,x\right) + \left(x,y\right) + \overline{\left(x,y\right)} + \left(y,y\right)
+        \end{split}
+    \end{equation}
+\end{proof}
+
+The sum $\left(x,y\right) + \overline{\left(x,y\right)}$ is real, see
+\begin{equation*}
+    z = a + bi \longrightarrow \bar{z} = a - bi, \textnormal{ such that } z + \bar{z} = 2a
+\end{equation*}
+
+So, we can use the Cauchy-Schwarz inequality. See that $\|(x,y)\|^{2}\leq
+    \|x\|\|y\|$ and $\|(y,x)\|^{2} = \|\overline{(x,y)}\|^{2} \leq \|x\|\|y\|$.
+Transforming (2.10) into an inequality holds
+\begin{equation*}
+    \begin{split}
+        \|x+y\|^{2}=\left(x,x\right) + \left(x,y\right) + \overline{\left(x,y\right)} + \left(y,y\right)
+        \\  = \|x\|^{2} + \|y\|^{2} + \left(x,y\right) + \overline{\left(x,y\right)}
+        \\  \leq  \|x\|^{2} + \|y\|^{2} + 2\|x\|\|y\|
+    \end{split}
+\end{equation*}
+
+You can easily see that $\|x\|^{2} + \|y\|^{2} + 2\|x\|\|y\| =
+    (\|x\|+\|y\|)^{2}$. We get
+\begin{equation}
+    \|x+y\|^{2} \leq (\|x\|+\|y\|)^{2}
+\end{equation}
+
+This proves the triangular inequality
+\begin{equation*}
+    \|x+y\| \leq \|x\|+\|y\|
+\end{equation*}
+
+\begin{definition}
+    In a real Euclidean space $V$, the angle between two non-null elements $x$ and $y$ is defined as the number $\theta$
+    in the interval $\left[0,\pi\right]$. This number satisfies the following equation
+    \begin{equation}
+        \cos\theta = \dfrac{\left(x,y\right)}{\|x\|\|y\|}
+    \end{equation}
+\end{definition}
+
+By using the Cauchy-Schwarz inequality in (2.4) we can prove that
+\begin{equation*}
+    \begin{split}
+        \|(x,y)\|^{2} = \|x\|^{2}\|y\|^{2}\cos^{2}\theta \leq \|x\|\|y\|
+    \end{split}
+\end{equation*}
+
+Such that $\|x\|\|y\|\cos^{2}\theta \leq 1$. But we know that $\|x\|\geq 0$ and
+$\|y\|\geq 0$, so
+\begin{equation*}
+    0 \leq \|x\|\|y\|\cos^{2}\theta \leq 1
+\end{equation*}
+
+This is the same as
+\begin{equation*}
+    0 \leq \|(x,y)\|^{2} \leq 1
+\end{equation*}
+
+Thus, $-1 \leq (x,y) \leq 1$. This proves that the quotient in the right-hand
+side of (2.12) is in $[-1,1]$, so $\cos\theta$ will go from $[0,\pi]$.
+\chapter{Euclidean spaces}
+
+We start the section by defining what is a Euclidean space.
+
+\begin{definition}
+    A \textit{Euclidean space} is a finite-dimensional linear space that satisfies
+    Euclidean geometry. They also are metric spaces, which are sets that have a notion
+    of distance between its elements. Euclidean spaces are equipped with an \textit{inner product}.
+\end{definition}
+
+Euclidean spaces have a set of properties, that were defined as axioms in
+\textit{Euclid's Elements}, which are
+\begin{enumerate}
+    \item If $a = b$ and $b = c$ then $a = c$ (the transitive property)
+    \item If $a = b$ then $a + c = b + c$ (the equal sum property)
+    \item If a line segment $\overline{AB}$ coincides in length and direction with
+          $\overline{CD}$ then $\overline{AB} = \overline{CD}$.
+    \item The whole is greater than the part. This can be thought as: \textit{let $A$ and
+              $B\subset A$ be two arbitrary sets, then $A$ is ``bigger'' than $B$}.
+    \item Things that are double of the same thing are equal to each other. (This one is
+          very obvious, consider two equal circles with radius $r_1$ and $r_2$, then we
+          can say that $r_1=r_2$).
+\end{enumerate}
+
+\section{Dot product and inner product}
+
+\begin{definition}
+    The \textit{inner product} is a function that maps two elements $x$ and $y$ from a linear space
+    $V$ to a real number. We write the inner product as $\left(x,y\right)$.
+
+    Any inner product satisfies the following properties:
+
+    \begin{enumerate}
+        \item $\left(x,y\right) = \overline{\left(y,x\right)}$ (hermitian symmetry)
+        \item $\left(x,y+z\right) = \left(x,y\right) + \left(x,z\right)$ (linearity)
+        \item $c\left(x,y\right) = \left(cx,y\right)$ (homogeneity)
+        \item $\left(x,x\right) \geq 0$ (positive definite)
+    \end{enumerate}
+
+    \textbf{Remember}: a linear space with inner product is called a Euclidean space.
+\end{definition}
+
+\begin{example}[Inner product of two vectors in $\mathbb{R}^{2}$]
+
+    \begin{center}
+        \begin{tikzpicture}
+            \coordinate (u1) at (-2,3);
+            \coordinate (u2) at (3,2);
+            \coordinate (O) at (0,0);
+            \coordinate (x) at (5,0);
+            \coordinate (y) at (0,5);
+
+            \draw[->, ultra thick] (O)--(x);
+            \draw[->, ultra thick] (O)--(y);
+
+            \draw[->, thick] (O)--(u1);
+            \draw[->, thick] (O)--(u2);
+
+            \draw (u1) + (.2,.2) node{$u$};
+            \draw (u2) + (.2,.2) node{$v$};
+            \pic [draw, ->, "$\theta$", angle eccentricity=1.5] {angle = x--O--u1};
+            \pic [draw, ->, "$\phi$", angle eccentricity=2] {angle = x--O--u2};
+        \end{tikzpicture}
+    \end{center}
+
+    Now, we have $u=\left(u_{x},u_{y}\right)$ and $v=\left(v_x, v_y\right)$. If we
+    define the inner product of two vectors as
+
+    \[
+        \left(u,v\right) = u \cdot v = \sum_{i=1}^{n}{u_i v_i}
+    \]
+
+    For $n=2$, we have $u \cdot v = u_x v_x + u_y v_y$. We know the following
+    relationships
+
+    \begin{equation}
+        \begin{split}
+            \cos{\theta} = \frac{u_x}{|u|},\qquad
+            \sin{\theta} = \frac{u_y}{|u|}
+            \\\\
+            \cos{\phi} = \frac{v_x}{|v|},\qquad
+            \sin{\phi} = \frac{v_y}{|v|}
+        \end{split}
+    \end{equation}
+
+    If we solve for $u$ and $v$ and substitute in the inner product formula, we get
+
+    \begin{equation}
+        \begin{split}
+            u\cdot v = |u|\cdot|v|\cos\theta\cos\phi + |u|\cdot|v|\sin\theta\sin\phi
+            \\ = |u||v|(\cos\theta\cos\phi + \sin\theta\sin\phi)
+            \\ = |u||v|(\cos{\left(\theta - \phi\right)})
+        \end{split}
+    \end{equation}
+
+    This means that the dot product of two vectors is the product of their length
+    times the cosine of the angle between them. The angle between $u$ and $v$ is
+    given by
+
+    \begin{equation}
+        \begin{split}
+            \theta - \phi = \arccos{\left(\frac{u\cdot v}{|u| |v|}\right)}
+        \end{split}
+    \end{equation}
+
+\end{example}
+
+Well, this rises a question. How can you derive the inner product for a real
+vector space? Well, there are various points to note, but let's imagine that we
+want to measure the length of a vector. How can we measure distance? But also,
+we want to measure the distance between two vectors. Let's go with an example
+to make things clearer.
+
+\begin{example}[Distance of two vectors in $\mathbb{R}^{n}$]
+    We first define two vectors $u=\left(u_1,u_2,\dots,u_n\right)$ and $v=\left(v_1, v-2, \dots, v_n\right)$
+
+    Now, a third vector, we call it $w=u-v$ has squared length
+    \begin{equation}
+        \begin{split}
+            |w|^{2} = (u_1-v_1)^{2} + (u_2-v_2)^{2} + \cdots + (u_n-v_n)^{2}
+        \end{split}
+    \end{equation}
+
+    Expanding one of the right-hand side terms we get $\left(u_i-v_i\right)^{2} =
+        u_i^{2} - 2 v_i u_i + v_i^{2}$. Grouping the terms in (2.4) results in
+    \begin{equation}
+        \begin{split}
+            \sum_{i=1}^{n}{\left(w_i^{2}\right)} = \sum_{i=1}^{n}{\left(u_i^{2}\right)} + \sum_{i=1}^{n}{\left(v_i^{2}\right)} - 2 \sum_{i=1}^{n}{u_i v_i}
+        \end{split}
+    \end{equation}
+
+    Note that in (2.5) the dot product appears in the last term of the right-hand
+    side. We can rewrite the equation as
+    \begin{equation}
+        \begin{split}
+            w \cdot w = v \cdot v + u \cdot u - 2u \cdot v
+        \end{split}
+    \end{equation}
+
+    And using formula (2.2)
+    \begin{equation}
+        \begin{split}
+            |w|^{2} = |v|^{2} + |u|^{2} - 2|u||v|\cos\theta
+        \end{split}
+    \end{equation}
+
+    Where $\theta$ is the angle between $u$ and $v$. Note that, because the angle
+    between a vector and itself is $\theta = 0$, $\cos\theta = 1$.
+\end{example}
+
+Equation (2.7) is nothing more than the \textit{Law of Cosines}. Now, the dot
+product does not follow a ``natural pattern'' as one would call it. Think of
+the exponential function, it has a very natural reasoning, for example, in the
+growth of populations or in differential equations. However, the dot product is
+present when we measure elements in Euclidean spaces, like segments or vectors.
+
+The dot product is not ``derived'' in a way most things are. Instead, it is
+useful because it simply ``appears'' in measurements.
+
+The \textbf{inner product} is a generalization of the dot product in more
+general spaces. Each space can have a different definition for its inner
+product. For example
+
+    [Inner product of a functional space $C(a,b)$]
+
+Let $f:\mathbb{R} \to \mathbb{R}$ and $g:\mathbb{R} \to \mathbb{R}$ be
+continuous functions in an interval $[a,b]$, the inner product is defined as
+\begin{equation}
+    \begin{split}
+        \left(f,g\right) = \int_{a}^{b}{f(x)g(x)dx}
+    \end{split}
+\end{equation}
+
+\section{Norms and length}
+
+The norm of an element $x$ in a linear space is written as $\|x\|$ and has the
+following properties:
+
+\begin{enumerate}
+    \item $\|x\| > 0$ if $x\neq 0$
+    \item $\|x\| = 0$ if $x = 0$
+    \item For a scalar $a$, $\|ax\| = |a|\cdot \|x\|$
+    \item For two elements $y$ and $x$ in a linear space, $\|x+y\| \leq \|x\| + \|y\|$
+\end{enumerate}
+
+The $4^{th}$ property is the triangle inequality.
+
+\begin{definition}
+    Let $x$ be an element of a linear space $V$.
+    The norm of $x$ is defined as $\left(x,x\right)^{1/2}$, this is,
+    the square root of the inner product of $x$ with itself.
+\end{definition}
+
+Definition (2.3) satisfies the properties of a norm.
+
+\begin{example}
+    Let $x\in\mathbb{R}^{n}$, the norm of a vector is given by the pythagorean theorem
+    \begin{equation*}
+        \begin{split}
+            \|x\| = \sqrt{x_1^{2} + x_2^{2} + \cdots + x_n^{2}}
+            = \sqrt{\sum_{i=1}^{n}{x_i^{2}}}
+        \end{split}
+    \end{equation*}
+
+    Finally, we can see that $\|x\|=\sqrt{\left(x,x\right)}$, we defined the inner
+    product of a real vector space as the dot product $\left(\cdot, \cdot\right):
+        V\times V \to \mathbb{R}$. Here $V$ denotes the linear space, in our current
+    example $V=\mathbb{R}^{n}$.
+\end{example}
+
+\begin{example}
+    Let $V$ be the functional space $C(a,b)$, the norm of a function $f$ the interval $\left[a,b\right]$ is
+
+    \begin{equation*}
+        \begin{split}
+            \|f\| = \sqrt{\int_{a}^{b}{\left[f(\psi)\right]^{2}d\psi}}
+        \end{split}
+    \end{equation*}
+
+    This measure in functional spaces are useful when dealing with negative values
+    on the integral. For example, the $\sin (\psi)$ function is zero when
+    integrated in its period. However we can use the norm to measure it:
+
+    \begin{equation*}
+        \begin{split}
+            & \|\sin(\psi)\| = \left(\sin(\psi), \sin(\psi)\right)
+            \\                            & = \sqrt{\int_{\theta_1}^{\theta_2}{\left[\sin(\psi)\right]^{2}d\psi}}
+            \\                            & = \sqrt{\left[\frac{\psi}{2} - \frac{\sin\left(2\psi\right)}{4}\right]_{\theta_1}^{\theta_2}}
+            \\ &= \sqrt{\frac{\theta_1 + \theta_2}{2} - \frac{\sin(\theta_2)\cos(\theta_2)-\sin(\theta_1)\cos(\theta_1)}{2}}
+        \end{split}
+    \end{equation*}
+
+    If $\theta_1=0$ and $\theta_2=2\pi$ we have $\|\sin(\psi)\|=\sqrt{\pi}$.
+\end{example}
+
+\begin{theorem}
+    In the Euclidean space $V$, every inner product satisfies the Cauchy-Schwarz inequality:
+
+    \begin{equation}
+        |\left(x,y\right)|^{2} \leq \left(x,x\right)\left(y,y\right)
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    Let $z=ax+by$. If $x=0$ and $y=0$ the problem is trivial and the equality holds. Else, we can use
+    the fact that $\left(z,z\right) \geq 0$ and by using the properties of the inner product:
+    \begin{equation*}
+        \begin{split}
+            & \left(z,z\right) = \left(ax+by, ax+by\right)
+            \\        & = \left(ax,ax\right) + \left(ax,by\right) + \left(by,ax\right) +\left(by,by\right)
+            \\        & = a\bar{a}\left(x,x\right) + a\bar{b}\left(x,y\right) + b\bar{a}\left(y,x\right) + b\bar{b}\left(y,y\right)
+            \\  &\geq 0
+        \end{split}
+    \end{equation*}
+
+    Now, let $a = \bar{a} = (y,y)$
+    \begin{equation*}
+        \begin{split}
+            \left(y,y\right)\left(y,y\right)\left(x,x\right) + \bar{b}\left(y,y\right)\left(x,y\right) + b\left(y,y\right)\left(y,x\right) + b\bar{b}\left(y,y\right)
+            \geq 0
+        \end{split}
+    \end{equation*}
+
+    Dividing everything by $\left(y,y\right)$ leaves
+    \begin{equation*}
+        \begin{split}
+            \left(y,y\right)\left(x,x\right) + \bar{b}\left(x,y\right) + b\left(y,x\right) + b\bar{b}
+            \geq 0
+        \end{split}
+    \end{equation*}
+
+    If we let $b = -\left(x,y\right)$, such that its conjugate $\bar{b} =
+        -\left(y,x\right)$, we obtain
+    \begin{equation*}
+        \begin{split}
+            & \left(x,x\right)\left(y,y\right) - \left(x,y\right)\left(y,x\right) - \left(x,y\right)\left(y,x\right) + \left(x,y\right)\left(y,x\right)
+            \\  &\left(x,x\right)\left(y,y\right) - \left(x,y\right)\left(y,x\right) \geq 0
+        \end{split}
+    \end{equation*}
+
+    If we reorder the terms of this equation, we are left with the Cauchy-Schwarz
+    inequality
+    \begin{equation*}
+        \left(x,y\right)\left(x,y\right) \leq \left(x,x\right)\left(y,y\right)
+    \end{equation*}
+\end{proof}
+
+\begin{example}
+    Applying theorem (2.1) in $C(a,b)$, with inner product $\left(f,g\right)=\int_{a}^{b}{f(t)g(t)dt}$, results in
+
+    \begin{equation*}
+        {\left(\int_{a}^{b}{f(t)g(t)dt}\right)}^{2} \leq \left(\int_{a}^{b}{{\left[f(t)\right]}^{2}dt}\right)\left(\int_{a}^{b}{{\left[g(t)\right]}^{2}dt}\right)
+    \end{equation*}
+\end{example}
+
+The triangle inequality is a direct consequence of the Cauchy-Schwarz
+inequality, see
+\begin{proof}[The triangle inequality]
+    Let $x,v\in V$ where $V$ is an Euclidean space. With the properties of the inner product we can see that
+    \begin{equation}
+        \begin{split}
+            & \|x+y\|^{2} = \left(x+y,x+y\right)
+            \\        & = \left(x,x\right) + \left(x,y\right) + \left(y,x\right) + \left(y,y\right)
+            \\  & = \left(x,x\right) + \left(x,y\right) + \overline{\left(x,y\right)} + \left(y,y\right)
+        \end{split}
+    \end{equation}
+\end{proof}
+
+The sum $\left(x,y\right) + \overline{\left(x,y\right)}$ is real, see
+\begin{equation*}
+    z = a + bi \longrightarrow \bar{z} = a - bi, \textnormal{ such that } z + \bar{z} = 2a
+\end{equation*}
+
+So, we can use the Cauchy-Schwarz inequality. See that $\|(x,y)\|^{2}\leq
+    \|x\|\|y\|$ and $\|(y,x)\|^{2} = \|\overline{(x,y)}\|^{2} \leq \|x\|\|y\|$.
+Transforming (2.10) into an inequality holds
+\begin{equation*}
+    \begin{split}
+        \|x+y\|^{2}=\left(x,x\right) + \left(x,y\right) + \overline{\left(x,y\right)} + \left(y,y\right)
+        \\  = \|x\|^{2} + \|y\|^{2} + \left(x,y\right) + \overline{\left(x,y\right)}
+        \\  \leq  \|x\|^{2} + \|y\|^{2} + 2\|x\|\|y\|
+    \end{split}
+\end{equation*}
+
+You can easily see that $\|x\|^{2} + \|y\|^{2} + 2\|x\|\|y\| =
+    (\|x\|+\|y\|)^{2}$. We get
+\begin{equation}
+    \|x+y\|^{2} \leq (\|x\|+\|y\|)^{2}
+\end{equation}
+
+This proves the triangular inequality
+\begin{equation*}
+    \|x+y\| \leq \|x\|+\|y\|
+\end{equation*}
+
+\begin{definition}
+    In a real Euclidean space $V$, the angle between two non-null elements $x$ and $y$ is defined as the number $\theta$
+    in the interval $\left[0,\pi\right]$. This number satisfies the following equation
+    \begin{equation}
+        \cos\theta = \dfrac{\left(x,y\right)}{\|x\|\|y\|}
+    \end{equation}
+\end{definition}
+
+By using the Cauchy-Schwarz inequality in (2.4) we can prove that
+\begin{equation*}
+    \begin{split}
+        \|(x,y)\|^{2} = \|x\|^{2}\|y\|^{2}\cos^{2}\theta \leq \|x\|\|y\|
+    \end{split}
+\end{equation*}
+
+Such that $\|x\|\|y\|\cos^{2}\theta \leq 1$. But we know that $\|x\|\geq 0$ and
+$\|y\|\geq 0$, so
+\begin{equation*}
+    0 \leq \|x\|\|y\|\cos^{2}\theta \leq 1
+\end{equation*}
+
+This is the same as
+\begin{equation*}
+    0 \leq \|(x,y)\|^{2} \leq 1
+\end{equation*}
+
+Thus, $-1 \leq (x,y) \leq 1$. This proves that the quotient in the right-hand
+side of (2.12) is in $[-1,1]$, so $\cos\theta$ will go from $[0,\pi]$.
+\chapter{Euclidean spaces}
+
+We start the section by defining what is a Euclidean space.
+
+\begin{definition}
+    A \textit{Euclidean space} is a finite-dimensional linear space that satisfies
+    Euclidean geometry. They also are metric spaces, which are sets that have a notion
+    of distance between its elements. Euclidean spaces are equipped with an \textit{inner product}.
+\end{definition}
+
+Euclidean spaces have a set of properties, that were defined as axioms in
+\textit{Euclid's Elements}, which are
+\begin{enumerate}
+    \item If $a = b$ and $b = c$ then $a = c$ (the transitive property)
+    \item If $a = b$ then $a + c = b + c$ (the equal sum property)
+    \item If a line segment $\overline{AB}$ coincides in length and direction with
+          $\overline{CD}$ then $\overline{AB} = \overline{CD}$.
+    \item The whole is greater than the part. This can be thought as: \textit{let $A$ and
+              $B\subset A$ be two arbitrary sets, then $A$ is ``bigger'' than $B$}.
+    \item Things that are double of the same thing are equal to each other. (This one is
+          very obvious, consider two equal circles with radius $r_1$ and $r_2$, then we
+          can say that $r_1=r_2$).
+\end{enumerate}
+
+\section{Dot product and inner product}
+
+\begin{definition}
+    The \textit{inner product} is a function that maps two elements $x$ and $y$ from a linear space
+    $V$ to a real number. We write the inner product as $\left(x,y\right)$.
+
+    Any inner product satisfies the following properties:
+
+    \begin{enumerate}
+        \item $\left(x,y\right) = \overline{\left(y,x\right)}$ (hermitian symmetry)
+        \item $\left(x,y+z\right) = \left(x,y\right) + \left(x,z\right)$ (linearity)
+        \item $c\left(x,y\right) = \left(cx,y\right)$ (homogeneity)
+        \item $\left(x,x\right) \geq 0$ (positive definite)
+    \end{enumerate}
+
+    \textbf{Remember}: a linear space with inner product is called a Euclidean space.
+\end{definition}
+
+\begin{example}[Inner product of two vectors in $\mathbb{R}^{2}$]
+
+    \begin{center}
+        \begin{tikzpicture}
+            \coordinate (u1) at (-2,3);
+            \coordinate (u2) at (3,2);
+            \coordinate (O) at (0,0);
+            \coordinate (x) at (5,0);
+            \coordinate (y) at (0,5);
+
+            \draw[->, ultra thick] (O)--(x);
+            \draw[->, ultra thick] (O)--(y);
+
+            \draw[->, thick] (O)--(u1);
+            \draw[->, thick] (O)--(u2);
+
+            \draw (u1) + (.2,.2) node{$u$};
+            \draw (u2) + (.2,.2) node{$v$};
+            \pic [draw, ->, "$\theta$", angle eccentricity=1.5] {angle = x--O--u1};
+            \pic [draw, ->, "$\phi$", angle eccentricity=2] {angle = x--O--u2};
+        \end{tikzpicture}
+    \end{center}
+
+    Now, we have $u=\left(u_{x},u_{y}\right)$ and $v=\left(v_x, v_y\right)$. If we
+    define the inner product of two vectors as
+
+    \[
+        \left(u,v\right) = u \cdot v = \sum_{i=1}^{n}{u_i v_i}
+    \]
+
+    For $n=2$, we have $u \cdot v = u_x v_x + u_y v_y$. We know the following
+    relationships
+
+    \begin{equation}
+        \begin{split}
+            \cos{\theta} = \frac{u_x}{|u|},\qquad
+            \sin{\theta} = \frac{u_y}{|u|}
+            \\\\
+            \cos{\phi} = \frac{v_x}{|v|},\qquad
+            \sin{\phi} = \frac{v_y}{|v|}
+        \end{split}
+    \end{equation}
+
+    If we solve for $u$ and $v$ and substitute in the inner product formula, we get
+
+    \begin{equation}
+        \begin{split}
+            u\cdot v = |u|\cdot|v|\cos\theta\cos\phi + |u|\cdot|v|\sin\theta\sin\phi
+            \\ = |u||v|(\cos\theta\cos\phi + \sin\theta\sin\phi)
+            \\ = |u||v|(\cos{\left(\theta - \phi\right)})
+        \end{split}
+    \end{equation}
+
+    This means that the dot product of two vectors is the product of their length
+    times the cosine of the angle between them. The angle between $u$ and $v$ is
+    given by
+
+    \begin{equation}
+        \begin{split}
+            \theta - \phi = \arccos{\left(\frac{u\cdot v}{|u| |v|}\right)}
+        \end{split}
+    \end{equation}
+
+\end{example}
+
+Well, this rises a question. How can you derive the inner product for a real
+vector space? Well, there are various points to note, but let's imagine that we
+want to measure the length of a vector. How can we measure distance? But also,
+we want to measure the distance between two vectors. Let's go with an example
+to make things clearer.
+
+\begin{example}[Distance of two vectors in $\mathbb{R}^{n}$]
+    We first define two vectors $u=\left(u_1,u_2,\dots,u_n\right)$ and $v=\left(v_1, v-2, \dots, v_n\right)$
+
+    Now, a third vector, we call it $w=u-v$ has squared length
+    \begin{equation}
+        \begin{split}
+            |w|^{2} = (u_1-v_1)^{2} + (u_2-v_2)^{2} + \cdots + (u_n-v_n)^{2}
+        \end{split}
+    \end{equation}
+
+    Expanding one of the right-hand side terms we get $\left(u_i-v_i\right)^{2} =
+        u_i^{2} - 2 v_i u_i + v_i^{2}$. Grouping the terms in (2.4) results in
+    \begin{equation}
+        \begin{split}
+            \sum_{i=1}^{n}{\left(w_i^{2}\right)} = \sum_{i=1}^{n}{\left(u_i^{2}\right)} + \sum_{i=1}^{n}{\left(v_i^{2}\right)} - 2 \sum_{i=1}^{n}{u_i v_i}
+        \end{split}
+    \end{equation}
+
+    Note that in (2.5) the dot product appears in the last term of the right-hand
+    side. We can rewrite the equation as
+    \begin{equation}
+        \begin{split}
+            w \cdot w = v \cdot v + u \cdot u - 2u \cdot v
+        \end{split}
+    \end{equation}
+
+    And using formula (2.2)
+    \begin{equation}
+        \begin{split}
+            |w|^{2} = |v|^{2} + |u|^{2} - 2|u||v|\cos\theta
+        \end{split}
+    \end{equation}
+
+    Where $\theta$ is the angle between $u$ and $v$. Note that, because the angle
+    between a vector and itself is $\theta = 0$, $\cos\theta = 1$.
+\end{example}
+
+Equation (2.7) is nothing more than the \textit{Law of Cosines}. Now, the dot
+product does not follow a ``natural pattern'' as one would call it. Think of
+the exponential function, it has a very natural reasoning, for example, in the
+growth of populations or in differential equations. However, the dot product is
+present when we measure elements in Euclidean spaces, like segments or vectors.
+
+The dot product is not ``derived'' in a way most things are. Instead, it is
+useful because it simply ``appears'' in measurements.
+
+The \textbf{inner product} is a generalization of the dot product in more
+general spaces. Each space can have a different definition for its inner
+product. For example
+
+    [Inner product of a functional space $C(a,b)$]
+
+Let $f:\mathbb{R} \to \mathbb{R}$ and $g:\mathbb{R} \to \mathbb{R}$ be
+continuous functions in an interval $[a,b]$, the inner product is defined as
+\begin{equation}
+    \begin{split}
+        \left(f,g\right) = \int_{a}^{b}{f(x)g(x)dx}
+    \end{split}
+\end{equation}
+
+\section{Norms and length}
+
+The norm of an element $x$ in a linear space is written as $\|x\|$ and has the
+following properties:
+
+\begin{enumerate}
+    \item $\|x\| > 0$ if $x\neq 0$
+    \item $\|x\| = 0$ if $x = 0$
+    \item For a scalar $a$, $\|ax\| = |a|\cdot \|x\|$
+    \item For two elements $y$ and $x$ in a linear space, $\|x+y\| \leq \|x\| + \|y\|$
+\end{enumerate}
+
+The $4^{th}$ property is the triangle inequality.
+
+\begin{definition}
+    Let $x$ be an element of a linear space $V$.
+    The norm of $x$ is defined as $\left(x,x\right)^{1/2}$, this is,
+    the square root of the inner product of $x$ with itself.
+\end{definition}
+
+Definition (2.3) satisfies the properties of a norm.
+
+\begin{example}
+    Let $x\in\mathbb{R}^{n}$, the norm of a vector is given by the pythagorean theorem
+    \begin{equation*}
+        \begin{split}
+            \|x\| = \sqrt{x_1^{2} + x_2^{2} + \cdots + x_n^{2}}
+            = \sqrt{\sum_{i=1}^{n}{x_i^{2}}}
+        \end{split}
+    \end{equation*}
+
+    Finally, we can see that $\|x\|=\sqrt{\left(x,x\right)}$, we defined the inner
+    product of a real vector space as the dot product $\left(\cdot, \cdot\right):
+        V\times V \to \mathbb{R}$. Here $V$ denotes the linear space, in our current
+    example $V=\mathbb{R}^{n}$.
+\end{example}
+
+\begin{example}
+    Let $V$ be the functional space $C(a,b)$, the norm of a function $f$ the interval $\left[a,b\right]$ is
+
+    \begin{equation*}
+        \begin{split}
+            \|f\| = \sqrt{\int_{a}^{b}{\left[f(\psi)\right]^{2}d\psi}}
+        \end{split}
+    \end{equation*}
+
+    This measure in functional spaces are useful when dealing with negative values
+    on the integral. For example, the $\sin (\psi)$ function is zero when
+    integrated in its period. However we can use the norm to measure it:
+
+    \begin{equation*}
+        \begin{split}
+            & \|\sin(\psi)\| = \left(\sin(\psi), \sin(\psi)\right)
+            \\                            & = \sqrt{\int_{\theta_1}^{\theta_2}{\left[\sin(\psi)\right]^{2}d\psi}}
+            \\                            & = \sqrt{\left[\frac{\psi}{2} - \frac{\sin\left(2\psi\right)}{4}\right]_{\theta_1}^{\theta_2}}
+            \\ &= \sqrt{\frac{\theta_1 + \theta_2}{2} - \frac{\sin(\theta_2)\cos(\theta_2)-\sin(\theta_1)\cos(\theta_1)}{2}}
+        \end{split}
+    \end{equation*}
+
+    If $\theta_1=0$ and $\theta_2=2\pi$ we have $\|\sin(\psi)\|=\sqrt{\pi}$.
+\end{example}
+
+\begin{theorem}
+    In the Euclidean space $V$, every inner product satisfies the Cauchy-Schwarz inequality:
+
+    \begin{equation}
+        |\left(x,y\right)|^{2} \leq \left(x,x\right)\left(y,y\right)
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    Let $z=ax+by$. If $x=0$ and $y=0$ the problem is trivial and the equality holds. Else, we can use
+    the fact that $\left(z,z\right) \geq 0$ and by using the properties of the inner product:
+    \begin{equation*}
+        \begin{split}
+            & \left(z,z\right) = \left(ax+by, ax+by\right)
+            \\        & = \left(ax,ax\right) + \left(ax,by\right) + \left(by,ax\right) +\left(by,by\right)
+            \\        & = a\bar{a}\left(x,x\right) + a\bar{b}\left(x,y\right) + b\bar{a}\left(y,x\right) + b\bar{b}\left(y,y\right)
+            \\  &\geq 0
+        \end{split}
+    \end{equation*}
+
+    Now, let $a = \bar{a} = (y,y)$
+    \begin{equation*}
+        \begin{split}
+            \left(y,y\right)\left(y,y\right)\left(x,x\right) + \bar{b}\left(y,y\right)\left(x,y\right) + b\left(y,y\right)\left(y,x\right) + b\bar{b}\left(y,y\right)
+            \geq 0
+        \end{split}
+    \end{equation*}
+
+    Dividing everything by $\left(y,y\right)$ leaves
+    \begin{equation*}
+        \begin{split}
+            \left(y,y\right)\left(x,x\right) + \bar{b}\left(x,y\right) + b\left(y,x\right) + b\bar{b}
+            \geq 0
+        \end{split}
+    \end{equation*}
+
+    If we let $b = -\left(x,y\right)$, such that its conjugate $\bar{b} =
+        -\left(y,x\right)$, we obtain
+    \begin{equation*}
+        \begin{split}
+            & \left(x,x\right)\left(y,y\right) - \left(x,y\right)\left(y,x\right) - \left(x,y\right)\left(y,x\right) + \left(x,y\right)\left(y,x\right)
+            \\  &\left(x,x\right)\left(y,y\right) - \left(x,y\right)\left(y,x\right) \geq 0
+        \end{split}
+    \end{equation*}
+
+    If we reorder the terms of this equation, we are left with the Cauchy-Schwarz
+    inequality
+    \begin{equation*}
+        \left(x,y\right)\left(x,y\right) \leq \left(x,x\right)\left(y,y\right)
+    \end{equation*}
+\end{proof}
+
+\begin{example}
+    Applying theorem (2.1) in $C(a,b)$, with inner product $\left(f,g\right)=\int_{a}^{b}{f(t)g(t)dt}$, results in
+
+    \begin{equation*}
+        {\left(\int_{a}^{b}{f(t)g(t)dt}\right)}^{2} \leq \left(\int_{a}^{b}{{\left[f(t)\right]}^{2}dt}\right)\left(\int_{a}^{b}{{\left[g(t)\right]}^{2}dt}\right)
+    \end{equation*}
+\end{example}
+
+The triangle inequality is a direct consequence of the Cauchy-Schwarz
+inequality, see
+\begin{proof}[The triangle inequality]
+    Let $x,v\in V$ where $V$ is an Euclidean space. With the properties of the inner product we can see that
+    \begin{equation}
+        \begin{split}
+            & \|x+y\|^{2} = \left(x+y,x+y\right)
+            \\        & = \left(x,x\right) + \left(x,y\right) + \left(y,x\right) + \left(y,y\right)
+            \\  & = \left(x,x\right) + \left(x,y\right) + \overline{\left(x,y\right)} + \left(y,y\right)
+        \end{split}
+    \end{equation}
+\end{proof}
+
+The sum $\left(x,y\right) + \overline{\left(x,y\right)}$ is real, see
+\begin{equation*}
+    z = a + bi \longrightarrow \bar{z} = a - bi, \textnormal{ such that } z + \bar{z} = 2a
+\end{equation*}
+
+So, we can use the Cauchy-Schwarz inequality. See that $\|(x,y)\|^{2}\leq
+    \|x\|\|y\|$ and $\|(y,x)\|^{2} = \|\overline{(x,y)}\|^{2} \leq \|x\|\|y\|$.
+Transforming (2.10) into an inequality holds
+\begin{equation*}
+    \begin{split}
+        \|x+y\|^{2}=\left(x,x\right) + \left(x,y\right) + \overline{\left(x,y\right)} + \left(y,y\right)
+        \\  = \|x\|^{2} + \|y\|^{2} + \left(x,y\right) + \overline{\left(x,y\right)}
+        \\  \leq  \|x\|^{2} + \|y\|^{2} + 2\|x\|\|y\|
+    \end{split}
+\end{equation*}
+
+You can easily see that $\|x\|^{2} + \|y\|^{2} + 2\|x\|\|y\| =
+    (\|x\|+\|y\|)^{2}$. We get
+\begin{equation}
+    \|x+y\|^{2} \leq (\|x\|+\|y\|)^{2}
+\end{equation}
+
+This proves the triangular inequality
+\begin{equation*}
+    \|x+y\| \leq \|x\|+\|y\|
+\end{equation*}
+
+\begin{definition}
+    In a real Euclidean space $V$, the angle between two non-null elements $x$ and $y$ is defined as the number $\theta$
+    in the interval $\left[0,\pi\right]$. This number satisfies the following equation
+    \begin{equation}
+        \cos\theta = \dfrac{\left(x,y\right)}{\|x\|\|y\|}
+    \end{equation}
+\end{definition}
+
+By using the Cauchy-Schwarz inequality in (2.4) we can prove that
+\begin{equation*}
+    \begin{split}
+        \|(x,y)\|^{2} = \|x\|^{2}\|y\|^{2}\cos^{2}\theta \leq \|x\|\|y\|
+    \end{split}
+\end{equation*}
+
+Such that $\|x\|\|y\|\cos^{2}\theta \leq 1$. But we know that $\|x\|\geq 0$ and
+$\|y\|\geq 0$, so
+\begin{equation*}
+    0 \leq \|x\|\|y\|\cos^{2}\theta \leq 1
+\end{equation*}
+
+This is the same as
+\begin{equation*}
+    0 \leq \|(x,y)\|^{2} \leq 1
+\end{equation*}
+
+Thus, $-1 \leq (x,y) \leq 1$. This proves that the quotient in the right-hand
+side of (2.12) is in $[-1,1]$, so $\cos\theta$ will go from $[0,\pi]$.
+
+\end{document}

@@ -1,0 +1,30 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{1}{}%
+\contentsline {section}{\numberline {1.1}Definition of a linear space}{1}{}%
+\contentsline {section}{\numberline {1.2}Examples of linear spaces}{2}{}%
+\contentsline {section}{\numberline {1.3}Consequences of the axioms}{3}{}%
+\contentsline {section}{\numberline {1.4}Subspaces of a linear space}{3}{}%
+\contentsline {section}{\numberline {1.5}Dependent and independent subsets of a linear space}{4}{}%
+\contentsline {section}{\numberline {1.6}Basis and dimension}{6}{}%
+\contentsline {section}{\numberline {1.7}Components}{7}{}%
+\contentsline {chapter}{\numberline {2}Euclidean spaces}{9}{}%
+\contentsline {section}{\numberline {2.1}Dot product and inner product}{9}{}%
+\contentsline {section}{\numberline {2.2}Norms and length}{11}{}%
+\contentsline {chapter}{\numberline {3}Euclidean spaces}{15}{}%
+\contentsline {section}{\numberline {3.1}Dot product and inner product}{15}{}%
+\contentsline {section}{\numberline {3.2}Norms and length}{17}{}%
+\contentsline {chapter}{\numberline {4}Euclidean spaces}{21}{}%
+\contentsline {section}{\numberline {4.1}Dot product and inner product}{21}{}%
+\contentsline {section}{\numberline {4.2}Norms and length}{23}{}%
+\contentsline {chapter}{\numberline {5}Projections onto subspaces}{27}{}%
+\contentsline {section}{\numberline {5.1}Orthogonalization}{32}{}%
+\contentsline {section}{\numberline {5.2}Gram-Schmidt orthogonalization}{32}{}%
+\contentsline {chapter}{\numberline {6}Linear Transformations}{35}{}%
+\contentsline {section}{\numberline {6.1}Definition}{35}{}%
+\contentsline {section}{\numberline {6.2}Kernel and range}{35}{}%
+\contentsline {subsection}{\numberline {6.2.1}Dimension of the kernel and range of a transformation}{36}{}%
+\contentsline {section}{\numberline {6.3}Inverses}{37}{}%
+\contentsline {section}{\numberline {6.4}One to one mappings}{38}{}%
+\contentsline {section}{\numberline {6.5}Matrix representation}{40}{}%
+\contentsline {section}{\numberline {6.6}Matrix multiplication}{42}{}%
+\contentsline {subsection}{\numberline {6.6.1}Matrix multiplication definition}{44}{}%

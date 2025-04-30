@@ -1,0 +1,694 @@
+\documentclass[../linear-spaces.tex]{subfiles}
+
+\begin{document}
+\chapter{Linear Transformations}
+
+\section{Definition}
+A transformation is a function whose domain and image are subspaces of a linear
+space. Let $T$ be a transformation, we denote
+\begin{equation}
+    T: V \to W
+\end{equation}
+to say that $T$ maps
+elements from its domain, $V$, to its image, $W$. Remember, $V$ is any linear space and $W$ is a
+subset of that linear space.
+
+A linear transformation is a kind of transformation that follows certain
+properties. Let $T: V\to W$ be a linear transformation, then
+\begin{enumerate}
+    \item T(x+y) = T(x)+T(y)
+    \item T(cx) = cT(x)
+\end{enumerate}
+for $x,y\in V$ and $c\in \mathbb{R}$.
+
+Both properties can be combined to get
+\begin{equation*}
+    T(ax+by) = aT(x)+bT(y),
+\end{equation*}
+which can be generalized as
+\begin{equation}
+    T\left(\sum_{i=1}^{n}{k_i x_i}\right) = \sum_{i=1}^{n}{k_i T(x_i)}
+\end{equation}
+for $x_1,x_2,\dots, x_n\in V$ and $k_1,k_2,\dots,k_n \in \mathbb{R}$.
+
+\section{Kernel and range}
+
+We must recap some concepts from the previous chapters. We know that any linear
+space must have a \textit{zero element}, commonly we will denote this element
+as $O$.
+
+Linear transformations map from a subspace to another subspace of the same
+linear space. The definition of a subspace given in theorem 1.4.1 says that any
+subspace $S$ of a linear space $V$ must satisfy the ten axioms of closure.
+Axiom 5 says that there must be a zero element, so any transformation must map
+the zero element.
+
+There will be a subset in the domain of $T$ that will map this element. This is
+called \textbf{kernel}.
+
+\begin{definition}
+    The \textbf{kernel} of a linear transformation $T: V\to W$ is a subset $K\subseteq V$ such that
+    \begin{equation}
+        K(T) = \left\{x: x\in V \wedge T(x)=0\right\}
+    \end{equation}
+\end{definition}
+
+As any subspace, $T(V)$ spans another subspace. This is called the
+\textbf{range} of $T$.
+
+\begin{theorem}
+    The set $T(V)$ (range of $T$) is a subspace of $W$.
+    Furthermore, $T$ maps the zero element on $V$ to the zero element of $W$.
+\end{theorem}
+
+\begin{proof}
+    Let $e_1,e_2,\dots,e_n\in V$ be independent, and $k_1,k_2,\dots,k_n\in \mathbb{R}$.
+    We can form every element in $V$ as a combination of these elements. Let $y$ be any
+    element in $V$ given by
+    \begin{equation*}
+        y = \sum_{i=1}^{n}{k_i e_i},
+    \end{equation*}
+    then we have $T(y)\in W$. If this applies for any $y$, then it does for any element in $V$.
+
+    Now, to prove the second sentence, let $x\in V$ and $c\in \mathbb{R}$. The
+    transformation $T(cx)=0$, then $cT(x) = 0$ if $c=0$ for any $x$ ($0x=O$).
+\end{proof}
+
+\subsection{Dimension of the kernel and range of a transformation}
+
+We are interested in the relationship between the dimension of $K(T)$ and
+$T(V)$. For this, we present the following theorem.
+
+\begin{theorem}[Rank-Nullity Theorem]
+    If $V$ is a linear space of finite dimension. Let $T$ be a linear transformation, then $T(V)$ must be finite and we have
+    \begin{equation}
+        \dim N(T) + \dim K(T) = \dim V
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    Let $n=\dim V$, and $e_1,e_2,\dots,e_k$ be a basis for $K(T)$, where
+    $k=\dim K(T)$. A basis of $V$ can be
+    \begin{equation*}
+        e_1,\dots,e_k,e_{k+1},\dots,e_{k+r}
+    \end{equation*}
+    where $k+r=n$.
+
+    If we take an element $y$ from $V$, we can write it as
+    \begin{equation*}
+        y=\sum^{k+r}_{i=1}{c_i e_i}, \quad \textnormal{for any scalars } c_1,c_2,\dots,c_{k+r}
+    \end{equation*}
+
+    If we apply the transformation, we get
+    \begin{equation*}
+        T(y)=T\left(\sum^{k+r}_{i=1}{c_i e_i}\right) = \sum^{k+r}_{i=k+1}{c_i T(e_i)}
+    \end{equation*}
+    Note that we have changed $i$ to be $k+1$, because $T(e_1) = \cdots = T(e_k) = O$.
+
+    This proves that any element in $T(V)$ is a combination of $r$ independent
+    elements, so $r=\dim T(V)$, which proves the theorem.
+\end{proof}
+
+Now, we are going to give an example with infinite linear spaces.
+
+\begin{theorem}
+    Let $V$ be a linear space of \textbf{infinite dimension}.
+    Let $T$ be a linear transformation $T: V\to W$. Then at least
+    $T(V)$ (image of $T$) or $K(T)$ (kernel of $T$) must have infinite
+    dimension.
+\end{theorem}
+
+\begin{proof}
+    Suppose that
+    \begin{equation*}
+        \begin{cases}
+            \dim T(V) = r \\
+            \dim K(T) = k
+        \end{cases}
+    \end{equation*}
+
+    Now, let $e_1,\dots,e_k$ be a base for $K(T)$. And let a base for $V$ be
+    \begin{equation*}
+        e_1,\dots,e_k,e_{k+1},\dots,e_{k+n},
+    \end{equation*}
+    where $n > r$. By contradiction, we want to prove that this is not
+    possible. Any element $y\in V$ can be expressed as
+    \begin{equation*}
+        y=\sum_{i=1}^{k+n}{c_i e_i},\quad \textnormal{for scalars } c_1,\dots,c_{k+n}.
+    \end{equation*}
+    Applying the transformation on $y$ leaves
+    \begin{equation*}
+        T(y) = \sum_{i=1}^{k+n}{c_i T(e_i)},
+    \end{equation*}
+    but because $T(e_1) = \cdots = T(e_k) = 0$, we can express it as
+    \begin{equation*}
+        T(y) = \sum_{i=k+1}^{k+n}{c_i T(e_i)}
+    \end{equation*}
+
+    The contradiction arises because if $\dim T(V) = r$, then the set $T(V)$ will
+    be linearly dependent by theorem 1.5.1 (because $n>r$). This violates the
+    Rank-Nullity Theorem (4.2.2). For the theorem to hold, at least the range
+    $T(V)$ or the kernel $K(T)$ must have infinite dimension.
+\end{proof}
+
+\section{Inverses}
+
+Let $T: V \to W$ be a function. An \textbf{inverse} is a function that,
+multiplied by $T$, maps from $W$ to $V$.
+
+\begin{definition}
+    Let $T: V \to W$. A left inverse $I_l$ is a function such that
+    \begin{equation}
+        I_l \circ T(x) = x,\quad x\in V
+    \end{equation}
+
+    A right inverse $I_r$ satisfies
+    \begin{equation}
+        T(x)\circ I_r = x
+    \end{equation}
+
+    If $I = I_r = I_l$, we call $I$ the inverse of $T$.
+\end{definition}
+
+(We are doing a composition of functions, defined as: \textit{for two
+    functions $f: V\to W$ and $g: S \to V$, and $x\in S$}
+\begin{equation}
+    \begin{split}
+        f\circ g = (f\circ g)(x) = f\left[g(x)\right]
+    \end{split}
+\end{equation}
+note that the domain of $f$ is the image of $g$)
+
+The condition for a function to be invertible is that it must be a one-to-one
+mapping from $V$ to $W$.
+
+\begin{definition}[One-to-one mapping]
+    A one-to-one mapping from a set $V$ to a set $W$ is a function $T: V \to W$ that satisfies the following property.
+    Let $x_1,x_2\in V$, then
+    \begin{equation}
+        T(x_1) = T(x_2), \textnormal{ implies } x_1 = x_2
+    \end{equation}
+
+    In other words, a one-to-one mapping ensures that for each element in $V$,
+    there is only one equivalent element in $W$.
+\end{definition}
+
+With this criteria, there is a theorem that ensures that every one-to-one
+mapping has left and right inverses. The inverse equivalence is not always the
+case.
+
+\begin{theorem}
+    If $T:V \to W$ is a one-to-one mapping, then it has a left inverse and a right inverse. Also, $T$ only has one left inverse,
+    and it is the same as the right inverse.
+\end{theorem}
+
+\begin{proof}
+    The one-to-one mapping definition says that for two elements $x_1,x_2\in V$, the transformation
+    satisfies $T(x_1) = T(x_2)$ if and only if $x_1=x_2$. This ensures that there is at least one left
+    inverse, let $y\in W$ and $S(y)=x$ be a left inverse
+    \begin{equation*}
+        T\left[S(y)\right] = y
+    \end{equation*}
+    Now, let $S'(y)$ be another left inverse, as $T\left[S(y)\right] = y$ and $T\left[S'(y)\right] = y$,
+    there is only one left inverse.
+
+    Now, if $y=T(x)$, we have
+    \begin{equation}
+        x = S\left[T(x)\right] = S(y)
+    \end{equation}
+    Applying $T$ again, we are left with $T(x)$, so indeed, the left and right inverses are the same.
+\end{proof}
+
+Let's recap and give a complete definition
+
+\begin{definition}
+    Let $T:V \to W$ be one-to-one in $V$. $T$ has only one unique inverse (left and right), and
+    we designate it by $T^{-1}$. We say that $T$ is \textbf{invertible} and we name $T^{-1}$ the
+    inverse of $T$.
+\end{definition}
+
+\section{One to one mappings}
+
+We have already defined a one-to-one mapping as a \textbf{function} $f$ with
+domain in $V$, such that
+\begin{equation*}
+    f(x_1) = f(x_2), \, \textnormal{if and only if } x_1 = x_2
+\end{equation*}
+
+The following theorem proves that any linear transformation is a one-to-one
+mapping.
+\begin{theorem}
+    Let $T: V \to W$ be a linear transformation. Then the following are equivalent:
+    \begin{enumerate}
+        \item $T$ is one-to-one (injective)
+        \item $T$ is invertible and $T^{-1}$ is a linear transformation
+        \item For all $x \in V$, if $T(x) = O$, then $x = O$
+    \end{enumerate}
+\end{theorem}
+
+% !TODO we should rewrite this more clearly
+
+\begin{proof}
+    We will prove that $(1)\implies (2) \implies (3) \implies (1)$ (1 implies 2, and 2 implies 3, so 1 implies 3).
+
+    \begin{itemize}
+        \item First, if $T$ is one-to-one, by theorem 4.3.1 we can prove (2). So (1) implies
+              (2). If $T$ has an inverse $T^{-1}$, then it must be one-to-one. So (2) implies
+              (1).
+        \item Suppose that $x\in V$ with $\dim V = n$ and an independent basis
+              $e_1,\dots,e_n$, we can write $x$ as
+              \begin{equation*}
+                  x=\sum_{i=1}^{n}{c_i e_i}, \quad \textnormal{for a set of scalars }c_1,\dots,c_n
+              \end{equation*}
+              if $x=O$, it implies $c_1=\cdots=c_n=0$, because the basis of $V$ is independent. Then, applying $T$ leads to
+              \begin{equation*}
+                  T(x)=\sum_{i=1}^{n}{c_i T(e_i)}
+              \end{equation*}
+              All the scalars are zero, so $T(x) = O$.
+
+              As $T$ is linear, suppose that $T(x) = T(y)$, so $T(x) - T(y)= T(x-y) = O$,
+              this means that $x-y=O$.
+
+              The inverse $T^{-1}(x) = T^{-1}(y)$ must by linear by (2), so $T^{-1}(x) -
+                  T^{-1}(y) = T^{-1}(x-y)=O$. This proves (3).
+
+              As all implications are true, the theorem is proven.
+    \end{itemize}
+\end{proof}
+
+\begin{theorem}
+    Let $T: V\to W$ be a linear transformation, suppose that $V$ is a finite set with $\dim V = n$.
+    Then, the following propositions are equivalent:
+
+    \begin{enumerate}
+        \item $T$ is one-to-one in $V$.
+        \item If $e_1,\dots,e_p$ are independent elements of $V$, then $T(e_1),\dots, T(e_p)$
+              are independent elements of $T(V)$.
+        \item $\dim T(V) = n$.
+        \item If $\left\{e_1,\dots, e_n\right\}$ is a basis for $V$, $\left\{T(e_1),\dots,
+                  T(e_n)\right\}$ is a basis for $T(V)$.
+    \end{enumerate}
+
+\end{theorem}
+
+\begin{proof}
+    If $V$ has independent elements $e_1,\dots,e_p$, and $T$ is a linear transformation.
+    With the previous theorem we have that
+    \begin{equation}
+        T(e_i) - T(e_j) = T(e_i - e_j) = O \implies e_i = e_j
+    \end{equation}
+    For any combination of the basis, let $x_i =\sum_{j=1}^{n}{c_{ij} e_j}$ for a
+    set of scalars $c_{ij},\dots,c_{in}$, then
+    \begin{equation}
+        T(x_i) = \sum_{j=1}^{n}{c_{ij} T(e_j)}
+    \end{equation}
+    So for two transformations to be equal, we have
+    \begin{equation}
+        T(x_k) - T(x_p) = \sum_{j=1}^{n}{T(e_j)(c_{kj} - c_{pj})} = 0
+    \end{equation}
+    So $c_{kj} = c_{pj}$ for $j=1,2,\dots,n$.Thus, $x_k=x_p$. This proves (1).
+
+    To prove (2), suppose (3) is true, so $T(V)$ has dimension $n$ and $p\leq n$
+    \begin{equation}
+        \sum_{i=1}^{p}c_i{T(e_p)}=0
+    \end{equation}
+    Such that $T\left(\sum_{i=1}^{p}c_i{e_p}\right)=0$, this proves that $c_1 = \cdots = c_p = 0$, so
+    the subset $\left\{T(e_1),\dots,T(e_p)\right\}$ is independent. For $p=n$ this is true, so this proves
+    (4), because any set of independent elements of a linear space is a basis; the second
+    statement of (4) is true because $\left\{T(e_1),\dots,T(e_n)\right\}$ is independent.
+\end{proof}
+
+\section{Matrix representation}
+
+Any linear transformation has a matrix representation. But first, we will
+define how transformations are written, as we need a more clear syntax.
+
+The following theorem defines how a linear transformation maps a linear space
+to another
+
+\begin{theorem}
+    Let $e_1,e_2,\dots,e_n$ be a basis for an n-dimensional linear space $V$. Let $u_1,u_2,\dots,u_n$ be a basis
+    for a linear space $W$. Then, there exists one and only one linear transformation such that
+    \begin{equation}
+        T(e_k) = u_k \quad \textnormal{for } k=1,2,\dots,n
+    \end{equation}
+    This transformation applies any element $x\in V$ like
+    \begin{equation}
+        \textnormal{if }x=\sum_{k=1}^{n}{x_k e_k}\textnormal{ then } T(x)=\sum_{k=1}^{n}{x_k u_k}
+    \end{equation}
+\end{theorem}
+
+We will ignore the proof for this theorem because is trivial. However, you can
+prove it by yourself by applying the previous concepts.
+
+To find a matrix representation, we can group the scalars $x_1, x_2,\dots,x_n$
+from (4.15) to form a vector
+\begin{equation}
+    x = \left[
+        \begin{matrix}
+            x_1 \\ x_2 \\ \vdots \\ x_n
+        \end{matrix}
+        \right]
+\end{equation}
+We have already defined the dot product of two vectors. We can see that applying $T$ on $x$ is the same as
+\begin{equation}
+    T(x) = \left[
+        \begin{matrix}
+            x_1 & x_2 & \cdots & x_n
+        \end{matrix}
+        \right]\cdot  \left[
+        \begin{matrix}
+            T(e_1) \\ T(e_2) \\ \vdots \\ T(e_n)
+        \end{matrix}
+        \right]
+\end{equation}
+Using theorem (4.5.1) we have
+\begin{equation}
+    T(x) = \left[
+        \begin{matrix}
+            x_1 & x_2 & \cdots & x_n
+        \end{matrix}
+        \right]\cdot  \left[
+        \begin{matrix}
+            u_1 \\ u_2 \\ \vdots \\ u_n
+        \end{matrix}
+        \right] = \sum_{i=1}^{n}{x_k u_k}
+\end{equation}
+Now, suppose that the elements $u_1,\dots,u_n$ can be expressed as a combination of $m$ independent elements $w_1,\dots,w_m\in W$,
+then, we have
+\begin{equation}
+    T(e_k) = u_k = \sum_{i=1}^{m}{t_{ik}w_i}\quad \textnormal{for }k=1,2,\dots,n
+\end{equation}
+So each $u_k$ has a vector representation
+\begin{equation*}
+    \left[
+        \begin{matrix}
+            t_{1k} & t_{2k} & \cdots & t_{mk}
+        \end{matrix}
+        \right]\cdot  \left[
+        \begin{matrix}
+            w_1 \\ w_2 \\ \vdots \\ w_m
+        \end{matrix}
+        \right]
+\end{equation*}
+We ignore the basis vector
+$\left[
+        \begin{matrix}
+            w_1 & w_2 & \cdots & w_m
+        \end{matrix}
+        \right]$
+And just write
+\begin{equation}
+    t_k=\left[
+        \begin{matrix}
+            t_{k1} \\ t_{2k} \\ \cdots \\ t_{mk}
+        \end{matrix}
+        \right]
+\end{equation}
+We can represent the whole transformation as an $m\times n$ matrix
+\begin{equation}
+    M=\left[
+        \begin{matrix}
+            t_{11} & t_{12} & \cdots & t_{1n} \\
+            t_{21} & t_{22} & \cdots & t_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            t_{m1} & t_{m2} & \cdots & t_{mn}
+        \end{matrix}
+        \right]
+\end{equation}
+Each column corresponds to a basis element from $W$. To apply the transformation
+we can multiply this matrix by a column vector in $V$.
+\begin{equation}
+    T(x) = M^{T}x = \left[
+        \begin{matrix}
+            t_{11} & t_{21} & \cdots & t_{n1} \\
+            t_{12} & t_{22} & \cdots & t_{n2} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            t_{1m} & t_{2m} & \cdots & t_{nm}
+        \end{matrix}
+        \right]\cdot \left[\begin{matrix}
+            x_1 \\ x_2 \\ \vdots \\x_n
+        \end{matrix}\right]
+\end{equation}
+Here $T$ is the transpose operator. In linear algebra we multiply ``rows by columns'',
+so, to follow that way of thinking, we transpose the matrix. The transpose operator affects
+a matrix $A$ of size $m\times n$ in the following way: \textit{if $A=\left(a_{ij}\right)^{m,n}_{i,j=1}$},
+then
+
+\begin{equation}
+    A^{T} = A=\left(a_{ji}\right)^{m,n}_{i,j=1}
+\end{equation}
+
+Pay close attention to the change of indexes, from $ij$ to $ji$.
+
+So we have successfully related matrices with transformation. If you know
+linear algebra, the notions of kernel and linear span apply equally. We could
+work on other concepts of matrix algebra, but will skip it. However, I will use
+matrix representation when necessary.
+
+\section{Matrix multiplication}
+
+In regard to linear transformations, a matrix multiplication is a composition
+of two transformations.
+
+\begin{definition}
+    Let $T: U \to V$ and $S: V \to W$ be two linear transformations. Then a transformation
+    $ST : U \to W$ is a composition given by $S\left[T(x)\right]$ for $x\in U$.
+\end{definition}
+Now, we will conveniently define a ``function'' to get the matrix representation of a transformation.
+
+\begin{definition}
+    If $T: V \to W$ is any linear transformation, it has a matrix representation given by
+    \begin{equation}
+        m(T) = \left(t_{ij}\right)^{m,n}_{i,j=1}
+    \end{equation}
+    Where $\dim V = n$ and $\dim W = m$.
+\end{definition}
+This new definition will be useful for notation purposes, so we don't have to give each matrix a new letter.
+Now, we want to give definition (4.6.2) a matrix notation. We know that we can apply both transformations the following way
+\begin{theorem}
+    Given two transformations $T: U \to V$ and $S: V \to W$, for linear spaces $U,V$ and $W$, such that
+    \begin{equation*}
+        \dim U = n\quad\dim V = p\quad\dim W = m
+    \end{equation*}
+    There is a matrix representation of $ST = S\left[T(x)\right]$ for any $x\in U$ given by
+    \begin{equation*}
+        S\left[T(x)\right] = \left[m(S)\cdot m(T)\right]\cdot x
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    If we have a basis for $U$ given by $e_1,e_2,\dots,e_n$ that can be written in terms
+    of an independent set of elements $u_1,u_2,\dots,u_p\in V$, then
+    \begin{equation}
+        T(e_k) = \sum_{i=1}^{p}{t_{ik} u_i}
+    \end{equation}
+    Then, if the set $u_1,u_2,\dots,u_p$ is independent, it is a basis for $V$, if it can be written in terms of
+    independent elements $w_1,w_2,\dots,w_m\in W$, then
+    \begin{equation}
+        S(u_k) = \sum_{i=1}^{m}{s_{ik} w_i}
+    \end{equation}
+    Now, if we calculate $ST$ we have, for each $e_1,e_2,\dots,e_n$
+    \begin{equation}
+        S\left[T\left(e_k\right)\right] = S\left[\sum_{i=1}^{p}{t_{ik} u_i}\right] = \sum_{i=1}^{p}{t_{ik} S(u_i)}
+    \end{equation}
+    Applying (4.26) we are left with
+    \begin{equation}
+        S\left[T\left(e_k\right)\right]=\sum_{i=1}^{p}{t_{ik} \left(\sum_{j=1}^{m}{s_{ji}w_j}\right)}
+    \end{equation}
+    The matrix representation for this transformation is, for each $j=1,2,\dots,m$ and $k=1,2,\dots,n$
+    \begin{equation*}
+        \left[\begin{matrix}
+                s_{j1} & s_{j2} & \cdots & s_{jp}
+            \end{matrix}\right]
+        \left[\begin{matrix}
+                t_{1k} \\t_{2k}\\\vdots\\t_{pk}
+            \end{matrix}\right]
+    \end{equation*}
+    If we want to represent the whole sum in terms of matrices, we would write
+    \begin{equation}
+        \left(
+        \left[\begin{matrix}
+                s_{11} & s_{12} & \cdots & s_{1p}
+            \end{matrix}\right]
+        + \cdots +
+        \left[\begin{matrix}
+                s_{m1} & s_{m2} & \cdots & s_{mp}
+            \end{matrix}\right]
+        \right)\cdot  \left[\begin{matrix}
+                t_{1k} \\ t_{2k} \\ \cdots \\ t_{pk}
+            \end{matrix}\right]
+    \end{equation}
+    % Now, if we look at the matrix representation $m(T)$ we have
+    % \begin{equation*}
+    %     m(T)=\left[
+    %         \begin{matrix}
+    %             t_{11} & t_{12} & \cdots & t_{1n} \\
+    %             t_{21} & t_{22} & \cdots & t_{2n} \\
+    %             \vdots & \vdots & \ddots & \vdots \\
+    %             t_{m1} & t_{m2} & \cdots & t_{mn}
+    %         \end{matrix}
+    %         \right]
+    % \end{equation*}
+    For any $x\in U$, applying $S\left[T(x)\right]$ results in
+    \begin{equation}
+        S\left[T(x)\right] = S\left[T\left(\sum_{j=1}^{n}{x_j e_j}\right)\right] = \sum_{j=1}^{n}{x_j S\left[T(e_j)\right]}
+    \end{equation}
+    The result (4.28) is useful now
+    \begin{equation}
+        S\left[T(x)\right]
+        = \sum_{j=1}^{n}{x_j \left(\sum_{i=1}^{p}{t_{ij} S(u_i)}\right)}
+        = \sum_{j=1}^{n}{x_j \left(\sum_{i=1}^{p}{t_{ij}\left\{\sum_{k=1}^{m}s_{ki} w_k\right\}}\right)}
+    \end{equation}
+    Reordering the sums, we have
+    \begin{equation}
+        S\left[T(x)\right] = \sum_{i=1}^{p}{\sum_{j=1}^{n}{\sum_{k=1}^{m}{x_j t_{ij} s_{ki} w_k}}}
+    \end{equation}
+    This is super confusing! Although it seems complicated, it is not at all. If we let $k$ fixed, we can
+    represent the sum in matrix form as
+    \begin{equation}
+        \left[\begin{matrix}
+                s_{k1} & s_{k2} & \cdots & s_{kp}
+            \end{matrix}\right] \left(
+        \left[\begin{matrix}
+                t_{11} \\t_{21}\\\vdots\\t_{p1}
+            \end{matrix}\right] + \cdots + \left[\begin{matrix}
+                t_{1n} \\t_{2n}\\\vdots\\t_{pn}
+            \end{matrix}\right]
+        \right)
+    \end{equation}
+    Now, if we iterate for $k=1,2,\dots,m$, we would have a matrix product, so
+    \begin{equation}
+        S\left[T(x)\right] = \left[
+            \begin{matrix}
+                s_{11} & s_{12} & \cdots & s_{1p} \\
+                s_{21} & s_{22} & \cdots & s_{2p} \\
+                \vdots & \vdots & \ddots & \vdots \\
+                s_{m1} & s_{m2} & \cdots & s_{mp}
+            \end{matrix}
+            \right] \cdot \left[
+            \begin{matrix}
+                t_{11} & t_{12} & \cdots & t_{1n} \\
+                t_{21} & t_{22} & \cdots & t_{2n} \\
+                \vdots & \vdots & \ddots & \vdots \\
+                t_{p1} & t_{p2} & \cdots & t_{pn}
+            \end{matrix}
+            \right]\cdot \left[
+            \begin{matrix}
+                x_{1} \\ x_{2} \\ \vdots \\ x_{n} \\
+            \end{matrix}
+            \right]
+    \end{equation}
+    Which is equal to writing $S\left[T(x)\right] = \left[m(S)\cdot m(T)\right]\cdot x$.
+\end{proof}
+
+The result of $m(S)\cdot m(T)$ is an $m\times n$ matrix, because $m(S)$ is of
+dimension $m\times p$ and $m(T)$ is a $p\times n$ matrix.
+
+\subsection{Matrix multiplication definition}
+
+Before defining matrix multiplication, let's state the following notation to
+make a clear interpretation of each component of the matrix
+
+\begin{definition}
+    Given a matrix $A$, we denote by $A_{j=k}$ the $k^{\text{th}}$ column of $A$, and by $A_{i=k}$ the $k^{\text{th}}$ row of $A$.
+\end{definition}
+
+Now, we define matrix multiplication
+
+\begin{definition}[Matrix multiplication]
+    Given two linear transformations $T: U \to V$ and $S: V \to W$ such that
+    \begin{equation*}
+        \dim U = n\quad\dim V = p\quad\dim W = m
+    \end{equation*}
+    We let matrix multiplication be a function
+    \begin{equation*}
+        \lambda: \mathbb{R}^{m \times p} \times \mathbb{R}^{p \times n} \to \mathbb{R}^{m \times n}    \end{equation*}
+    Which is defined as
+    \begin{equation*}
+        m(S) \cdot m(T) = m(ST) = \left[\begin{matrix}
+                \sum_{k=1}^{p}{s_{1k} t_{k1}} & \cdots & \sum_{k=1}^{p}{s_{1k} t_{kn}} \\
+                \vdots                        & \ddots & \vdots                        \\
+                \sum_{k=1}^{p}{s_{mk} t_{k1}} & \cdots & \sum_{k=1}^{p}{s_{mk} t_{kn}}
+            \end{matrix}\right]
+    \end{equation*}
+
+    So that
+
+    \begin{equation*}
+        m(S) \cdot m(T) = m(ST) = \left[\begin{matrix}
+                m(S)_{i=1}\cdot m(T)_{j=1} & \cdots & m(S)_{i=1}\cdot m(T)_{j=n} \\
+                \vdots                     & \ddots & \vdots                     \\
+                m(S)_{i=m}\cdot m(T)_{j=1} & \cdots & m(S)_{i=m}\cdot m(T)_{j=n}
+            \end{matrix}\right]
+    \end{equation*}
+\end{definition}
+
+Although this definition is confusing at first, it is useful because it
+emphasizes the relationship between linear transformation composition and
+matrix multiplication. However, we now provide a second, more computationally
+convenient definition.
+
+\begin{definition}[Matrix multiplication, second definition]
+    If $A = \left(a_{ij}\right)^{p,n}_{i,j=1}$, $B = \left(b_{ij}\right)^{m,p}_{i,j=1}$, then
+    \begin{equation*}
+        C = B\cdot A
+    \end{equation*}
+    defines a matrix $C = \left(c_{ij}\right)^{m,n}_{i,j=1}$ where
+    \begin{equation*}
+        c_{ij} = \sum_{k=1}^{p} {b_{ik} a_{kj}}
+    \end{equation*}
+\end{definition}
+
+This makes clear that each entry in the matrix is the dot product between the
+$i^{\text{th}}$ row vector of the left-hand matrix and the $j^{\text{th}}$
+column vector of the right-hand matrix. 
+\pagebreak
+\begin{example}
+    Let $T: \mathbb{R}^{2} \to \mathbb{R}^{2}$ and $S: \mathbb{R}^{2} \to \mathbb{R}^{2}$ be two linear
+    transformations defined by
+    \begin{equation*}
+        \begin{cases}
+            T(e_1) = e_1 \cos\left(\dfrac{3 \pi}{2}\right) - e_2 \sin\left(\dfrac{3 \pi}{2}\right) \\
+            T(e_2) = e_1 \sin\left(\dfrac{3 \pi}{2}\right) + e_2 \cos\left(\dfrac{3 \pi}{2}\right)
+        \end{cases}
+    \end{equation*}
+    And
+    \begin{equation*}
+        \begin{cases}
+            S(e_1) = e_1 \cos\left(\dfrac{4 \pi}{5}\right) - e_2 \sin\left(\dfrac{4 \pi}{5}\right) \\
+            S(e_2) = e_1 \sin\left(\dfrac{4 \pi}{5}\right) + e_2 \cos\left(\dfrac{4 \pi}{5}\right)
+        \end{cases}
+    \end{equation*}
+    These transformations have a matrix representation given by
+    \begin{equation*}
+        m(T)=\left[\begin{matrix}
+                \cos\left(\dfrac{3 \pi}{2}\right) & - \sin\left(\dfrac{3 \pi}{2}\right) \\[1.5em]
+                \sin\left(\dfrac{3 \pi}{2}\right) & \cos\left(\dfrac{3 \pi}{2}\right)   \\
+            \end{matrix}\right],\quad
+        m(S)=\left[\begin{matrix}
+                \cos\left(\dfrac{4 \pi}{5}\right) & - \sin\left(\dfrac{4 \pi}{5}\right) \\[1.5em]
+                \sin\left(\dfrac{4 \pi}{5}\right) & \cos\left(\dfrac{4 \pi}{5}\right)   \\
+            \end{matrix}\right]
+    \end{equation*}
+
+    These matrices are known as \textbf{rotation matrices}. When applied on some
+    vector $x = \left(x_1,x_2\right)\in\mathbb{R}^{2}$ they perform a
+    counterclockwise turn on it, changing the angle with respect to the $x$ axis.
+
+    The composite transformation $ST = S\left[T(x)\right]$ will perform a
+    counterclockwise rotation of $\dfrac{3\pi}{2} = 270\deg$ on the vector, and
+    then a $\dfrac{4\pi}{5} = 144\deg$ rotation, also counterclockwise. Resulting
+    in a $54\deg$ counterclockwise rotation.
+
+    \begin{equation*}
+            S\left[T(x)\right] = m(S)\cdot m(T) \cdot x =
+            \left[\begin{matrix}
+                \cos\left(\dfrac{3\pi}{2} + \dfrac{4\pi}{5}\right) & -\sin\left(\dfrac{3\pi}{2} + \dfrac{4\pi}{5}\right)\\[1.5em]
+                \sin\left(\dfrac{3\pi}{2} + \dfrac{4\pi}{5}\right) & \cos\left(\dfrac{3\pi}{2} + \dfrac{4\pi}{5}\right) 
+            \end{matrix}\right]
+    \end{equation*}
+    You can verify this result by using trigonometric identities and the matrix multiplication 
+    rule.
+\end{example}
+
+\end{document}
