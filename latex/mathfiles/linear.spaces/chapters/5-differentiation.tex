@@ -1,0 +1,59 @@
+\documentclass[../linear-spaces.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Differentiation}
+
+This chapter will go through a different topic, in this case we will explore differentiation.
+However, we will assume the reader has knowledge on one-dimensional differentiation, and some
+theory, to explore multi-dimensional derivatives, in vector fields. We will ignore scalar fields 
+because they are, in some way, a subset of vector fields.
+
+First, let's introduce the concept of ``derivative'' for a scalar field. Let $f: \mathbb{R}^{n} \to \mathbb{R}^{m}$,
+we would need a set of functions $f_1,f_2,\dots,f_m: \mathbb{R}^{n} \to \mathbb{R}$ to describe the 
+derivative in terms of scalar fields. This leads to the conclussion that, given that we have a lot of variables, we 
+can certainly form a vector for each $f_i$ so that 
+\begin{equation*}
+    \nabla f_i = 
+    \begin{bmatrix} 
+        \dfrac{\partial f_i}{\partial x_1} & \cdots & \dfrac{\partial f_i}{\partial x_n} 
+    \end{bmatrix}
+\end{equation*}
+
+This vector is called the gradient of $f$. The gradient has various properties that we will not describe or talk about right now. 
+However, it is important to note that this is a vector that \textbf{points to the steepest direction} on the scalar field. Imagine 
+a cannon or vulcano, the gradient in this figure will always point upwards.
+
+In other words, the value of this vector at a certain point $p$ gives the direction and the rate of fastest increase.
+
+Also, we can demonstrate (we will not for now, because we need the chain rule to do so) that the gradient is perpendicular to the 
+level curves of the scalar field. Let $f: \mathbb{R}^{2} \to \mathbb{R}$, we can only provide this example in three dimensions, 
+in other way it would be impossible to imagine. A level curve for $f$ will be, for example 
+\begin{equation}
+    f(x,y)=k\quad \text{for some } k \in \mathbb{R}
+\end{equation}
+
+Then, the gradient $\nabla f = \begin{bmatrix}  \dfrac{\partial f}{\partial x} &  \dfrac{\partial f}{\partial y} \end{bmatrix}$ will 
+satisfy $\nabla f \cdot T = 0$, where $T$ is the tangent vector to the level curve. This vector is obtained by parametrisation on 
+$f$. We can let $r(t)$ defined in $[a,b]$, and let $f(x,y) = f\left[X(t), Y(t)\right] = f\left[r(t)\right] = g(t)$, by the chain rule 
+we have 
+\begin{equation}
+    g'(t) = f'\left[r(t)\right]\cdot r'(t)
+\end{equation}
+and we know that $r'(t)$ is tangent to the path of $r(t)$. Given that the path is a level curve of $f$, we would have $g(t) = k$, because 
+$f(x,y) = k$ for a level curve, we would get 
+ \begin{equation}
+    f'\left[r(t)\right]\cdot r'(t) = 0
+\end{equation}
+which implies that $f'\left[r(t)\right] \perp r'(t)$. Now, to prove that 
+\begin{equation}
+    f'\left[r(t)\right] = \nabla f[r(t)]
+\end{equation}
+we would need to write about Taylor's approximation theorem. For the moment, we will keep that the equality as true. So we now get 
+\begin{equation}
+    \nabla f \left[r(t)\right] \cdot r'(t) = 0
+\end{equation} 
+
+
+
+\end{document}
