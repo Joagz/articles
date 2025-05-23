@@ -32,7 +32,6 @@ in other way it would be impossible to imagine. A level curve for $f$ will be, f
 \begin{equation}
     f(x,y)=k\quad \text{for some } k \in \mathbb{R}
 \end{equation}
-
 Then, the gradient $\nabla f = \begin{bmatrix}  \dfrac{\partial f}{\partial x} &  \dfrac{\partial f}{\partial y} \end{bmatrix}$ will 
 satisfy $\nabla f \cdot T = 0$, where $T$ is the tangent vector to the level curve. This vector is obtained by parametrisation on 
 $f$. We can let $r(t)$ defined in $[a,b]$, and let $f(x,y) = f\left[X(t), Y(t)\right] = f\left[r(t)\right] = g(t)$, by the chain rule 
@@ -54,6 +53,59 @@ we would need to write about Taylor's approximation theorem. For the moment, we 
     \nabla f \left[r(t)\right] \cdot r'(t) = 0
 \end{equation} 
 
+\section{Directional derivative}
+
+The concept of a derivative in a scalar field depends from the direction that we set. We define 
+the directional derivative of $f(x)$ with respect to the vector $a$ as 
+\begin{equation}
+    f'(x; a) = \lim_{h\to 0}\dfrac{f(x + ha) - f(x)}{h}
+\end{equation}
+such that, for sufficiently small $h$ we have 
+\begin{equation}
+    f(x) \approx f(x+ha) - h f(x; a)
+\end{equation}
+
+The directional derivative in the direction of the basis vectors are a set 
+of $f(x; e_k)$ for $k = 1,2,\dots,n$. These derivatives are given by the partial 
+derivatives of $f$, so 
+\begin{equation}
+    f'(x; e_k) = \dfrac{\partial f}{\partial x_k}
+\end{equation}
+We can express $f(x; a)$ using linearity 
+\begin{equation}
+    f'(x; a) = f'\left(x; \sum_{i=1}^{n}{a_i e_i} \right)
+    = \sum_{i=1}^{n}a_i f'\left(x; e_i\right) = 
+    \sum_{i=1}^{n}a_i \dfrac{\partial f}{\partial x_k}
+\end{equation}
+this is equal to the dot product
+\begin{equation}
+    f'(x; a) = \nabla f(x) \cdot a
+\end{equation}
+We can now rewrite (5.7) as 
+\begin{equation}
+    f(x) \approx f(x+ha) - h\nabla f(x)\cdot a
+\end{equation}
+we can also set $a$ to be a very small vector, call it $\delta x$, which leads to
+\begin{equation}
+    f(x) \approx f(x+\delta x) - \nabla f(x)\cdot \delta x
+\end{equation}
+text
+\section{Differentials in vector fields}
+The difference here is that, instead of having one output, we have several outputs. So we can define 
+the directional derivative as a \textbf{vector in $\mathbb{R}^{m}$}, given $f: \mathbb{R}^{n} \to \mathbb{R}^{m}$ we have 
+\begin{equation}
+    f'(x; a) = \begin{bmatrix}
+        f_1'(x; a) & \cdots & f_m'(x; a)
+    \end{bmatrix}
+\end{equation}
+The Taylor's approximation formula can be derived by simply using the definition 
+\begin{equation}
+    f'(x; a) = \lim_{h\to 0}\dfrac{f(x + ha)-f(x)}{h}\quad f(x)\in\mathbb{R}^{m}
+\end{equation}
+reordering terms and approximating
+\begin{equation}
+    f(x) \approx  f(x-ha)- hf'(x; a) = f(x-h\sum_{i=1}^{n}{a_i e_i})
+\end{equation}
 
 
 \end{document}

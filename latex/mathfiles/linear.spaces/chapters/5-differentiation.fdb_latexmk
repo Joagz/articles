@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1747995913 "/home/joagz/Desktop/articles/latex/mathfiles/linear.spaces/chapters/5-differentiation.tex" "chapters/5-differentiation.pdf" "5-differentiation" 1747995913
-  "/etc/texmf/web2c/texmf.cnf" 1746920400 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/joagz/Desktop/articles/latex/mathfiles/linear.spaces/chapters/5-differentiation.tex" 1747995912 3020 ea449c195d9d4503af52421772381597 ""
+["pdflatex"] 1748005325 "/home/joagz/Desktop/articles/latex/mathfiles/linear.spaces/chapters/5-differentiation.tex" "chapters/5-differentiation.pdf" "5-differentiation" 1748005325
+  "/etc/texmf/web2c/texmf.cnf" 1746714615 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/home/joagz/Desktop/articles/latex/mathfiles/linear.spaces/chapters/5-differentiation.tex" 1748005323 5032 7b49708f0a8a234bad358cad63d54eb8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -143,14 +143,13 @@
   "/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty" 1605910342 4902 efb3d66683a2da2a232f71e3a571a899 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
-  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1747345507 4379155 98693266ff65f58d9f98aff394de12d2 ""
-  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1747345537 2801816 cb0e3587b5518e1ee79c47db495948d4 ""
-  "5-differentiation.aux" 0 -1 0 ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1747001629 4376525 06dc2f19f4cf7b874963042de169de59 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1747001674 2800791 d4a385ee0561ac109a2b4de0c13ed328 ""
   "5-differentiation.toc" 0 -1 0 ""
-  "chapters/../linear-spaces.tex" 1747995064 2517 437bbb249db37b738a35eb7161b80303 ""
-  "chapters/1-introduction.tex" 1747435429 14841 0517dab7b98ff9e8f5a26fc9360ec179 ""
-  "chapters/5-differentiation.aux" 0 -1 0 "pdflatex"
-  "chapters/5-differentiation.tex" 1747995912 3020 ea449c195d9d4503af52421772381597 ""
+  "chapters/../linear-spaces.tex" 1748005257 2517 437bbb249db37b738a35eb7161b80303 ""
+  "chapters/1-introduction.tex" 1748000677 14841 0517dab7b98ff9e8f5a26fc9360ec179 ""
+  "chapters/5-differentiation.aux" 1748005325 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "chapters/5-differentiation.tex" 1748005323 5032 7b49708f0a8a234bad358cad63d54eb8 ""
   "chapters/5-differentiation.toc" 0 -1 0 "pdflatex"
   (generated)
   "chapters/5-differentiation.aux"
