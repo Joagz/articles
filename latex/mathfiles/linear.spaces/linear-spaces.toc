@@ -23,3 +23,5 @@
 \contentsline {section}{\numberline {4.6}Matrix multiplication}{35}{}%
 \contentsline {subsection}{\numberline {4.6.1}Matrix multiplication definition}{38}{}%
 \contentsline {chapter}{\numberline {5}Differentiation}{41}{}%
+\contentsline {section}{\numberline {5.1}Directional derivative}{42}{}%
+\contentsline {section}{\numberline {5.2}Differentials in vector fields}{43}{}%
