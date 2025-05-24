@@ -242,8 +242,8 @@ un vector fila de $J_x$, por todos los elementos de la matrix $\Sigma_x$.
         \mathop{\sum\sum}_{k,l}{\dfrac{\partial f_j}{\partial X_l} \dfrac{\partial f_i}{\partial X_k}\Sigma_x^{(lk)}} = (J_{x})_{:,j} \cdot \Sigma_x \cdot (J_{x})_{i,:}
     \end{split}
 \end{equation}
-Aquí, utilizamos la notación ``$:,j$'' para indicar que extraemos la columna $j$ de la matriz, y ``$i,:$'' la fila $i$. Finalmente, si cada entrada de $\Sigma_y$ corresponde 
-a (23) en la posición $ij$, tenemos que la matriz de covarianza de $Y$ es 
+Aquí, utilizamos la notación ``$:,j$'' para indicar que extraemos la columna $j$ de la matriz, y ``$i,:$'' la fila $i$. Finalmente, si cada entrada de $\Sigma_y^{(ij)}$ corresponde 
+a (23), tenemos que la matriz de covarianza de $Y$ es 
 \begin{equation}
     \Sigma_y = J_x \Sigma_x J_x^{T}
 \end{equation}
