@@ -218,10 +218,10 @@ Definimos $a_{i0} = f_i(\mu_x^{(1)}, \mu_x^{(2)},\dots,\mu_x^{(n)})$ y $a_{ij} =
         \Sigma_y^{(ij)} &= \textnormal{Cov}(Y_i, Y_j) \\
         &=E\left[(Y_i-\mu_y^{(i)})(Y_j-\mu_y^{(j)})\right] \\
         &=E\left[\sum_{k}{a_{ik}(X_k-\mu_x^{(k)})}\sum_{l}{a_{jl}(X_l-\mu_x^{(l)})}\right] \\
-        &=E\left[\sum_{k}{a_{ik}^{2}(X_k-\mu_x^{(k)})^{2}} + \mathop{\sum\sum}_{l\neq k}{a_{jl}a_{ik}(X_l-\mu_x^{(l)})(X_k-\mu_x^{(k)})}\right] \\
-        &=E\left[\sum_{k}{a_{ik}^{2}(X_k-\mu_x^{(k)})^{2}}\right]+E\left[\mathop{\sum\sum}_{l\neq k}{a_{jl}a_{ik}(X_l-\mu_x^{(l)})(X_k-\mu_x^{(k)})}\right] \\
-        &=\sum_{k}a_{ik}^{2}E\left[{(X_k-\mu_x^{(k)})^{2}}\right]+\mathop{\sum\sum}_{l\neq k}a_{jl}a_{ik}E\left[{(X_l-\mu_x^{(l)})(X_k-\mu_x^{(k)})}\right] \\
-        &=\sum_{k}a_{ik}^{2}\Sigma_x^{kk}+\mathop{\sum\sum}_{l\neq k}a_{jl}a_{ik}\Sigma_x^{(lk)} \\
+        &=E\left[\sum_{k}{a_{ik}a_{jk}(X_k-\mu_x^{(k)})^{2}} + \mathop{\sum\sum}_{l\neq k}{a_{jl}a_{ik}(X_l-\mu_x^{(l)})(X_k-\mu_x^{(k)})}\right] \\
+        &=E\left[\sum_{k}{a_{ik}a_{jk}(X_k-\mu_x^{(k)})^{2}}\right]+E\left[\mathop{\sum\sum}_{l\neq k}{a_{jl}a_{ik}(X_l-\mu_x^{(l)})(X_k-\mu_x^{(k)})}\right] \\
+        &=\sum_{k}a_{ik}a_{jk}E\left[{(X_k-\mu_x^{(k)})^{2}}\right]+\mathop{\sum\sum}_{l\neq k}a_{jl}a_{ik}E\left[{(X_l-\mu_x^{(l)})(X_k-\mu_x^{(k)})}\right] \\
+        &=\sum_{k}a_{ik}a_{jk}\Sigma_x^{kk}+\mathop{\sum\sum}_{l\neq k}a_{jl}a_{ik}\Sigma_x^{(lk)} \\
         &=\mathop{\sum\sum}_{k,l}{a_{jl}a_{ik}\Sigma_x^{(lk)}} \\
         &=\mathop{\sum\sum}_{k,l}{\dfrac{\partial f_j}{\partial X_l} \dfrac{\partial f_i}{\partial X_k}\Sigma_x^{(lk)}}
     \end{split}
