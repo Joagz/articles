@@ -2,6 +2,8 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
 \usepackage[spanish]{babel}
 
 \title{Ley de propagación de errores, justificación de la ley $\Sigma_y = J_x \Sigma_x J_x^{T}$}
@@ -127,6 +129,56 @@ Para hallar la desviación estándar, el camino es más largo, para ello utiliza
         &=\sum_{i}^{}\left(\left.\dfrac{\partial f}{\partial X_i}\right\rvert_{X=\mu_x}\right)^{2}\sigma^{2}_x+\mathop{\sum\sum}_{i\neq j} \left.\dfrac{\partial f}{\partial X_i}\right\rvert_{X=\mu_x} \left.\dfrac{\partial f}{\partial X_j}\right\rvert_{X=\mu_x}\Sigma^{2}_{ij} \\
     \end{split}
 \end{equation}
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+                axis equal,
+                xlabel={$X_1$},
+                ylabel={$X_2$},
+                grid=both,
+                width=10cm,
+                legend pos=outer north east,
+                trig format plots=degrees,
+            ]
+
+            \def\aone{0.916227766017}
+            \def\atwo{0.283772233983}
+
+            \pgfmathsetmacro\vOneDenom{sqrt(1 + ((1 - \aone)^2)/((0.8 - \aone)^2))}
+            \pgfmathsetmacro\vOneX{1/\vOneDenom}
+            \pgfmathsetmacro\vOneY{((1 - \aone)/(0.8 - \aone))/\vOneDenom}
+
+            \pgfmathsetmacro\vTwoDenom{sqrt(1 + ((1 - \atwo)^2)/((0.8 - \atwo)^2))}
+            \pgfmathsetmacro\vTwoX{1/\vTwoDenom}
+            \pgfmathsetmacro\vTwoY{((1 - \atwo)/(0.8 - \atwo))/\vTwoDenom}
+
+            % Factores de escala para deformar la elipse
+            \def\scaleOne{2}  % escala para v1 (alarga)
+            \def\scaleTwo{0.7}  % escala para v2 (achata)
+
+            \addplot+[
+                mark=none, thick, red, fill=red!10,
+                domain=0:360,
+                samples=200,
+            ]
+            (
+            {cos(x)*\scaleOne*\vOneX + sin(x)*\scaleTwo*\vTwoX},
+            {cos(x)*\scaleOne*\vOneY + sin(x)*\scaleTwo*\vTwoY}
+            );
+            \addlegendentry{Elipse deformada}
+
+            % Vectores escalados para referencia visual
+            \addplot[->, thick, blue] coordinates {(0,0) (\scaleOne*\vOneX, \scaleOne*\vOneY)};
+            \addlegendentry{Autovector 1 escalado}
+
+            \addplot[->, thick, green!70!black] coordinates {(0,0) (\scaleTwo*\vTwoX, \scaleTwo*\vTwoY)};
+            \addlegendentry{Autovector 2 escalado}
+
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Elipse deformada como producto de la transformación que aplica $\Sigma_x$}
+\end{figure}
 Entonces, la desviación estándar es
 \begin{equation}
     \sigma_y=\sqrt{\sum_{i}^{}\left(\left.\dfrac{\partial f}{\partial X_i}\right\rvert_{X=\mu_x}\right)^{2}\sigma^{2}_x+\mathop{\sum\sum}_{i\neq j} \left.\dfrac{\partial f}{\partial X_i}\right\rvert_{X=\mu_x} \left.\dfrac{\partial f}{\partial X_j}\right\rvert_{X=\mu_x}\Sigma^{2}_{ij}}
@@ -138,6 +190,8 @@ entonces la fórmula se resume en
 \end{equation}
 Donde suponemos que aplicamos la derivada parcial en un punto fijo, que será en este caso, la media $u_x$.
 Omitimos esto para abreviar la fórmula y evitar así demasiada sintaxis.
+
+La figura 2 muestra el cambio de base que produce la matriz $\Sigma_x$. Utilizamos como ejemplo una matriz de covarianza cualquiera.
 
 \section{Sistema con múltiples entradas y salidas}
 Este caso es una generalización del caso anterior, tomamos las ideas que ya conocemos, para encontrar la fórmula
@@ -259,10 +313,10 @@ La expresión (21) es lo mismo que
         \end{bmatrix}
         \\[1em]
         &=\begin{bmatrix}
-            \sum_{k} {\frac{\partial f_i}{\partial X_k}\Sigma_x^{(k1)}}\\
-            \sum_{k} {\frac{\partial f_i}{\partial X_k}\Sigma_x^{(k2)}}\\
-            \vdots \\
-            \sum_{k} {\frac{\partial f_i}{\partial X_k}\Sigma_x^{(kn)}}        
+            \sum_{k} {\frac{\partial f_i}{\partial X_k}\Sigma_x^{(k1)}} \\
+            \sum_{k} {\frac{\partial f_i}{\partial X_k}\Sigma_x^{(k2)}} \\
+            \vdots                                                      \\
+            \sum_{k} {\frac{\partial f_i}{\partial X_k}\Sigma_x^{(kn)}}
         \end{bmatrix}\cdot
         \begin{bmatrix}
             \dfrac{\partial f_j}{\partial X_1} \\
