@@ -1,0 +1,134 @@
+\documentclass{report}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+
+\title{Notebook on probability and statistics}
+\author{Joaquín Gómez}
+\date{}
+
+\newtheorem{example}{$\blacklozenge$ Example}[chapter]
+\newtheorem{theorem}{$\blacklozenge$ Theorem}[chapter]
+\newtheorem{definition}{$\blacklozenge$ Definition}[chapter]
+
+\begin{document}
+\maketitle
+\chapter{Counting and series}
+We will start this notebook by introducing basic probability concepts.
+After that, we will use combinatorics to describe certain experiments.
+The subject of combinatorics is essential to calculate probabilities,
+and it's useful in many areas of science.
+The topics that will be covered are basics and a \textit{must know} in
+probability theory and statistics.
+
+Combinatorics requires a basic knowledge of \textit{set theory}. This
+document is not focused on set theory, so we will neglect it. However,
+it is expected from the reader to know at least some basic notation and
+to have a notion of set theory.
+
+\section{Introduction}
+The next example will be useful to introduce the notion of ``frequentist probabilities''\footnote{
+    In classical probability theory, probabilities are assumed to exist as axioms; frequentist definitions aim to approximate them empirically.
+}. These
+rely on the idea that, given $n$ results of an experiment $E$, if the desired result $R$
+is present $m$ times after the experiment, then the probability of $R$ is given by
+\begin{equation}
+    p_R = \frac{m}{n}
+\end{equation}
+
+\begin{example}
+    If we toss a coin, what is the probability of it getting the first heads in the $n^{th}$ trial?
+    This is, the probabilty of the result set to be $R = \left\{T T T \dots T H\right\}$
+    (with $n-1$ $T's$)
+\end{example}
+Given that the coin has 2 sides and assuming a fair coin, we must set the probability of getting
+heads as $p_H = \frac{1}{2}$. The probability of tails, $p_T$ is the same.
+
+The probability of the coin to land heads after $n$ throws will be given by
+\begin{equation}
+    \prod_{k=1}^{n-1}{p_T} \cdot p_H = p_T^{n-1}p_H
+\end{equation}
+Why? You could ask. Well, think of this: you throw the coin once, you had a $1/2$ chance to get
+tails. Now, throwing it again and getting tails \textit{twice} in the same \textit{experiment}
+has $1/2$ chance too, but given it's the \textit{same} experiment, you had $1/4$ chance of success,
+because to get there you had to succeed the first time. This is a chain of probabilities that
+can be drawn as a tree, with each result as a node and connected by a certain \textit{weight} given
+by the probability of that result to happen.
+
+This is the first kind of ``probability distribution'' that we will see in this text. One could infer
+the value of $p_T$ because, given that we have two possible results
+\begin{equation}
+    p_H + p_T = 1
+\end{equation}
+will always be true, because we either have tails or heads after tossing the coin, nothing else. Then
+\begin{equation}
+    p_T = 1 - p_H
+\end{equation}
+so we can rewrite (1.2) as
+\begin{equation}
+    \textit{Geometric PMF} = (1-p)^{n-1}p
+\end{equation}
+Alright! Now we have introduced a new concept, a PMF. See, its derivation was very simple. However it is
+important to know what a PMF is. This will be covered in the \textbf{Discrete Random Variables} chapter.
+
+\section{Counting -- Combinatorics}
+We use counting in probabilities to account for the number of possible \textit{orderings} of certain elements,
+for example.
+
+\begin{example}
+    There are $12$ people in a party. If we want to make groups of $3$, such that we have $4$ groups. How many ways
+    of making these groups we have?
+\end{example}
+This problem ask for the total subsets of $3$ people in a set of $12$ people. The solution is given by the
+Binomial Coefficient
+\begin{equation}
+    \binom{12}{3} = \frac{12!}{3!(12-3)!} = \frac{12!}{4!9!} = 220
+\end{equation}
+
+\begin{example}(Deriving the Binomial Coefficient)
+    To derive the formula we used in (1.6) we need to first know how to count the total combinations of a set of 
+    $n$ elements. 
+
+    For the first element, we have $n$ options to arrange it, for the second element we have $n-1$ options, as the 
+    first one is already sorted. For the element in position $n-1$ we just have 2 options, and for the last element,
+    we have already determined its position, so it's 1 option only. If we want to count the total ways to arrange 
+    them, we must multiply the total ways of arranging the first element, by the total ways of arranging the second 
+    element... and so on. 
+    \begin{equation}
+        \text{total arrangements} = n\cdot(n-1)\cdot(n-2)\cdots 2 \cdot 1 = n!
+    \end{equation}
+    Now, this formula is meaningful when these $n$ objects are distinct from each other. Now, imagine we want to count 
+    the number of permutations of $r$ items from these $n$ items. 
+    
+    We have $n$ ways to choose the first, $n-1$ ways for the second, and in general we have $n-k+1$ ways to choose the $k^{th}$
+    item. The total ways of arranging the $k^{th}$ item is given by 
+    \begin{equation}
+        \prod_{j=1}^{k}(n-j+1)
+    \end{equation}
+    This simplifies as 
+    \begin{equation}
+        \frac{\prod_{j=1}^{n}{(n-j+1)}}{\prod_{j=k+1}^{n}{(n-j+1)}}=\frac{n\cdot(n-1)\cdots2\cdot1}{(n-k)\cdot(n-k-1)\cdots2\cdots1}=\frac{n!}{(n-k)!}
+    \end{equation}
+    
+    Now, this permutation takes in account that we can sort these $k$ objects in $k!$ ways. Thus, if we want to know how to \textit{choose} the 
+    objects instead of choosing AND arranging them, we have to divide by $k!$. Thus, we found the Binomial Coefficient
+    \begin{equation}
+        \binom{n}{k} = \frac{n!}{k!(n-k)!}
+    \end{equation} 
+\end{example}
+
+We have covered a bit of combinatorics. Further topics will be disregarded. However, it is important to at least 
+have a practical notion of combinations and counting.
+
+\section{Sets and probability}
+Sets and probabilities are strongly related. When we measure probabilities, we measure them on sets of particular 
+objects. For simplicity, these can be numbers, vectors, or any object in a linear space (vector space).
+
+In order to understand probability theory, one must know set theory. The basics at least.
+\subsection{Fundamental aspects of set theory}
+
+
+
+\end{document}
