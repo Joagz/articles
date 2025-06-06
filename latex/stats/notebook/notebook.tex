@@ -9,14 +9,13 @@
 \author{Joaquín Gómez}
 \date{}
 
-\newcounter{daggerfootnote}
 \newcommand*{\daggerfootnote}[1]{%
-    \setcounter{daggerfootnote}{\value{footnote}}%
-    \renewcommand*{\thefootnote}{\fnsymbol{footnote}}%
-    \footnote[2]{#1}%
-    \setcounter{footnote}{\value{daggerfootnote}}%
-    \renewcommand*{\thefootnote}{\arabic{footnote}}%
-    }
+  \begingroup
+  \renewcommand*{\thefootnote}{\fnsymbol{footnote}}%
+  \footnote{#1}%
+  \endgroup
+}
+
 
 \newtheorem{example}{$\blacklozenge$ Example}[chapter]
 \newtheorem{theorem}{$\blacklozenge$ Theorem}[chapter]
@@ -138,15 +137,28 @@ objects. For simplicity, these can be numbers, vectors, or any object in a linea
 In order to understand probability theory, one must know set theory. The basics at least.
 \subsection{Fundamental aspects of set theory}
 We will define the fundamental operations for sets, given two sets $A$ and $B$ we have 
-\begin{itemize}
+\begin{list}{$\triangleright$}{1em}
     \item[$\triangleright$] $A$ equals $B$: $A = B = \forall x (x\in A \text{ and } x\in B)$
     \item[$\triangleright$] Union of $A$ and $B$: $A\cup B = \left\{x: x\in A \text{ or } x \in B\right\}$
     \item[$\triangleright$] Intersection of $A$ and $B$: $A\cap B = \left\{x: x\in A \text{ and } x \in B\right\}$
     \item[$\triangleright$] Complement of $A$: $A^{c} = \left\{x: x\notin A\right\}$
     \item[$\triangleright$] Difference of $A$ and $B$: $A\backslash B = A - B= \left\{x: x\in A \text{ and } x\notin B\right\}$\daggerfootnote{We will use the notation $A\backslash B$}
-\end{itemize}
-These operations will be enough to define the following theorems, that we will treat as 
-rules to operate with sets.
+\end{list}
 
+We introduce a new set $S$. This set contains both $A$ and $B$, this is, for every element $x$ in $A$ or $B$, 
+$x\in S$. But, there exists $y\in S$ such that $y\notin A\cup B$. We say that $A\subset S$ and $B\subset S$. The 
+symbol `$\subset$' is called \textit{subset of}. We can also say that $A$ is a subset or is equal to $S$ if $A=S$
+or $A \subset S$; we denote this as $A\subseteq S$. We can invert the symbol and say $S\supset A$, or $S \supseteq A$.
+
+\subsection{Common rules for set operations}
+
+\begin{theorem}
+    Let $A$ and $B$ satisfy $A\cap B \neq \emptyset$\daggerfootnote{The symbol `$\emptyset$' is called \textit{empty set} and is defined as $\emptyset = \left\{\right\}$. }
+    and define $S$ to satisfy $A,B\subset S$. Then we have 
+    \begin{list}{$\triangleright$}{}
+        \item $A^{c} = S\backslash A = \left\{x: x\notin A\right\}$ (Complement of $A$ in $S$ or absolute complement of $A$)
+        \item $A\Delta B = (A\backslash B) \cup (B \backslash A) = \left\{x: x\in A, x\in B \text{ and } x \notin A\cap B\right\}$ (Symmetric difference between $A$ and $B$)
+    \end{list}
+\end{theorem}
 
 \end{document}
