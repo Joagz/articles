@@ -4,108 +4,167 @@
 
 \chapter{Differentiation}
 
-This chapter will go through a different topic, in this case we will explore differentiation.
-However, we will assume the reader has knowledge on one-dimensional differentiation, and some
-theory, to explore multi-dimensional derivatives, in vector fields. We will ignore scalar fields 
-because they are, in some way, a subset of vector fields.
+In this chapter we will explore differentiation. However, I will assume the
+reader has knowledge
+of one-dimensional differentiation. We'll explore multi-dimensional derivatives
+in scalar and vector fields.
 
-First, let's introduce the concept of ``derivative'' for a scalar field. Let $f: \mathbb{R}^{n} \to \mathbb{R}^{m}$,
-we would need a set of functions $f_1,f_2,\dots,f_m: \mathbb{R}^{n} \to \mathbb{R}$ to describe the 
-derivative in terms of scalar fields. This leads to the conclussion that, given that we have a lot of variables, we 
-can certainly form a vector for each $f_i$ so that 
+\begin{definition} (Scalar field)
+    A scalar field is a mapping $f:\mathbb{R}^{n} \to \mathbb{R}$ for $n\in
+        \mathbb{N}$.
+\end{definition}
+
+\begin{definition} (Vector field)
+    A vector field is a mapping $f:\mathbb{R}^{n} \to \mathbb{R}^{m}$ for
+    $n,m\in \mathbb{N}$.
+\end{definition}
+
+Let's first introduce the concept of ``derivative'' for a vector field. Let $f:
+    \mathbb{R}^{n} \to \mathbb{R}^{m}$,
+we would need a set of functions $f_1,f_2,\dots,f_m: \mathbb{R}^{n} \to
+    \mathbb{R}$ to describe the
+derivative in terms of scalar fields. For each $f_i$, we can form a vector of
+partial derivatives
 \begin{equation*}
-    \nabla f_i = 
-    \begin{bmatrix} 
-        \dfrac{\partial f_i}{\partial x_1} & \cdots & \dfrac{\partial f_i}{\partial x_n} 
+    \nabla f_i =
+    \begin{bmatrix}
+        \dfrac{\partial f_i}{\partial x_1} & \cdots & \dfrac{\partial
+            f_i}{\partial x_n}
     \end{bmatrix}
 \end{equation*}
 
-This vector is called the gradient of $f$. The gradient has various properties that we will not describe or talk about right now. 
-However, it is important to note that this is a vector that \textbf{points to the steepest direction} on the scalar field. Imagine 
-a cannon or vulcano, the gradient in this figure will always point upwards.
+This vector is called the gradient of $f$. The gradient has various properties
+that we will not describe or talk about right now.
+However, it is important to note that it is a vector that \textbf{points to the
+    steepest direction} on the scalar field, and
+always points upwards\footnote{This has to do with the definition of the
+    derivative, visualize in 3-dimensions
+    a surface and put a tangent line on it. What can you say about the slope of
+    the tangent? We define it is always pointing upwards,
+    so the tangent line has positive slope.}.
 
-In other words, the value of this vector at a certain point $p$ gives the direction and the rate of fastest increase.
+In other words, the value of this vector at a certain point $p$ gives the
+direction and the rate of fastest increase.
 
-Also, we can demonstrate (we will not for now, because we need the chain rule to do so) that the gradient is perpendicular to the 
-level curves of the scalar field. Let $f: \mathbb{R}^{2} \to \mathbb{R}$, we can only provide this example in three dimensions, 
-in other way it would be impossible to imagine. A level curve for $f$ will be, for example 
+Also, we can demonstrate (we will not for now, because we need the chain rule
+to do so) that the gradient is perpendicular to the
+level curves of the scalar field. Let $f: \mathbb{R}^{2} \to \mathbb{R}$, we
+can only provide this example in three dimensions,
+in other way it would be impossible to imagine. A level curve for $f$ will be,
+for example
 \begin{equation}
     f(x,y)=k\quad \text{for some } k \in \mathbb{R}
 \end{equation}
-Then, the gradient $\nabla f = \begin{bmatrix}  \dfrac{\partial f}{\partial x} &  \dfrac{\partial f}{\partial y} \end{bmatrix}$ will 
-satisfy $\nabla f \cdot T = 0$, where $T$ is the tangent vector to the level curve. This vector is obtained by parametrisation on 
-$f$. We can let $r(t)$ defined in $[a,b]$, and let $f(x,y) = f\left[X(t), Y(t)\right] = f\left[r(t)\right] = g(t)$, by the chain rule 
-we have 
+Then, the gradient $\nabla f = \begin{bmatrix}	\dfrac{\partial f}{\partial x}
+         & \dfrac{\partial f}{\partial y}\end{bmatrix}$ will
+satisfy $\nabla f \cdot T = 0$, where $T$ is the tangent vector to the level
+curve. This vector is obtained by parametrisation on
+$f$. We can let $r(t)$ defined in $[a,b]$, and let $f(x,y) = f\left[X(t),
+        Y(t)\right] = f\left[r(t)\right] = g(t)$, by the chain rule
+we have
 \begin{equation}
     g'(t) = f'\left[r(t)\right]\cdot r'(t)
 \end{equation}
-and we know that $r'(t)$ is tangent to the path of $r(t)$. Given that the path is a level curve of $f$, we would have $g(t) = k$, because 
-$f(x,y) = k$ for a level curve, we would get 
- \begin{equation}
+and we know that $r'(t)$ is tangent to the path of $r(t)$. Given that the path
+is a level curve of $f$, we would have $g(t) = k$, because
+$f(x,y) = k$, we get
+\begin{equation}
     f'\left[r(t)\right]\cdot r'(t) = 0
 \end{equation}
-which implies that $f'\left[r(t)\right] \perp r'(t)$. Now, to prove that 
+which implies that $f'\left[r(t)\right] \perp r'(t)$. Now, we have to prove
+that
 \begin{equation}
     f'\left[r(t)\right] = \nabla f[r(t)]
 \end{equation}
-we would need to write about Taylor's approximation theorem. For the moment, we will keep that the equality as true. So we now get 
-\begin{equation}
-    \nabla f \left[r(t)\right] \cdot r'(t) = 0
-\end{equation} 
 
 \section{Directional derivative}
 
-The concept of a derivative in a scalar field depends from the direction that we set. We define 
-the directional derivative of $f(x)$ with respect to the vector $a$ as 
+The derivative in a scalar field depends from the direction that we choose. We
+define
+the \textit{directional derivative} of $f(x)$ with respect to the vector $a$ as
 \begin{equation}
     f'(x; a) = \lim_{h\to 0}\dfrac{f(x + ha) - f(x)}{h}
 \end{equation}
-such that, for sufficiently small $h$ we have 
+such that, for sufficiently small $h$ we have
 \begin{equation}
     f(x) \approx f(x+ha) - h f(x; a)
 \end{equation}
 
-The directional derivative in the direction of the basis vectors are a set 
-of $f(x; e_k)$ for $k = 1,2,\dots,n$. These derivatives are given by the partial 
-derivatives of $f$, so 
+The directional derivatives in the direction of the basis vectors is a set
+$S = \left\{f(x; e_1), f(x; e_2), \dots,f(x; e_n)\right\}$. These derivatives
+are
+the partial derivatives of $f$, so
 \begin{equation}
     f'(x; e_k) = \dfrac{\partial f}{\partial x_k}
 \end{equation}
-We can express $f(x; a)$ using linearity 
+We can express $f(x; a)$ using linearity
 \begin{equation}
     f'(x; a) = f'\left(x; \sum_{i=1}^{n}{a_i e_i} \right)
-    = \sum_{i=1}^{n}a_i f'\left(x; e_i\right) = 
+    = \sum_{i=1}^{n}a_i f'\left(x; e_i\right) =
     \sum_{i=1}^{n}a_i \dfrac{\partial f}{\partial x_k}
 \end{equation}
 this is equal to the dot product
 \begin{equation}
     f'(x; a) = \nabla f(x) \cdot a
 \end{equation}
-We can now rewrite (5.7) as 
+We can now rewrite (5.7) as
 \begin{equation}
     f(x) \approx f(x+ha) - h\nabla f(x)\cdot a
 \end{equation}
-we can also set $a$ to be a very small vector, call it $\delta x$, which leads to
+we can also set $a$ to be a very small vector, call it $\delta x$, which leads
+to
 \begin{equation}
     f(x) \approx f(x+\delta x) - \nabla f(x)\cdot \delta x
 \end{equation}
-text
-\section{Differentials in vector fields}
-The difference here is that, instead of having one output, we have several outputs. So we can define 
-the directional derivative as a \textbf{vector in $\mathbb{R}^{m}$}, given $f: \mathbb{R}^{n} \to \mathbb{R}^{m}$ we have 
+This is called a \textit{first order Taylor's approximation}.
 \begin{equation}
-    f'(x; a) = \begin{bmatrix}
-        f_1'(x; a) & \cdots & f_m'(x; a)
+    f(x) \approx f(x+\delta x) - \sum_{k=1}^{n} \dfrac{\partial f}{\partial x_k}\cdot \delta x
+\end{equation}
+
+\section{Differentials in vector fields}
+We have already defined a vector field, let $f:\mathbb{R}^{n} \to \mathbb{R}^{m}$.
+We can represent this transformation as a system. Also, let $x=(x_1,\dots,x_n)$, and
+\begin{equation}
+    f({x})=\begin{cases}
+        f_1(x_1,\dots,x_n) \\
+        f_2(x_1,\dots,x_n) \\
+        \vdots             \\
+        f_m(x_1,\dots,x_n) \\
+    \end{cases}
+\end{equation}
+so we can define $f({x}) = \left[f_1({x}), \dots,f_m({x})\right]$
+In terms of scalar fields, we have
+\begin{equation}
+    \nabla f_i({x}) = \left[\dfrac{\partial f_i}{\partial x_1} \cdots \dfrac{\partial f_1}{\partial x_n}\right]
+\end{equation}
+We can use a first order Taylor's approximation to approximate $f(x)$, using (5.11) we have
+\begin{equation}
+    f(x) \approx f(x+\delta x) - \nabla f(x)\cdot \delta x
+\end{equation}
+We can write the full approximation as a sum of two matrices
+\begin{equation}
+    \begin{split}
+        f(x) &\approx \begin{bmatrix}
+            f_1(x+\delta x) \\
+            f_2(x+\delta x) \\
+            \vdots          \\
+            f_m(x+\delta x) \\
+        \end{bmatrix} + \begin{bmatrix}
+            \nabla f_1(x)\cdot\delta x \\
+            \nabla f_2(x)\cdot\delta x \\
+            \vdots                     \\
+            \nabla f_m(x)\cdot\delta x \\
+        \end{bmatrix} \\[1em]
+        &= f(x+\delta x) + D[f(x)]
+    \end{split}
+\end{equation}
+where $D[f(x)]$ is called the \textbf{Jacobian matrix} of $f(x)$
+\begin{equation}
+    D[f(x)] = \begin{bmatrix}
+        \dfrac{\partial f_1}{\partial x_1} & \dfrac{\partial f_1}{\partial x_2} & \cdots & \dfrac{\partial f_1}{\partial x_n} \\[1em]
+        \dfrac{\partial f_2}{\partial x_1} & \dfrac{\partial f_2}{\partial x_2} & \cdots & \dfrac{\partial f_2}{\partial x_n} \\[1em]
+        \vdots                             & \vdots                             & \ddots & \vdots                             \\[1em]
+        \dfrac{\partial f_m}{\partial x_1} & \dfrac{\partial f_m}{\partial x_2} & \cdots & \dfrac{\partial f_m}{\partial x_n} \\[1em]
     \end{bmatrix}
 \end{equation}
-The Taylor's approximation formula can be derived by simply using the definition 
-\begin{equation}
-    f'(x; a) = \lim_{h\to 0}\dfrac{f(x + ha)-f(x)}{h}\quad f(x)\in\mathbb{R}^{m}
-\end{equation}
-reordering terms and approximating
-\begin{equation}
-    f(x) \approx  f(x-ha)- hf'(x; a) = f(x-h\sum_{i=1}^{n}{a_i e_i})
-\end{equation}
-
-
 \end{document}

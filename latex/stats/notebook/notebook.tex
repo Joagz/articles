@@ -141,7 +141,6 @@ We will define the fundamental operations for sets, given two sets $A$ and $B$ w
     \item[$\triangleright$] $A$ equals $B$: $A = B = \forall x (x\in A \text{ and } x\in B)$
     \item[$\triangleright$] Union of $A$ and $B$: $A\cup B = \left\{x: x\in A \text{ or } x \in B\right\}$
     \item[$\triangleright$] Intersection of $A$ and $B$: $A\cap B = \left\{x: x\in A \text{ and } x \in B\right\}$
-    \item[$\triangleright$] Complement of $A$: $A^{c} = \left\{x: x\notin A\right\}$
     \item[$\triangleright$] Difference of $A$ and $B$: $A\backslash B = A - B= \left\{x: x\in A \text{ and } x\notin B\right\}$\daggerfootnote{We will use the notation $A\backslash B$}
 \end{list}
 
@@ -150,15 +149,32 @@ $x\in S$. But, there exists $y\in S$ such that $y\notin A\cup B$. We say that $A
 symbol `$\subset$' is called \textit{subset of}. We can also say that $A$ is a subset or is equal to $S$ if $A=S$
 or $A \subset S$; we denote this as $A\subseteq S$. We can invert the symbol and say $S\supset A$, or $S \supseteq A$.
 
-\subsection{Common rules for set operations}
-
-\begin{theorem}
-    Let $A$ and $B$ satisfy $A\cap B \neq \emptyset$\daggerfootnote{The symbol `$\emptyset$' is called \textit{empty set} and is defined as $\emptyset = \left\{\right\}$. }
+\begin{definition}
+    Let $A$ and $B$ satisfy $A\cap B \neq \emptyset$\daggerfootnote{The set `$\emptyset$' is called \textit{empty set} and is defined as $\emptyset = \left\{\right\}$. }
     and define $S$ to satisfy $A,B\subset S$. Then we have 
     \begin{list}{$\triangleright$}{}
-        \item $A^{c} = S\backslash A = \left\{x: x\notin A\right\}$ (Complement of $A$ in $S$ or absolute complement of $A$)
-        \item $A\Delta B = (A\backslash B) \cup (B \backslash A) = \left\{x: x\in A, x\in B \text{ and } x \notin A\cap B\right\}$ (Symmetric difference between $A$ and $B$)
+        \item $A^{c} = S\backslash A = \left\{x: x\notin A \text{ and } x\in S\right\}$ (Complement of $A$ in $S$ or absolute complement of $A$)
+        \item $A\Delta B = (A\backslash B) \cup (B \backslash A) = \left\{x: x\in A \text{ or } x\in B \text{ and } x \notin A\cap B\right\}$ (Symmetric difference between $A$ and $B$)
     \end{list}
-\end{theorem}
+\end{definition}
+
+We will check for these formulas, the first one is trivial \daggerfootnote{the definition of complement needs a frame of reference, otherwise if $A\nsubseteq S$ 
+we would have $A^{c} = \emptyset$, which means that every element that exists in our space is in $A$.
+For example, if we \textit{restrict} numbers to only be real numbers, then our frame of reference will 
+be $\mathbb{R}$, thus, $\mathbb{R}^{c} = \emptyset$ and $\mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}\subset\mathbb{R}$}. 
+
+For the second one, note that if $x\in (A\backslash B)$, 
+then $x\notin B$. Also, if $x\in (B\backslash A)$, $x\notin A$. Now, let $x\in (A\backslash B)$ and $x\in (B \backslash A)$, 
+suppose that $x\in A$, so $x\notin B$; but, if $x\in B$, then $x\notin A$. However, let $x\in A\cap B$ so that $x\in A$ and $x\in B$,
+consequently, $x\notin A$ and $x\notin B$, which is a contradiction. So $x\notin A\cap B$. Finally, suppose $x\in S\cap (A\cup B)^{c}$,
+this also implies $x\notin A$ and $x \notin B$, so $x\notin S\cap(A\cup B)^{c}$. We finally arrive at the conclusion that 
+either $x\in A$ or $x\in B$, but $x\notin A\cap B$.
+
+\subsection{The triad of probability theory}
+In order to introduce ourselves to probability theory formally, let's present 
+what is called a \textit{probability space}.
+\begin{definition} (Probability Space)
+    
+\end{definition}
 
 \end{document}

@@ -1,15 +1,20 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.5.11)  23 MAY 2025 10:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.5.15)  6 JUN 2025 17:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/joagz/Desktop/articles/latex/mathfiles/linear.spaces/linear-spaces.tex
-(/home/joagz/Desktop/articles/latex/mathfiles/linear.spaces/linear-spaces.tex
+**/home/joagz/Desktop/articles/latex/mathfiles/linear.spaces/chapters/5-differentiation.tex
+(/home/joagz/Desktop/articles/latex/mathfiles/linear.spaces/chapters/5-differentiation.tex
 LaTeX2e <2021-11-15> patch level 1
-L3 programming layer <2022-01-21> (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+L3 programming layer <2022-01-21> (/usr/share/texlive/texmf-dist/tex/latex/subfiles/subfiles.cls
+Document Class: subfiles 2020/11/14 v2.2 Multi-file projects (class)
+Preamble taken from file `../linear-spaces.tex'
+(/usr/share/texlive/texmf-dist/tex/latex/import/import.sty
+Package: import 2020/04/01  v 6.2
+) (chapters/build/..//../linear-spaces.tex (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2021/10/04 v1.4n Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/bk12.clo
-File: bk12.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk11.clo
+File: bk11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
 \c@chapter=\count186
@@ -98,9 +103,9 @@ Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
 Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
-(babel)             (\language53). Reported on input line 105.
+(babel)             (\language40). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
-(babel)             (\language53). Reported on input line 108.
+(babel)             (\language40). Reported on input line 108.
 )) (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks22
@@ -415,8 +420,8 @@ File: tikzlibraryquotes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count302
 \l__pdf_internal_box=\box66
-) (./linear-spaces.aux (./chapters/1-introduction.aux) (./chapters/2-euclidean.aux) (./chapters/3-projections.aux) (./chapters/4-transformations.aux) (./chapters/5-differentiation.aux))
-\openout1 = `linear-spaces.aux'.
+) (chapters/build/5-differentiation.aux)
+\openout1 = `5-differentiation.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
 LaTeX Font Info:    ... okay on input line 17.
@@ -464,112 +469,46 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
-] (./linear-spaces.toc)
+]
+No file 5-differentiation.toc.
 \tf@toc=\write4
-\openout4 = `linear-spaces.toc'.
+\openout4 = `5-differentiation.toc'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
+Underfull \hbox (badness 2875) in paragraph at lines 28--28
+[]\OT1/cmr/m/n/10.95 Use this con-sis-tently for the
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 38--38
-[]\OT1/cmr/m/n/12 Used for pro-ject-ing onto
+[]\OT1/cmr/m/n/10.95 Used for pro-ject-ing onto
  []
 
 [4]
-\openout2 = `chapters/1-introduction.aux'.
+chapters/build/..//../linear-spaces.tex:43: I can't write on file `chapters/1-introduction.aux'.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.43 \include{chapters/1-introduction}
+                                      
+(Press Enter to retry, or Control-D to exit; default file extension is `.tex')
+Please type another output file name
+chapters/build/..//../linear-spaces.tex:43: Emergency stop.
+\@include ...mmediate \openout \@partaux "#1.aux" 
+                                                  \immediate \write \@partau...
+l.43 \include{chapters/1-introduction}
+                                      
+*** (job aborted, file error in nonstop mode)
 
- (./chapters/1-introduction.tex
-Chapter 1.
-[1
-
-
-
-] [2] [3] [4]
-Overfull \hbox (14.66144pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 1.5.  DEPENDENT AND INDEPENDENT SUBSETS OF A LINEAR SPACE \OT1/cmr/m/n/12 5
- []
-
-[5]
-Overfull \hbox (6.8021pt too wide) in paragraph at lines 261--263
-[]\OT1/cmr/m/n/12 For $\OML/cmm/m/it/12 T$ \OT1/cmr/m/n/12 to be de-pen-dent, there must be some scalar set $\OML/cmm/m/it/12 C \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 c[]; c[]; [] ; c[]\OMS/cmsy/m/n/12 g$\OT1/cmr/m/n/12 ,
- []
-
-[6] [7]) [8]
-\openout2 = `chapters/2-euclidean.aux'.
-
- (./chapters/2-euclidean.tex
-Chapter 2.
-[9
-
-
-
-
-] [10] [11] [12] [13]
-Overfull \hbox (8.00893pt too wide) in paragraph at lines 292--293
-[]\OT1/cmr/bx/n/12 Example 2.2.3. []\OT1/cmr/m/it/12 Ap-ply-ing the-o-rem (2.1) in $\OML/cmm/m/it/12 C\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a; b\OT1/cmr/m/n/12 )$\OT1/cmr/m/it/12 , with in-ner prod-uct $[] \OT1/cmr/m/n/12 =
- []
-
-[14]) [15]
-\openout2 = `chapters/3-projections.aux'.
-
- (./chapters/3-projections.tex [16
-
-
-
-
-]
-Chapter 3.
-
-Underfull \vbox (badness 4144) has occurred while \output is active []
-
- [17] [18] [19] [20] [21] [22]
-<An-illustration-of-Gram-Schmidt-transformation.png, id=104, 603.25375pt x 571.13374pt>
-File: An-illustration-of-Gram-Schmidt-transformation.png Graphic file (type png)
-<use An-illustration-of-Gram-Schmidt-transformation.png>
-Package pdftex.def Info: An-illustration-of-Gram-Schmidt-transformation.png  used on input line 469.
-(pdftex.def)             Requested size: 97.5pt x 92.30702pt.
- [23] [24 <./An-illustration-of-Gram-Schmidt-transformation.png>]) [25]
-\openout2 = `chapters/4-transformations.aux'.
-
- (./chapters/4-transformations.tex [26
-
-
-
-
-]
-Chapter 4.
-[27] [28] [29] [30] [31]
-Overfull \hbox (3.91675pt too wide) in paragraph at lines 258--260
-[]\OT1/cmr/m/n/12 Suppose that $\OML/cmm/m/it/12 x \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 V$ \OT1/cmr/m/n/12 with $[] \OML/cmm/m/it/12 V \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 n$ \OT1/cmr/m/n/12 and an in-de-pen-dent ba-sis $\OML/cmm/m/it/12 e[]; [] ; e[]$\OT1/cmr/m/n/12 ,
- []
-
-[32] [33] [34] [35] [36] [37]
-Overfull \hbox (1.99251pt too wide) in paragraph at lines 632--633
-[]\OT1/cmr/bx/n/12 Definition 4.6.5 \OT1/cmr/m/n/12 (Ma-trix mul-ti-pli-ca-tion, sec-ond def-i-ni-tion)\OT1/cmr/bx/n/12 . []\OT1/cmr/m/it/12 If $\OML/cmm/m/it/12 A \OT1/cmr/m/n/12 = [][]$\OT1/cmr/m/it/12 ,
- []
-
-[38]) [39]
-\openout2 = `chapters/5-differentiation.aux'.
-
- (./chapters/5-differentiation.tex [40
-
-
-
-
-]
-Chapter 5.
-[41] [42]) [43] (./linear-spaces.aux (./chapters/1-introduction.aux) (./chapters/2-euclidean.aux) (./chapters/3-projections.aux) (./chapters/4-transformations.aux) (./chapters/5-differentiation.aux)) ) 
+ 
 Here is how much of TeX's memory you used:
- 16453 strings out of 478287
- 336330 string characters out of 5849289
- 620296 words of memory out of 5000000
- 34277 multiletter control sequences out of 15000+600000
- 481369 words of font info for 73 fonts, out of 8000000 for 9000
+ 16067 strings out of 478287
+ 325699 string characters out of 5849289
+ 605884 words of memory out of 5000000
+ 33921 multiletter control sequences out of 15000+600000
+ 477623 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 100i,21n,104p,476b,1057s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on linear-spaces.pdf (47 pages, 346537 bytes).
-PDF statistics:
- 248 PDF objects out of 1000 (max. 8388607)
- 161 compressed objects within 2 object streams
- 0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 120i,11n,121p,513b,208s stack positions out of 5000i,500n,10000p,200000b,80000s
+chapters/build/..//../linear-spaces.tex:43:  ==> Fatal error occurred, no output PDF file produced!
