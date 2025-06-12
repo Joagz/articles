@@ -19,6 +19,7 @@
 
 \newtheorem{example}{$\blacklozenge$ Example}[chapter]
 \newtheorem{theorem}{$\blacklozenge$ Theorem}[chapter]
+\newtheorem{lemma}{$\blacklozenge$ Lemma}[chapter]
 \newtheorem{definition}{$\blacklozenge$ Definition}[chapter]
 
 \begin{document}
@@ -185,6 +186,17 @@ either $x\in A$ or $x\in B$, but $x\notin A\cap B$.
     $2^{n+1} = 2^{n}\cdot2$ elements, which is certainly true, since the number of subsets must double: those subsets
     which have $s_{n+1}$ and the same, but without $s_{n+1}$.
 \end{proof}
+
+\begin{definition} (Power set)
+    The power set of a set $A$ of $n$ elements is a set, denoted by $P(A)$, containing every 
+    subset of $A$. This is, $P(A) = \left\{A_i: A_i\subseteq A\right\}$ for $i=1,2\dots,2^{n}$.
+\end{definition}
+
+\begin{lemma}
+    The set $P(A)$ has $2^{n}$ elements.
+\end{lemma}
+
+Later, we will see the use of these definitions on probability theory.
 
 \section{Sample spaces}
 \begin{definition}
