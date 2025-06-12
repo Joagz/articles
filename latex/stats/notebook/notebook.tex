@@ -96,47 +96,47 @@ Binomial Coefficient
 \end{equation}
 
 \begin{example}(Deriving the Binomial Coefficient)
-    To derive the formula we used in (1.6) we need to first know how to count the total combinations of a set of 
-    $n$ elements. 
+    To derive the formula we used in (1.6) we need to first know how to count the total combinations of a set of
+    $n$ elements.
 
-    For the first element, we have $n$ options to arrange it, for the second element we have $n-1$ options, as the 
+    For the first element, we have $n$ options to arrange it, for the second element we have $n-1$ options, as the
     first one is already sorted. For the element in position $n-1$ we just have 2 options, and for the last element,
-    we have already determined its position, so it's 1 option only. If we want to count the total ways to arrange 
-    them, we must multiply the total ways of arranging the first element, by the total ways of arranging the second 
-    element... and so on. 
+    we have already determined its position, so it's 1 option only. If we want to count the total ways to arrange
+    them, we must multiply the total ways of arranging the first element, by the total ways of arranging the second
+    element... and so on.
     \begin{equation}
         \text{total arrangements} = n\cdot(n-1)\cdot(n-2)\cdots 2 \cdot 1 = n!
     \end{equation}
-    Now, this formula is meaningful when these $n$ objects are distinct from each other. Now, imagine we want to count 
-    the number of permutations of $r$ items from these $n$ items. 
-    
+    Now, this formula is meaningful when these $n$ objects are distinct from each other. Now, imagine we want to count
+    the number of permutations of $r$ items from these $n$ items.
+
     We have $n$ ways to choose the first, $n-1$ ways for the second, and in general we have $n-k+1$ ways to choose the $k^{th}$
-    item. The total ways of arranging the $k^{th}$ item is given by 
+    item. The total ways of arranging the $k^{th}$ item is given by
     \begin{equation}
         \prod_{j=1}^{k}(n-j+1)
     \end{equation}
-    This simplifies as 
+    This simplifies as
     \begin{equation}
         \frac{\prod_{j=1}^{n}{(n-j+1)}}{\prod_{j=k+1}^{n}{(n-j+1)}}=\frac{n\cdot(n-1)\cdots2\cdot1}{(n-k)\cdot(n-k-1)\cdots2\cdots1}=\frac{n!}{(n-k)!}
     \end{equation}
-    
-    Now, this permutation takes in account that we can sort these $k$ objects in $k!$ ways. Thus, if we want to know how to \textit{choose} the 
+
+    Now, this permutation takes in account that we can sort these $k$ objects in $k!$ ways. Thus, if we want to know how to \textit{choose} the
     objects instead of choosing AND arranging them, we have to divide by $k!$. Thus, we found the Binomial Coefficient
     \begin{equation}
         \binom{n}{k} = \frac{n!}{k!(n-k)!}
-    \end{equation} 
+    \end{equation}
 \end{example}
 
-We have covered a bit of combinatorics. Further topics will be disregarded. However, it is important to at least 
+We have covered a bit of combinatorics. Further topics will be disregarded. However, it is important to at least
 have a practical notion of combinations and counting.
 
 \section{Sets and probability}
-Sets and probabilities are strongly related. When we measure probabilities, we measure them on sets of particular 
+Sets and probabilities are strongly related. When we measure probabilities, we measure them on sets of particular
 objects. For simplicity, these can be numbers, vectors, or any object in a linear space (vector space).
 
 In order to understand probability theory, one must know set theory. The basics at least.
 \subsection{Fundamental aspects of set theory}
-We will define the fundamental operations for sets, given two sets $A$ and $B$ we have 
+We will define the fundamental operations for sets, given two sets $A$ and $B$ we have
 \begin{list}{$\triangleright$}{1em}
     \item[$\triangleright$] $A$ equals $B$: $A = B = \forall x (x\in A \text{ and } x\in B)$
     \item[$\triangleright$] Union of $A$ and $B$: $A\cup B = \left\{x: x\in A \text{ or } x \in B\right\}$
@@ -144,40 +144,56 @@ We will define the fundamental operations for sets, given two sets $A$ and $B$ w
     \item[$\triangleright$] Difference of $A$ and $B$: $A\backslash B = A - B= \left\{x: x\in A \text{ and } x\notin B\right\}$\daggerfootnote{We will use the notation $A\backslash B$}
 \end{list}
 
-We introduce a new set $S$. This set contains both $A$ and $B$, this is, for every element $x$ in $A$ or $B$, 
-$x\in S$. But, there exists $y\in S$ such that $y\notin A\cup B$. We say that $A\subset S$ and $B\subset S$. The 
+We introduce a new set $S$. This set contains both $A$ and $B$, this is, for every element $x$ in $A$ or $B$,
+$x\in S$. But, there exists $y\in S$ such that $y\notin A\cup B$. We say that $A\subset S$ and $B\subset S$. The
 symbol `$\subset$' is called \textit{subset of}. We can also say that $A$ is a subset or is equal to $S$ if $A=S$
 or $A \subset S$; we denote this as $A\subseteq S$. We can invert the symbol and say $S\supset A$, or $S \supseteq A$.
 
 \begin{definition}
     Let $A$ and $B$ satisfy $A\cap B \neq \emptyset$\daggerfootnote{The set `$\emptyset$' is called \textit{empty set} and is defined as $\emptyset = \left\{\right\}$. }
-    and define $S$ to satisfy $A,B\subset S$. Then we have 
+    and define $S$ to satisfy $A,B\subset S$. Then we have
     \begin{list}{$\triangleright$}{}
         \item $A^{c} = S\backslash A = \left\{x: x\notin A \text{ and } x\in S\right\}$ (Complement of $A$ in $S$ or absolute complement of $A$)
         \item $A\Delta B = (A\backslash B) \cup (B \backslash A) = \left\{x: x\in A \text{ or } x\in B \text{ and } x \notin A\cap B\right\}$ (Symmetric difference between $A$ and $B$)
     \end{list}
 \end{definition}
 
-We will check for these formulas, the first one is trivial \daggerfootnote{the definition of complement needs a frame of reference, otherwise if $A\nsubseteq S$ 
-we would have $A^{c} = \emptyset$, which means that every element that exists in our space is in $A$.
-For example, if we \textit{restrict} numbers to only be real numbers, then our frame of reference will 
-be $\mathbb{R}$, thus, $\mathbb{R}^{c} = \emptyset$ and $\mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}\subset\mathbb{R}$}. 
+We will check for these formulas, the first one is trivial \daggerfootnote{the definition of complement needs a frame of reference, otherwise if $A\nsubseteq S$
+    we would have $A^{c} = \emptyset$, which means that every element that exists in our space is in $A$.
+    For example, if we \textit{restrict} numbers to only be real numbers, then our frame of reference will
+    be $\mathbb{R}$, thus, $\mathbb{R}^{c} = \emptyset$ and $\mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}\subset\mathbb{R}$}.
 
-For the second one, note that if $x\in (A\backslash B)$, 
-then $x\notin B$. Also, if $x\in (B\backslash A)$, $x\notin A$. Now, let $x\in (A\backslash B)$ and $x\in (B \backslash A)$, 
+For the second one, note that if $x\in (A\backslash B)$,
+then $x\notin B$. Also, if $x\in (B\backslash A)$, $x\notin A$. Now, let $x\in (A\backslash B)$ and $x\in (B \backslash A)$,
 suppose that $x\in A$, so $x\notin B$; but, if $x\in B$, then $x\notin A$. However, let $x\in A\cap B$ so that $x\in A$ and $x\in B$,
 consequently, $x\notin A$ and $x\notin B$, which is a contradiction. So $x\notin A\cap B$. Finally, suppose $x\in S\cap (A\cup B)^{c}$,
-this also implies $x\notin A$ and $x \notin B$, so $x\notin S\cap(A\cup B)^{c}$. We finally arrive at the conclusion that 
+this also implies $x\notin A$ and $x \notin B$, so $x\notin S\cap(A\cup B)^{c}$. We finally arrive at the conclusion that
 either $x\in A$ or $x\in B$, but $x\notin A\cap B$.
+
+\begin{definition}
+    The number of subsets of a set $S$ of $n$ elements is given by $2^{n}$
+\end{definition}
+
+\begin{proof}
+    This definition deserves a proof. Consider the set $S = {s_1, s_2, \dots, s_{n+1}}$. 
+    Start by $\emptyset$, which has $0$ elements. The number of subsets of this set is $2^{0} = 1$. 
+    Now, for the second subset we select an element $s_1\in S$, we can
+    either add it to the empty set or not, so we have $2^{1} = 2$ subsets of $S$. For the second element $s_2 \in S$ we have
+    the same situation, we either add it or not, resulting in the subsets $\emptyset, \left\{1\right\}, \left\{1,2\right\}, \left\{2\right\}\subset S$.
+    As we continue to add more elements, we reach out to the $n$-th element, suppose that the formula is true 
+    and we conjecture that we have $2^{n}$ elements at this time. For the $(n+1)$-th element we have 
+    $2^{n+1} = 2^{n}\cdot2$ elements, which is certainly true, since the number of subsets must double: those subsets
+    which have $s_{n+1}$ and the same, but without $s_{n+1}$.
+\end{proof}
 
 \section{Sample spaces}
 \begin{definition}
-    A sample space $\Omega$ is the set of \textit{every} possible outcome 
+    A sample space $\Omega$ is the set of \textit{every} possible outcome
     of an experiment.
 \end{definition}
 We can give some examples of sample spaces.
 \begin{example}
-    The sample space of and experiment of taking a card from a deck of 50 spanish cards is 
+    The sample space of and experiment of taking a card from a deck of 50 spanish cards is
     given by $\Omega = \left\{\text{``1 sword''}, \text{``2 sword''}, \dots, \text{``12 gold''}\right\}$.
 \end{example}
 
