@@ -1,0 +1,22 @@
+\documentclass{report}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\newtheorem{solution}{Solution}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+
+\begin{document}
+\chapter{First set of exercises}
+\begin{solution}
+    Suppose that 
+    \begin{equation}
+        x = \sum^{m}_{k=1}{c_k v_k} = O
+    \end{equation}
+    For scalars $c_1,...,c_k$ not all zero. Apply $T$ in this equation to show
+    \begin{equation}
+        T(x) = T\left(\sum^{m}_{k=1}{c_k v_k}\right) = \sum^{m}_{k=1}{c_k T(v_k)}=O
+    \end{equation}
+    So $\left\{T(v_1),\dots,T(v_m)\right\}$ is linearly independent.
+\end{solution}
+\end{document}
